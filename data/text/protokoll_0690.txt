@@ -1,0 +1,11 @@
+*** Geräusche von Plasma-Schneidern ***
+[Außenteammitglied 1]: Wir haben die Außenhülle geöffnet und
+haben Zugriff auf den Knoten. Wie lautet Ihr Befehl, CAPCOM?
+[CAPCOM]: Gut gemacht, Team eins! Versuchen Sie, ihre
+Systeme zu umgehen. Wir haben nicht die Mittel, um die
+ganze Kanone loszuwerden, also müssen Sie sich irgendwie
+vor Ort darum kümmern.
+[Außenteammitglied 1]: Die Funktionsweise scheint der
+anderen Arrogator-Technik zu ähneln, die wir kennen. Die
+Manipulation der Freund-Feind-Erkennungssysteme dürfte kein
+Problem sein, sodass wir ihnen als Verbündete erscheinen.

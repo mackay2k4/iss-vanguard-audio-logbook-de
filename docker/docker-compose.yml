@@ -1,0 +1,16 @@
+services:
+  iss-vanguard-audio:
+    build: .
+    container_name: iss-vanguard-audio
+    restart: unless-stopped
+    environment:
+      - ISS_VANGUARD_HOSTNAME=${ISS_VANGUARD_HOSTNAME:-localhost}
+      - ISS_VANGUARD_PORT=${ISS_VANGUARD_PORT:-8080}
+    ports:
+      - "${ISS_VANGUARD_PORT:-8080}:80"
+    volumes:
+      - ../data/audiofiles:/data/audiofiles:ro
+      - ../data/text:/data/text:ro
+      - ../dev/import:/data/import:ro
+      - ./html:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf

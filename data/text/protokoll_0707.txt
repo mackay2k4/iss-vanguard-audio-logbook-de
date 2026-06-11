@@ -1,0 +1,16 @@
+[Außenteammitglied 1]: Los, los, los! Rampe schließen!
+*** Schott schließt sich ***
+*** Luftschleuse wird unter Druck gesetzt ***
+[Außenteammitglied 2]: Puh. Das war … heftig. Bloß weg
+hier, bevor das Biest zur nächsten Runde ausholt.
+[Lander-KI]: Startvorbereitung läuft. Hauptantrieb wird
+aktiviert.
+[Außenteammitglied 1]: Bitte schnell! Hat jemand das Ding
+im Blick? Was macht es?
+[Außenteammitglied 2]: Sitzt bei acht Uhr, draußen,
+auf freier Strecke. Als hätte es plötzlich das Interesse
+verloren. Sieht uns nicht mal an. Es sieht … nach oben?
+[Außenteammitglied 1]: Sehen Sie den hellen Punkt am Himmel?
+Es sieht aus, als blickte das Insekt auf die Vanguard.
+[Außenteammitglied 2]: Ob es weiß, was ein Raumschiff ist?
+[Außenteammitglied 1]: Ist mir egal. Nichts wie weg hier.

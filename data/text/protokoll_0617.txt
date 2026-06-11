@@ -1,0 +1,9 @@
+[Sektionsleiter]: Aufgepasst, Team. Wir erkennen ein
+erhebliches Sauerstoffleck bei Ihrem Standort. Einer der
+Laderäume muss beschädigt sein.
+[Feuerteam Alpha]: Können Sie nicht einfach die Schotten um
+das Leck schließen?
+[Sektionsleiter]: Die meisten Schotten sind kaputt.
+Wir müssen den Schaden finden und beheben, ehe zu viel
+Sauerstoff entweicht.
+[Feuerteam Alpha]: Als hätten wir nicht schon genug zu tun …

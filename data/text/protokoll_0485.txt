@@ -1,0 +1,11 @@
+[CAPCOM, Sergeant Xiu]: Außenteam, erstatten Sie Meldung.
+Na los, verdammt!
+[Außenteammitglied 1]: CAPCOM, wir sind hier. Irgendwas hat
+uns hier unten gerade angegriffen.
+[CAPCOM, Sergeant Xiu]: Meldung, Außenteam – was war es?
+[Außenteammitglied 2]: Eine Art kugelförmiger Wächter …
+Noch nie gesehen, so was.
+[Außenteammitglied 1]: Offenbar haben ein paar Konstrukte
+der Zivilisation dieses Planeten ihre Erbauer überlebt.
+Wir haben versucht, das Ding auszuschalten, aber es ist
+ausgewichen.

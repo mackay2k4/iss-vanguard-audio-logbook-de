@@ -1,0 +1,6 @@
+1. Alle Besatzungsmitglieder, die nicht im Lander-Sektor sind, werden
+getötet! Entferne ihre Besatzungskarten aus ihren Ranghüllen und lege
+die Ranghülle in den entsprechenden Sektionsbehälter. Platziere die
+Besatzungskarte auf der Besatzungstafel.
+2. Wenn KEINE Besatzungsmitglieder im Lander-Sektor sind, gehen der
+Lander und sein gesamter Inhalt verloren:

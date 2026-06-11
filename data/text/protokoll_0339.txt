@@ -1,0 +1,8 @@
+[Außenteam]: Wir sind am Ziel und schicken Ihnen Scans
+der Umgebung.
+[CAPCOM, Sergeant Nahy]: Verstanden. Gute Arbeit, Außenteam.
+Sie können zum Lander zurückkehren.
+[Außenteam]: Sollen wir nicht noch weitergehen?
+[CAPCOM, Sergeant Nahy]: Das können Sie selbst entscheiden.
+Wenn Sie noch können und genug Vorräte haben …
+[Außenteam]: Wir werden das kurz besprechen.

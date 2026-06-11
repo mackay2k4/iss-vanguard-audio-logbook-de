@@ -1,0 +1,4 @@
+[CAPCOM]: Machen Sie sich auf Regen gefasst! Eine große
+Wolke aus kochendem Metall nähert sich Ihrem Bereich.
+[Pilot]: Damit wird der Lander fertig. Wahrscheinlich.
+[CAPCOM]: Viel Glück, Außenteam.

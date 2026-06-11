@@ -1,0 +1,10 @@
+Sprachrekorderdaten
+[Lander-KI]: Sauerstofftank steht in Flammen.
+Lebenserhaltungssystem beschädigt.
+[Pilot]: Ich kann nicht überall sein, KI!
+[Navigator]: Sind Sie ja auch gar nicht. Sie sitzen die
+ganze Zeit an der Steuerung. KI, können wir das nach der
+Landung erledigen?
+[Lander-KI]: Natürlich. Die Chance, so lange zu überleben,
+steht bei etwa siebzig Prozent.
+[Navigator]: Immerhin besser, als eine Münze zu werfen, oder?

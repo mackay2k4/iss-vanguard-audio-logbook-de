@@ -1,0 +1,7 @@
+[Außenteammitglied 1]: Der Bereich ist sicher. Bitte
+beeilen Sie sich.
+[CAPCOM, Sergeant Xiu]: Der Lander ist unterwegs. Wenn
+alles gut läuft, sind wir in weniger als fünf Minuten da.
+[Außenteammitglied 1]: So lange sollten wir durchhalten
+können. Bis gleich!
+[CAPCOM, Sergeant Xiu]: Bis gleich, Außenteam.

@@ -1,0 +1,11 @@
+[Archivleiter Stanley]: HILFE! HILFE! Sie da! Helfen Sie mir.
+[Feuerteam Alpha, Teammitglied 1]: Was ist denn los?
+[Archivleiter Stanley]: Was los ist? Die Archive stehen in
+Flammen! Sie müssen etwas unternehmen. Sie müssen mir helfen!
+[Feuerteam Alpha, Teammitglied 1]: Ganz ruhig,
+Archivleiter. Wir haben noch andere …
+[Archivleiter Stanley]: Nein, nichts ist wichtiger.
+Sie und Ihre Freunde aus den anderen Sektionen haben für
+diese Entdeckungen Ihr Leben riskiert. Jetzt steht alles
+auf dem Spiel! Außerdem wird der Brand sich auf andere
+Schiffsbereiche ausweiten, wenn wir nichts

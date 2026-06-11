@@ -1,0 +1,23 @@
+Außenteam-Erkundungsbericht 58/D
+[CAPCOM, Corporal Coetz]: Bitte kommen, Außenteam.
+Das Wetter schlägt um.
+[Außenteammitglied 1]: Wissen wir. Das Wetter ist übel.
+Sonst noch was?
+[CAPCOM, Corporal Coetz]: Der Wind ändert die Richtung.
+Passen Sie auf! Die Splitter könnten einige bisher sichere
+Zonen heimsuchen. Sie sollten einen Unterschlupf suchen,
+bis …
+*** Lander-Alarm ***
+[Außenteammitglied 1]: Heilige Scheiße!
+[CAPCOM, Corporal Coetz]: Bitte wiederholen, Außenteam.
+[Außenteammitglied 1]: Unser Lander! Er ist nicht mehr
+geschützt. Er ist dem Wetter komplett ausgeliefert.
+Wir können den Planeten nicht mehr sicher verlassen.
+Fordere Evakuierung an.
+[CAPCOM, Corporal Coetz]: …
+[Außenteammitglied 1]: Vanguard, hören Sie mich?
+Wir müssen die Mission abbrechen!
+[Außenteammitglied 2]: Keine Antwort. Der Sturm muss unsere
+Kommunikation lahmgelegt haben. Wir müssen einen Ort finden,
+an dem wir ein klares Signal bekommen.
+[Außenteammitglied 1]: Oder zurück zum Lander …

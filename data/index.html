@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISS Vanguard — Logbuch Audio Player — Offline</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0e17;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #4fc3f7;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        .search-box {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 800px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            font-size: 1.5rem;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background: #1a1e2e;
+            color: #fff;
+            text-align: center;
+        }
+        input:focus {
+            outline: none;
+            border-color: #4fc3f7;
+        }
+        button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            background: #4fc3f7;
+            color: #000;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background: #81d4fa; }
+        button:active { background: #29b6f6; }
+        .player-area {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+        .now-playing {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #4fc3f7;
+        }
+        audio {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .variants {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .variant-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border: 1px solid #4fc3f7;
+            border-radius: 6px;
+            background: transparent;
+            color: #4fc3f7;
+            cursor: pointer;
+        }
+        .variant-btn.active {
+            background: #4fc3f7;
+            color: #000;
+        }
+        .error {
+            color: #ef5350;
+            margin-top: 1rem;
+        }
+        .text-display {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: #1a1e2e;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            overflow-y: auto;
+        }
+        .text-display .speaker {
+            font-weight: bold;
+            color: #4fc3f7;
+        }
+        .text-display .sfx {
+            font-style: italic;
+            color: #ff9800;
+            display: block;
+            margin: 0.5rem 0;
+        }
+        .text-display .classified {
+            font-weight: bold;
+            color: #ef5350;
+            text-transform: uppercase;
+        }
+        .text-display .report-title {
+            font-weight: bold;
+            color: #a5d6a7;
+            display: block;
+            margin-top: 0.3rem;
+        }
+        .text-display p {
+            margin: 0.8rem 0;
+        }
+        .info {
+            margin-top: 3rem;
+            color: #555;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>ISS Vanguard</h1>
+    <p class="subtitle">Logbuch Audio Player — Offline</p>
+
+    <div class="search-box">
+        <input type="text" id="protokoll-input" placeholder="Protokoll Nr. (z.B. 258)" autofocus>
+        <button onclick="playProtokoll()">▶ Play</button>
+    </div>
+
+    <div class="player-area" id="player-area" style="display:none;">
+        <div class="now-playing" id="now-playing"></div>
+        <div class="variants" id="variants"></div>
+        <audio id="audio-player" controls></audio>
+        <div class="text-display" id="text-display"></div>
+    </div>
+
+    <div class="error" id="error"></div>
+
+    <div class="info">
+        <a href="./DE_ISS_Vanguard_Logbuch_offline.pdf" style="color:#4fc3f7;text-decoration:none;border:1px solid #333;padding:0.4rem 1rem;border-radius:6px;display:inline-block;margin-bottom:1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef5350" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:0.4rem;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="12" y2="18"></line><line x1="15" y1="15" x2="12" y2="18"></line></svg>Logbuch PDF öffnen</a><br>
+        Eingabe: Nummer (z.B. 258) oder mit Variante (z.B. 905 A)
+    </div>
+
+    <script>
+        const input = document.getElementById('protokoll-input');
+        const playerArea = document.getElementById('player-area');
+        const nowPlaying = document.getElementById('now-playing');
+        const variantsDiv = document.getElementById('variants');
+        const audioPlayer = document.getElementById('audio-player');
+        const textDisplay = document.getElementById('text-display');
+        const errorDiv = document.getElementById('error');
+
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') playProtokoll();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key >= '0' && e.key <= '9' && document.activeElement !== input) {
+                input.focus();
+            }
+        });
+
+        function playProtokoll() {
+            errorDiv.textContent = '';
+            const raw = input.value.trim();
+            if (!raw) return;
+
+            const m = raw.match(/^(\d+)\s*[_\s]?([A-Fa-f])?$/);
+            if (!m) {
+                errorDiv.textContent = 'Ungültige Eingabe. Beispiel: 258 oder 905 A';
+                return;
+            }
+
+            const num = m[1].padStart(4, '0');
+            const varLetter = m[2] ? m[2].toUpperCase() : null;
+
+            // Show variant buttons for known splits
+            variantsDiv.innerHTML = '';
+            if (varLetter) {
+                const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+                letters.forEach(l => {
+                    const btn = document.createElement('button');
+                    btn.className = 'variant-btn' + (l === varLetter ? ' active' : '');
+                    btn.textContent = l;
+                    btn.onclick = () => playFile(num, l);
+                    variantsDiv.appendChild(btn);
+                });
+            }
+
+            playFile(num, varLetter);
+            playerArea.style.display = 'block';
+        }
+
+        function playFile(num, letter) {
+            const filename = letter
+                ? `protokoll_${num}_${letter}`
+                : `protokoll_${num}`;
+
+            const mp3Url = `./audiofiles/${filename}.ogg`;
+            const txtUrl = `./text/${filename}.txt`;
+
+            errorDiv.textContent = '';
+            nowPlaying.textContent = `Protokoll ${parseInt(num)}${letter ? ' — Teil ' + letter : ''}`;
+
+            // Set audio source - onerror handles missing files
+            audioPlayer.src = mp3Url;
+            audioPlayer.onerror = () => {
+                errorDiv.textContent = `Datei nicht gefunden: ${filename}.ogg`;
+                nowPlaying.textContent = '';
+                textDisplay.innerHTML = '';
+            };
+            audioPlayer.oncanplay = () => {
+                audioPlayer.play().catch(() => {});
+            };
+
+            // Load text via XMLHttpRequest (works with file:// in some browsers)
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', txtUrl, true);
+            xhr.onload = function() {
+                if (xhr.status === 200 || xhr.status === 0) {
+                    let rawText = xhr.responseText;
+                    if (rawText) {
+                        textDisplay.innerHTML = formatText(rawText);
+                    } else {
+                        textDisplay.innerHTML = '';
+                    }
+                }
+            };
+            xhr.onerror = () => { textDisplay.innerHTML = ''; };
+            try { xhr.send(); } catch(e) { textDisplay.innerHTML = ''; }
+
+            // Highlight active variant
+            document.querySelectorAll('.variant-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === letter);
+            });
+        }
+
+        function formatText(rawText) {
+            // Join mid-sentence line breaks
+            const lines = rawText.split('\n');
+            let joined = '';
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                const nextLine = lines[i + 1] || '';
+                joined += line;
+
+                if (i < lines.length - 1) {
+                    const trimmed = line.trim();
+                    const nextTrimmed = nextLine.trim();
+
+                    const keepBreak =
+                        !trimmed ||
+                        !nextTrimmed ||
+                        /^[A-ZÄÖÜÉ\s„"\-]+$/.test(trimmed) ||
+                        /^[A-ZÄÖÜÉ\s„"\-]+$/.test(nextTrimmed) ||
+                        /^(Projekt|Forschungsbericht|Einsatzbericht|Erkundungsbericht|Logbuch|Außenteam-|Persönliches|Operatorbericht|Besucherwelt|Audioprotokoll|Sprachrekorderdaten|Vertraulich|Studien|Besatzungsmitglied \d|Briefe|Tagebuch|Inventar|Bericht|ISS Vanguard)/.test(trimmed) ||
+                        /^(Projekt|Forschungsbericht|Einsatzbericht|Erkundungsbericht|Logbuch|Außenteam-|Persönliches|Operatorbericht|Besucherwelt|Audioprotokoll|Sprachrekorderdaten|Vertraulich|Studien|Besatzungsmitglied \d|Briefe|Tagebuch|Inventar|Bericht|ISS Vanguard)/.test(nextTrimmed) ||
+                        nextTrimmed.startsWith('[') ||
+                        nextTrimmed.startsWith('***') ||
+                        /[.!?:"…]$/.test(trimmed);
+
+                    joined += keepBreak ? '\n' : ' ';
+                }
+            }
+
+            // Remove header
+            joined = joined.replace(/^(PROTOKOLL \d+|STARTPROTOKOLL)\s*\n/, '');
+
+            // Format HTML
+            let html = joined.trim()
+                .replace(/\*\*\*\s*(.+?)\s*\*\*\*/g, '<span class="sfx">*** $1 ***</span>')
+                .replace(/STRENG GEHEIM/g, '<span class="classified">STRENG GEHEIM</span>')
+                .replace(/^((?:Außenteam-Erkundungsbericht|Einsatzbericht|Erkundungsbericht|Forschungsbericht|Logbuch des Captains|Persönliches Tagebuch|Operatorbericht|Besucherwelt:|Audioprotokoll|Sprachrekorderdaten|Außenteam-Privatkanal|Studien|Tagebuch|Projekt\s+„[^"]+").*)$/gm, '<span class="report-title">$1</span>')
+                .replace(/\[([^\]]+)\]:/g, '<span class="speaker">[$1]:</span>')
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n/g, '<br>');
+
+            return '<p>' + html + '</p>';
+        }
+    </script>
+</body>
+</html>

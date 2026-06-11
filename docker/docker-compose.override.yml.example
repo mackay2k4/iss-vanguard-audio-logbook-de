@@ -1,0 +1,16 @@
+# Copy to docker-compose.override.yml and adjust.
+# This file is gitignored.
+
+services:
+  iss-vanguard-audio:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.iss-vanguard.rule=Host(`${ISS_VANGUARD_HOSTNAME}`)"
+      - "traefik.http.routers.iss-vanguard.entrypoints=https"
+      - "traefik.http.routers.iss-vanguard.tls=true"
+    networks:
+      proxy_default:
+
+networks:
+  proxy_default:
+    external: true

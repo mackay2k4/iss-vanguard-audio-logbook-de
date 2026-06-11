@@ -1,0 +1,18 @@
+[CAPCOM]: Der Captain hat einen weiteren Auftrag für Sie.
+Wenn Sie genug Vorräte und Zeit haben, sollten Sie
+die Quelle der Anomalien auf diesem Planeten untersuchen.
+[Außenteam]: Gibt es irgendwelche Spuren?
+[CAPCOM]: Die Quelle scheint irgendwo südwestlich in den
+Bergen zu liegen – jedenfalls behauptet das die Wissenschaft.
+Suchen Sie zunächst in Ihrer unmittelbaren Umgebung.
+[Außenteam]: [Lachen]
+[CAPCOM]: Was ist?
+[Außenteam]: Wir haben vor uns eine lokale Spezies, die
+aussieht wie jemand, der sich nach einem langen Arbeitstag
+auf der Couch entspannt. Erinnert entfernt an die Faultiere
+auf der Erde. Vanguard, stimmt es, dass das Team, das eine
+neue Spezies entdeckt, einen Codenamen vorschlagen darf?
+[CAPCOM]: Das stimmt.
+[Außenteam]: Dann nennen wir diese kleinen Kerle ab jetzt
+„Lehner“.
+[CAPCOM]: …

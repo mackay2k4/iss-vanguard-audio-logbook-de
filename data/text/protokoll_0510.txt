@@ -1,0 +1,26 @@
+[Captain Wayman]: Gratulation, Außenteam. Wieder eine
+Aufgabe vorbildlich bewältigt! Damit Sie es wissen:
+Wir bereiten hier eine Willkommensparty für Sie vor.
+[Außenteam]: Da freuen wir uns, Captain!
+[CAPCOM, Sergeant Nahy]: Was machen Sie für Fortschritte?
+[Außenteam]: Wir schließen gleich unser Vorbeischwungmanöver
+um den Planeten ab und sollten dann direkt den Abfangkurs
+der Vanguard erreichen. Die aktuelle Schätzung lautet…
+*** Lärm ***
+[Lander-KI]: KOLLISIONSWARNUNG! AUSWEICHMANÖVER BEGINNT!
+[CAPCOM, Sergeant Nahy]: Außenteam! Wir haben Sie verloren,
+was geht da vor sich?
+[…]
+[CAPCOM, Sergeant Nahy]: Außenteam, bitte kommen!
+[…]
+[Außenteam]: Puh, das war knapp. Wir hätten im oberen
+Orbit fast etwas getroffen. Etwas wie einen … künstlichen
+Satelliten? Er war teilweise getarnt.
+[Captain Wayman]: Ein Satellit, hier? Dieser Planet hatte
+nie eine entwickelte Zivilisation. Das heißt …
+[Außenteam]: Sir, wir könnten noch mal um den Planeten
+schwingen und genauer nachsehen.
+[Captain Wayman]: Nein, Außenteam. Sie haben für heute
+genug riskiert. Kommen Sie nach Hause. Wir schicken ein
+anderes Team, um das Ding zu holen. Wayman Ende!
+Herzlichen Glückwunsch! Diese Planetenerkundung ist abgeschlossen!

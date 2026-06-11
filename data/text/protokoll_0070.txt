@@ -1,0 +1,25 @@
+*** Triebwerkslärm und Windgeheul ***
+[SAR-Missionspilot, Sergeant Marquez]: Anseilen, Leute!
+Die Kavallerie ist da.
+[Außenteammitglied 1]: [Rauschen]
+[SAR-Team, Sergeant Marquez]: Bitte um Wiederholung,
+Außenteam. Die Verbindung bricht ab.
+[Außenteammitglied 1]: [Rauschen] Fliegen Sie verdammt noch
+mal höher! Ihr Triebwerksstrahl reißt die Oberfläche auf.
+*** Insektengeräusche ***
+[CAPCOM]: Wir haben weitere Signaturen auf der Hügelspitze
+entdeckt. Was geht dort vor sich?
+[Außenteammitglied 1]: Die kriechen hier aus allen Löchern!
+Anseilen! Schnell!
+[SAR-Team, Sergeant Marquez]: Wir wurden getroffen!
+Ich wiederhole, das Evakuierungsfahrzeug wurde getroffen.
+Die schießen mit irgendeinem organischen Gewebe auf uns.
+Die Evakuierungszone wurde kompromittiert. Ich wiederhole:
+Die Evakuierungszone wurde kompromittiert. Wir brechen ab …
+[Außenteammitglied 2]: Nein! Halt. Ich lenke sie ab.
+[CAPCOM]: Negativ, Außenteam zwei. Nicht angreifen.
+Ich wiederhole, nicht…
+*** Klacken vom Lösen des Sicherheitsgurts ***
+[Außenteammitglied 1]: Kommen Sie zurück, verflucht!
+[Außenteammitglied 2]: Gehen Sie ohne mich weiter!
+Warten Sie nicht auf mich!

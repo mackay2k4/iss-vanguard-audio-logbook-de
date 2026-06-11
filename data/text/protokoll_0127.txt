@@ -1,0 +1,14 @@
+[Captain Wayman]: Feuerteam Alpha, Ihr Lander kann jetzt
+nichts mehr einstecken. Treten Sie den Rückzug an,
+Sie brauchen Reparaturen und Nachschub.
+*** Alarmtöne ***
+[Lander-KI]: Kritischen Schaden erkannt!
+[Feuerteam Alpha]: Nein. Ich habe ihn. Ich habe ihn.
+Ich muss nur …
+*** Explosion ***
+[Captain Wayman]: Feuerteam Alpha, hören Sie uns?
+Wir haben Ihr Signal verloren. Feuerteam Alpha?
+[Feuerteam Alpha]: … bam! Minus eins, Captain.
+*** Lauter Jubel ***
+[Captain Wayman]: Glückwunsch, Feuerteam Alpha.
+Das war hervorragend!

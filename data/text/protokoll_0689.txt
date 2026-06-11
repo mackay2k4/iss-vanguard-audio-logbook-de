@@ -1,0 +1,5 @@
+Sprachrekorderdaten
+[Navigator]: Fertig!
+[Pilot]: Danke. Jetzt können wir sicher landen.
+[Navigator]: Das war eine ziemlich gute Idee. Danke, dass
+Sie nicht lockergelassen haben.

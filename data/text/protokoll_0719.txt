@@ -1,0 +1,32 @@
+[Außenteammitglied 1]: CAPCOM, wir sind hier was Großem
+auf der Spur.
+[CAPCOM, Sergeant Xiu]: Wir erhalten Daten über weitere
+Schwerkraftschwankungen, Außenteam. Passen Sie auf,
+was für Tasten Sie drücken.
+[Außenteammitglied 2]: Ich glaube, wir haben DIE Taste
+gefunden.
+[Außenteammitglied 1]: CAPCOM, wer auch immer
+vor Jahrhunderten hier gelebt hat – sie haben versucht,
+ihre Gezeiten zu steuern und dabei ihren Mond zu nahe
+kommen lassen. Edan war früher von Meeren bedeckt
+und sie haben es zu einer öden Wüste gemacht.
+[CAPCOM, Sergeant Xiu]: Verstanden, Außenteam. Das
+erklärt, warum sich die Überreste ihres Mondes so weit
+jenseits der Roche-Grenze befinden und warum er allmählich
+auseinanderfällt. Wir können den Gezeitenmanipulator an
+Bord der Vanguard genauer untersuchen. Erstaunlich, dass
+ein Volk, das auf einen einzigen Planeten beschränkt war,
+eine so weitreichende Technik entwickeln konnte.
+[Außenteammitglied 1]: Ich glaube, ich habe eine Idee.
+Kann mir mal jemand mit der Verkleidung helfen?
+*** Metallplatten werden verschoben ***
+[Außenteammitglied 2]: Moment mal. Ist das etwa …?
+[Außenteammitglied 1]: Hören Sie uns, Vanguard? Das Bauwerk
+ist um eine Stele herum errichtet. Diese ist ein Verstärker.
+Offenbar haben sie den Gravitationsanker des Erbauer-Obelisken
+studiert und irgendwie herausgefunden, wie man dieses Feld
+manipuliert, um Schwerkraftphänomene zu erzeugen.
+[CAPCOM, Sergeant Xiu]: Klingt logisch. Für ein Volk,
+das so abhängig vom Meer ist, wäre es eine Riesensache,
+die Gezeiten zu kontrollieren.
+[Außenteammitglied 1]: Pech für sie, dass es so geendet hat …

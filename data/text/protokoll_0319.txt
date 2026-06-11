@@ -1,0 +1,14 @@
+[CAPCOM, Corporal Coetz]: Außenteam? Bitte überprüfen Sie
+den Lander. Wir sehen hier einige beunruhigende Aktivitäten
+in seiner Nähe.
+[Außenteammitglied 1]: Verstanden. Leite Fernüberprüfung
+ein. Es scheint, dass …
+[Lander-KI]: STRUKTURSCHADEN ERKANNT. TRIEBWERKE BESCHÄDIGT.
+[Außenteammitglied 1]: Ich habe die Bilder! Diese Viecher,
+diese Hügelmilben, überrennen die Landezone. Sie nehmen
+den Lander auseinander!
+[CAPCOM, Corporal Coetz]: Begeben Sie sich sofort dorthin,
+Außenteam! Das ist Ihr einziger Weg nach Hause!
+[Außenteammitglied 1]: Negativ. Wir sind zu weit weg, um
+rechtzeitig da zu sein, und wir sind nicht für eine offene
+Auseinandersetzung ausgerüstet. Erbitte Anweisungen …

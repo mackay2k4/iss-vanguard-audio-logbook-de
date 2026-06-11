@@ -1,0 +1,13 @@
+[Außenteammitglied 1]: CAPCOM, wir sind auf eine der großen
+Straßen gestoßen, die wir vom Orbit aus gesehen haben.
+[CAPCOM, Sergeant Xiu]: Irgendeine Theorie, wohin sie
+führt, Außenteam?
+[Außenteammitglied 2]: Vermutlich führen die alle zu einem
+Ort – dem Bauwerk.
+[Außenteammitglied 1]: Bestätigt, CAPCOM. Sie verläuft
+offenbar geradewegs zum Bauwerk.
+[CAPCOM, Sergeant Xiu]: Verstanden, Außenteam. Folgen
+Sie der Straße und melden Sie sich, wenn Sie das Bauwerk
+erreicht haben.
+[Außenteammitglied 2]: Wäre ja auch unhöflich, eine so
+hilfreich bereitgestellte Straße nicht zu nutzen.

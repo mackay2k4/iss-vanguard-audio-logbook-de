@@ -1,0 +1,13 @@
+[CAPCOM]: Ich höre Sie. Wie ist Ihr Status?
+[Außenteammitglied 1]: Wir sind startbereit. Wir haben
+alles, was wir brauchen, um zu analysieren, was auf diesen
+Planeten geschehen ist.
+[CAPCOM]: Auf allen achtundsiebzig?
+[Außenteammitglied 1]: Nun, für uns sind nur drei von
+Bedeu…
+[CAPCOM]: Das war ein Scherz. Wir haben ohnehin keine Zeit,
+sie alle akribisch zu untersuchen. Sie haben die Stele,
+damit kommen wir klar.
+[Außenteammitglied 1]: Gut zu wissen. Bis bald!
+Herzlichen Glückwunsch!
+Diese Planetenerkundung ist abgeschlossen!

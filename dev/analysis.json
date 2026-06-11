@@ -1,0 +1,2926 @@
+{
+  "sound_effects": {
+    "total_occurrences": 81,
+    "unique_effects": 45,
+    "by_category": {
+      "alarm": [
+        {
+          "effect": "Hauptalarm",
+          "count": 1
+        },
+        {
+          "effect": "Lander-Alarm",
+          "count": 2
+        },
+        {
+          "effect": "Piepston",
+          "count": 1
+        },
+        {
+          "effect": "Alarmtöne",
+          "count": 2
+        },
+        {
+          "effect": "Lautes Piepen",
+          "count": 1
+        },
+        {
+          "effect": "Alarmpiepsen",
+          "count": 1
+        }
+      ],
+      "triebwerk": [
+        {
+          "effect": "Triebwerkslärm",
+          "count": 5
+        },
+        {
+          "effect": "Lautes Dröhnen der Bremsraketen",
+          "count": 1
+        },
+        {
+          "effect": "Triebwerkslärm und Windgeheul",
+          "count": 1
+        },
+        {
+          "effect": "Triebwerksgeräusche",
+          "count": 2
+        },
+        {
+          "effect": "Lautes Dröhnen",
+          "count": 2
+        }
+      ],
+      "scan": [
+        {
+          "effect": "Scangeräusche",
+          "count": 1
+        }
+      ],
+      "explosion": [
+        {
+          "effect": "Lauter KNALL",
+          "count": 1
+        },
+        {
+          "effect": "Explosion",
+          "count": 3
+        },
+        {
+          "effect": "Laute Explosionen",
+          "count": 5
+        },
+        {
+          "effect": "Energieentladungen und -zündungen",
+          "count": 1
+        },
+        {
+          "effect": "Energieentladung",
+          "count": 1
+        }
+      ],
+      "sonstig": [
+        {
+          "effect": "Geräusch rutschenden Schutts",
+          "count": 1
+        },
+        {
+          "effect": "Lautes Rummsen",
+          "count": 1
+        },
+        {
+          "effect": "Lärm",
+          "count": 1
+        },
+        {
+          "effect": "Schlurfen",
+          "count": 1
+        }
+      ],
+      "stoerung": [
+        {
+          "effect": "Störgeräusch",
+          "count": 5
+        },
+        {
+          "effect": "Lautes Störgeräusch",
+          "count": 6
+        },
+        {
+          "effect": "Störgeräusche",
+          "count": 1
+        }
+      ],
+      "umgebung": [
+        {
+          "effect": "Insektengeräusche",
+          "count": 1
+        },
+        {
+          "effect": "Schritte",
+          "count": 2
+        }
+      ],
+      "klick": [
+        {
+          "effect": "Klacken vom Lösen des Sicherheitsgurts",
+          "count": 1
+        },
+        {
+          "effect": "Klicken!",
+          "count": 3
+        },
+        {
+          "effect": "Klick",
+          "count": 5
+        }
+      ],
+      "waffe": [
+        {
+          "effect": "Schussgeräusche",
+          "count": 3
+        },
+        {
+          "effect": "Die Hauptwaffe der Vanguard feuert",
+          "count": 1
+        }
+      ],
+      "metall": [
+        {
+          "effect": "Metallisches Kreischen des Rumpfs",
+          "count": 2
+        },
+        {
+          "effect": "Metallisches Kreischen",
+          "count": 2
+        },
+        {
+          "effect": "Schott schließt sich",
+          "count": 1
+        },
+        {
+          "effect": "Metallplatten werden verschoben",
+          "count": 1
+        }
+      ],
+      "stimmen": [
+        {
+          "effect": "Lauter Jubel",
+          "count": 1
+        },
+        {
+          "effect": "Jubel",
+          "count": 1
+        },
+        {
+          "effect": "Entsetzte Schreie",
+          "count": 1
+        },
+        {
+          "effect": "Zustimmung",
+          "count": 1
+        }
+      ],
+      "stille": [
+        {
+          "effect": "Stille",
+          "count": 3
+        },
+        {
+          "effect": "Lange Stille",
+          "count": 1
+        }
+      ],
+      "werkzeug": [
+        {
+          "effect": "Geräusche von Plasma-Schneidern",
+          "count": 1
+        },
+        {
+          "effect": "Geräusch von Plasma-Schneidern",
+          "count": 1
+        }
+      ],
+      "technik": [
+        {
+          "effect": "Ausrüstung fährt hoch",
+          "count": 1
+        },
+        {
+          "effect": "Luftschleuse wird unter Druck gesetzt",
+          "count": 1
+        }
+      ]
+    },
+    "all_effects": {
+      "Lautes Störgeräusch": 6,
+      "Triebwerkslärm": 5,
+      "Störgeräusch": 5,
+      "Laute Explosionen": 5,
+      "Klick": 5,
+      "Schussgeräusche": 3,
+      "Klicken!": 3,
+      "Explosion": 3,
+      "Stille": 3,
+      "Lander-Alarm": 2,
+      "Triebwerksgeräusche": 2,
+      "Alarmtöne": 2,
+      "Metallisches Kreischen des Rumpfs": 2,
+      "Metallisches Kreischen": 2,
+      "Schritte": 2,
+      "Lautes Dröhnen": 2,
+      "Hauptalarm": 1,
+      "Scangeräusche": 1,
+      "Lauter KNALL": 1,
+      "Piepston": 1,
+      "Geräusch rutschenden Schutts": 1,
+      "Lautes Dröhnen der Bremsraketen": 1,
+      "Triebwerkslärm und Windgeheul": 1,
+      "Insektengeräusche": 1,
+      "Klacken vom Lösen des Sicherheitsgurts": 1,
+      "Lautes Rummsen": 1,
+      "Lauter Jubel": 1,
+      "Störgeräusche": 1,
+      "Jubel": 1,
+      "Lautes Piepen": 1,
+      "Entsetzte Schreie": 1,
+      "Alarmpiepsen": 1,
+      "Lärm": 1,
+      "Lange Stille": 1,
+      "Zustimmung": 1,
+      "Energieentladungen und -zündungen": 1,
+      "Schlurfen": 1,
+      "Die Hauptwaffe der Vanguard feuert": 1,
+      "Energieentladung": 1,
+      "Geräusche von Plasma-Schneidern": 1,
+      "Geräusch von Plasma-Schneidern": 1,
+      "Ausrüstung fährt hoch": 1,
+      "Schott schließt sich": 1,
+      "Luftschleuse wird unter Druck gesetzt": 1,
+      "Metallplatten werden verschoben": 1
+    },
+    "category_mapping": {
+      "Hauptalarm": "alarm",
+      "Triebwerkslärm": "triebwerk",
+      "Scangeräusche": "scan",
+      "Lauter KNALL": "explosion",
+      "Lander-Alarm": "alarm",
+      "Piepston": "alarm",
+      "Geräusch rutschenden Schutts": "sonstig",
+      "Störgeräusch": "stoerung",
+      "Lautes Dröhnen der Bremsraketen": "triebwerk",
+      "Triebwerkslärm und Windgeheul": "triebwerk",
+      "Insektengeräusche": "umgebung",
+      "Klacken vom Lösen des Sicherheitsgurts": "klick",
+      "Schussgeräusche": "waffe",
+      "Lautes Störgeräusch": "stoerung",
+      "Triebwerksgeräusche": "triebwerk",
+      "Alarmtöne": "alarm",
+      "Lautes Rummsen": "sonstig",
+      "Klicken!": "klick",
+      "Metallisches Kreischen des Rumpfs": "metall",
+      "Explosion": "explosion",
+      "Lauter Jubel": "stimmen",
+      "Metallisches Kreischen": "metall",
+      "Störgeräusche": "stoerung",
+      "Stille": "stille",
+      "Schritte": "umgebung",
+      "Lautes Dröhnen": "triebwerk",
+      "Jubel": "stimmen",
+      "Lautes Piepen": "alarm",
+      "Laute Explosionen": "explosion",
+      "Entsetzte Schreie": "stimmen",
+      "Alarmpiepsen": "alarm",
+      "Lärm": "sonstig",
+      "Lange Stille": "stille",
+      "Zustimmung": "stimmen",
+      "Energieentladungen und -zündungen": "explosion",
+      "Schlurfen": "sonstig",
+      "Die Hauptwaffe der Vanguard feuert": "waffe",
+      "Energieentladung": "explosion",
+      "Geräusche von Plasma-Schneidern": "werkzeug",
+      "Geräusch von Plasma-Schneidern": "werkzeug",
+      "Ausrüstung fährt hoch": "technik",
+      "Schott schließt sich": "metall",
+      "Luftschleuse wird unter Druck gesetzt": "technik",
+      "Metallplatten werden verschoben": "metall",
+      "Klick": "klick"
+    }
+  },
+  "characters": {
+    "total_occurrences": 1298,
+    "unique_characters": 64,
+    "by_role": {
+      "captain_wayman": [
+        {
+          "character": "Captain Wayman",
+          "count": 92
+        }
+      ],
+      "ki": [
+        {
+          "character": "Vanguard-KI",
+          "count": 19
+        },
+        {
+          "character": "Lander-KI",
+          "count": 25
+        }
+      ],
+      "navigator": [
+        {
+          "character": "Chefnavigator Neels",
+          "count": 3
+        },
+        {
+          "character": "Navigator",
+          "count": 46
+        }
+      ],
+      "militaer": [
+        {
+          "character": "Sergeant Nahy",
+          "count": 1
+        },
+        {
+          "character": "SAR-Team, Sergeant Marquez",
+          "count": 2
+        }
+      ],
+      "aussenteam": [
+        {
+          "character": "Außenteammitglied 1",
+          "count": 190
+        },
+        {
+          "character": "Außenteammitglied 2",
+          "count": 89
+        },
+        {
+          "character": "Außenteammitglied 2, in einiger Entfernung",
+          "count": 1
+        },
+        {
+          "character": "Außenteammitglied, Operative 1",
+          "count": 1
+        },
+        {
+          "character": "Außenteammitglied 3",
+          "count": 9
+        },
+        {
+          "character": "Außenteammitglied, Operative 2",
+          "count": 1
+        },
+        {
+          "character": "Außenteammitglied 4",
+          "count": 1
+        }
+      ],
+      "capcom": [
+        {
+          "character": "CAPCOM, Sergeant Nahy",
+          "count": 34
+        },
+        {
+          "character": "CAPCOM",
+          "count": 93
+        },
+        {
+          "character": "CAPCOM, Corporal Coetz",
+          "count": 31
+        },
+        {
+          "character": "CAPCOM, Sergeant Xiu",
+          "count": 68
+        },
+        {
+          "character": "CAPCOM, Corporal Iweala",
+          "count": 1
+        },
+        {
+          "character": "CAPCOM, Major Dahl",
+          "count": 3
+        }
+      ],
+      "andere": [
+        {
+          "character": "Außenteam",
+          "count": 158
+        },
+        {
+          "character": "Brücke",
+          "count": 1
+        },
+        {
+          "character": "Spähfahrzeug",
+          "count": 3
+        },
+        {
+          "character": "SPÄHFAHRZEUGSCOUT CRAFT",
+          "count": 1
+        },
+        {
+          "character": "Portal-Operator",
+          "count": 2
+        },
+        {
+          "character": "Anmerkung von Wayman, N., Leitender Offizier",
+          "count": 1
+        },
+        {
+          "character": "Feuerteam Alpha",
+          "count": 9
+        },
+        {
+          "character": "Sektionsleiter",
+          "count": 15
+        },
+        {
+          "character": "Alien-Konsole",
+          "count": 1
+        },
+        {
+          "character": "Captain",
+          "count": 2
+        },
+        {
+          "character": "Notiz des Leitenden Psychologen",
+          "count": 1
+        },
+        {
+          "character": "Anonymous",
+          "count": 4
+        },
+        {
+          "character": "Rubi",
+          "count": 2
+        },
+        {
+          "character": "1. Lieutenant Steensen",
+          "count": 5
+        },
+        {
+          "character": "Archivleiter Stanley",
+          "count": 3
+        },
+        {
+          "character": "Schwarzer-Ritter-Relais",
+          "count": 2
+        },
+        {
+          "character": "Operator des Observatoriums",
+          "count": 4
+        },
+        {
+          "character": "Anu, Botschafterin der Idemier",
+          "count": 3
+        },
+        {
+          "character": "Anu",
+          "count": 3
+        }
+      ],
+      "pilot": [
+        {
+          "character": "SAR-Missionspilot, Sergeant Marquez",
+          "count": 1
+        },
+        {
+          "character": "Such- und Rettungsmissionspilot, Sergeant Marquez",
+          "count": 3
+        },
+        {
+          "character": "Lander-Pilot",
+          "count": 1
+        },
+        {
+          "character": "Pilot",
+          "count": 48
+        }
+      ],
+      "unbekannt": [
+        {
+          "character": "Stimme aus dem Hintergrund",
+          "count": 1
+        },
+        {
+          "character": "Stimme 1",
+          "count": 4
+        },
+        {
+          "character": "Stimme 2",
+          "count": 5
+        },
+        {
+          "character": "Gedämpfte Stimme",
+          "count": 2
+        },
+        {
+          "character": "Tiefe Stimme",
+          "count": 2
+        }
+      ],
+      "wissenschaft": [
+        {
+          "character": "Dr. Corey",
+          "count": 38
+        },
+        {
+          "character": "Leitender Medizinischer Offizier, Dr. Bell",
+          "count": 4
+        },
+        {
+          "character": "Dr. Frank",
+          "count": 1
+        }
+      ],
+      "teammitglied": [
+        {
+          "character": "Teammitglied 1",
+          "count": 86
+        },
+        {
+          "character": "Teammitglied 2",
+          "count": 66
+        },
+        {
+          "character": "Teammitglied 3",
+          "count": 32
+        },
+        {
+          "character": "Feuerteam Alpha, Teammitglied 1",
+          "count": 12
+        },
+        {
+          "character": "Feuerteam Alpha, Teammitglied 2",
+          "count": 4
+        },
+        {
+          "character": "Teammitglied 4",
+          "count": 1
+        }
+      ],
+      "xo_dahl": [
+        {
+          "character": "Major Dahl",
+          "count": 4
+        },
+        {
+          "character": "XO, Major Dahl",
+          "count": 18
+        }
+      ],
+      "todsprecher": [
+        {
+          "character": "Todsprecher",
+          "count": 16
+        }
+      ],
+      "alien_sklave": [
+        {
+          "character": "Sklave",
+          "count": 5
+        }
+      ],
+      "alien_idemier": [
+        {
+          "character": "Idemischer Gastgeber",
+          "count": 8
+        },
+        {
+          "character": "Anu, idemische Botschafterin",
+          "count": 3
+        }
+      ],
+      "besatzung": [
+        {
+          "character": "Besatzungsmitglied 234",
+          "count": 3
+        }
+      ]
+    },
+    "all_characters": {
+      "Außenteammitglied 1": 190,
+      "Außenteam": 158,
+      "CAPCOM": 93,
+      "Captain Wayman": 92,
+      "Außenteammitglied 2": 89,
+      "Teammitglied 1": 86,
+      "CAPCOM, Sergeant Xiu": 68,
+      "Teammitglied 2": 66,
+      "Pilot": 48,
+      "Navigator": 46,
+      "Dr. Corey": 38,
+      "CAPCOM, Sergeant Nahy": 34,
+      "Teammitglied 3": 32,
+      "CAPCOM, Corporal Coetz": 31,
+      "Lander-KI": 25,
+      "Vanguard-KI": 19,
+      "XO, Major Dahl": 18,
+      "Todsprecher": 16,
+      "Sektionsleiter": 15,
+      "Feuerteam Alpha, Teammitglied 1": 12,
+      "Außenteammitglied 3": 9,
+      "Feuerteam Alpha": 9,
+      "Idemischer Gastgeber": 8,
+      "Sklave": 5,
+      "Stimme 2": 5,
+      "1. Lieutenant Steensen": 5,
+      "Major Dahl": 4,
+      "Feuerteam Alpha, Teammitglied 2": 4,
+      "Stimme 1": 4,
+      "Anonymous": 4,
+      "Leitender Medizinischer Offizier, Dr. Bell": 4,
+      "Operator des Observatoriums": 4,
+      "Chefnavigator Neels": 3,
+      "Spähfahrzeug": 3,
+      "Such- und Rettungsmissionspilot, Sergeant Marquez": 3,
+      "CAPCOM, Major Dahl": 3,
+      "Archivleiter Stanley": 3,
+      "Anu, idemische Botschafterin": 3,
+      "Besatzungsmitglied 234": 3,
+      "Anu, Botschafterin der Idemier": 3,
+      "Anu": 3,
+      "SAR-Team, Sergeant Marquez": 2,
+      "Portal-Operator": 2,
+      "Captain": 2,
+      "Rubi": 2,
+      "Gedämpfte Stimme": 2,
+      "Schwarzer-Ritter-Relais": 2,
+      "Tiefe Stimme": 2,
+      "Sergeant Nahy": 1,
+      "Außenteammitglied 2, in einiger Entfernung": 1,
+      "Brücke": 1,
+      "SAR-Missionspilot, Sergeant Marquez": 1,
+      "SPÄHFAHRZEUGSCOUT CRAFT": 1,
+      "Stimme aus dem Hintergrund": 1,
+      "Anmerkung von Wayman, N., Leitender Offizier": 1,
+      "Außenteammitglied, Operative 1": 1,
+      "Alien-Konsole": 1,
+      "CAPCOM, Corporal Iweala": 1,
+      "Teammitglied 4": 1,
+      "Lander-Pilot": 1,
+      "Außenteammitglied, Operative 2": 1,
+      "Notiz des Leitenden Psychologen": 1,
+      "Dr. Frank": 1,
+      "Außenteammitglied 4": 1
+    },
+    "role_mapping": {
+      "Captain Wayman": "captain_wayman",
+      "Vanguard-KI": "ki",
+      "Chefnavigator Neels": "navigator",
+      "Sergeant Nahy": "militaer",
+      "Außenteammitglied 1": "aussenteam",
+      "CAPCOM, Sergeant Nahy": "capcom",
+      "Außenteammitglied 2": "aussenteam",
+      "Außenteam": "andere",
+      "CAPCOM": "capcom",
+      "CAPCOM, Corporal Coetz": "capcom",
+      "Außenteammitglied 2, in einiger Entfernung": "aussenteam",
+      "Brücke": "andere",
+      "Spähfahrzeug": "andere",
+      "SAR-Missionspilot, Sergeant Marquez": "pilot",
+      "SAR-Team, Sergeant Marquez": "militaer",
+      "SPÄHFAHRZEUGSCOUT CRAFT": "andere",
+      "Stimme aus dem Hintergrund": "unbekannt",
+      "Dr. Corey": "wissenschaft",
+      "Portal-Operator": "andere",
+      "Anmerkung von Wayman, N., Leitender Offizier": "andere",
+      "Außenteammitglied, Operative 1": "aussenteam",
+      "Außenteammitglied 3": "aussenteam",
+      "CAPCOM, Sergeant Xiu": "capcom",
+      "Teammitglied 1": "teammitglied",
+      "Teammitglied 2": "teammitglied",
+      "Major Dahl": "xo_dahl",
+      "Lander-KI": "ki",
+      "Feuerteam Alpha": "andere",
+      "Teammitglied 3": "teammitglied",
+      "Feuerteam Alpha, Teammitglied 1": "teammitglied",
+      "Sektionsleiter": "andere",
+      "Feuerteam Alpha, Teammitglied 2": "teammitglied",
+      "Todsprecher": "todsprecher",
+      "Sklave": "alien_sklave",
+      "Alien-Konsole": "andere",
+      "CAPCOM, Corporal Iweala": "capcom",
+      "Such- und Rettungsmissionspilot, Sergeant Marquez": "pilot",
+      "Teammitglied 4": "teammitglied",
+      "Captain": "andere",
+      "Navigator": "navigator",
+      "Lander-Pilot": "pilot",
+      "CAPCOM, Major Dahl": "capcom",
+      "Außenteammitglied, Operative 2": "aussenteam",
+      "Notiz des Leitenden Psychologen": "andere",
+      "Pilot": "pilot",
+      "Stimme 1": "unbekannt",
+      "Stimme 2": "unbekannt",
+      "Anonymous": "andere",
+      "Rubi": "andere",
+      "Idemischer Gastgeber": "alien_idemier",
+      "1. Lieutenant Steensen": "andere",
+      "XO, Major Dahl": "xo_dahl",
+      "Archivleiter Stanley": "andere",
+      "Anu, idemische Botschafterin": "alien_idemier",
+      "Besatzungsmitglied 234": "besatzung",
+      "Gedämpfte Stimme": "unbekannt",
+      "Leitender Medizinischer Offizier, Dr. Bell": "wissenschaft",
+      "Dr. Frank": "wissenschaft",
+      "Schwarzer-Ritter-Relais": "andere",
+      "Tiefe Stimme": "unbekannt",
+      "Außenteammitglied 4": "aussenteam",
+      "Operator des Observatoriums": "andere",
+      "Anu, Botschafterin der Idemier": "andere",
+      "Anu": "andere"
+    }
+  },
+  "logs_with_effects_or_characters": [
+    {
+      "file": "protokoll_0000.txt",
+      "effects": [
+        "Hauptalarm"
+      ],
+      "characters": [
+        "Sergeant Nahy",
+        "Vanguard-KI",
+        "Chefnavigator Neels",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0001.txt",
+      "effects": [],
+      "characters": [
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0005.txt",
+      "effects": [
+        "Triebwerkslärm",
+        "Scangeräusche",
+        "Lauter KNALL",
+        "Lander-Alarm"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Nahy",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0006.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0009.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0016.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0022.txt",
+      "effects": [
+        "Piepston",
+        "Geräusch rutschenden Schutts"
+      ],
+      "characters": [
+        "CAPCOM, Sergeant Nahy",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0024.txt",
+      "effects": [],
+      "characters": [
+        "Außenteam",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0031.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Sergeant Nahy",
+        "Außenteam",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0034.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0036.txt",
+      "effects": [
+        "Störgeräusch"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2, in einiger Entfernung",
+        "CAPCOM, Sergeant Nahy",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0037.txt",
+      "effects": [],
+      "characters": [
+        "Brücke",
+        "CAPCOM, Sergeant Nahy",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0044.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0049.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0064.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0068.txt",
+      "effects": [
+        "Lautes Dröhnen der Bremsraketen"
+      ],
+      "characters": [
+        "Spähfahrzeug",
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0070.txt",
+      "effects": [
+        "Triebwerkslärm und Windgeheul",
+        "Insektengeräusche",
+        "Klacken vom Lösen des Sicherheitsgurts"
+      ],
+      "characters": [
+        "SAR-Missionspilot, Sergeant Marquez",
+        "SAR-Team, Sergeant Marquez",
+        "CAPCOM",
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0075.txt",
+      "effects": [
+        "Störgeräusch",
+        "Schussgeräusche"
+      ],
+      "characters": [
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0076.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Stimme aus dem Hintergrund",
+        "Captain Wayman",
+        "SPÄHFAHRZEUGSCOUT CRAFT"
+      ]
+    },
+    {
+      "file": "protokoll_0082.txt",
+      "effects": [
+        "Lautes Störgeräusch",
+        "Lautes Störgeräusch"
+      ],
+      "characters": [
+        "Außenteam",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0083.txt",
+      "effects": [
+        "Triebwerksgeräusche"
+      ],
+      "characters": [
+        "Vanguard-KI",
+        "Captain Wayman",
+        "Außenteammitglied 1",
+        "Dr. Corey",
+        "Außenteam",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0085.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Portal-Operator",
+        "Captain Wayman",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0089.txt",
+      "effects": [],
+      "characters": [
+        "Anmerkung von Wayman, N., Leitender Offizier"
+      ]
+    },
+    {
+      "file": "protokoll_0091.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied, Operative 1",
+        "Außenteammitglied 1",
+        "Außenteammitglied 3",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0096.txt",
+      "effects": [
+        "Triebwerkslärm",
+        "Schussgeräusche",
+        "Schussgeräusche",
+        "Alarmtöne",
+        "Lautes Rummsen"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 3",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0101.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0112.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Nahy",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0115.txt",
+      "effects": [
+        "Klicken!",
+        "Klicken!",
+        "Klicken!"
+      ],
+      "characters": [
+        "Major Dahl"
+      ]
+    },
+    {
+      "file": "protokoll_0118.txt",
+      "effects": [
+        "Triebwerksgeräusche"
+      ],
+      "characters": [
+        "Vanguard-KI",
+        "Captain Wayman",
+        "Außenteam",
+        "Dr. Corey"
+      ]
+    },
+    {
+      "file": "protokoll_0119.txt",
+      "effects": [
+        "Metallisches Kreischen des Rumpfs",
+        "Störgeräusch",
+        "Störgeräusch",
+        "Metallisches Kreischen des Rumpfs"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0127.txt",
+      "effects": [
+        "Alarmtöne",
+        "Explosion",
+        "Lauter Jubel"
+      ],
+      "characters": [
+        "Lander-KI",
+        "Feuerteam Alpha",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0129.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 3",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0141.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0146.txt",
+      "effects": [
+        "Lautes Störgeräusch",
+        "Metallisches Kreischen",
+        "Metallisches Kreischen"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0151.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0152.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0160.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0164.txt",
+      "effects": [
+        "Explosion",
+        "Störgeräusche"
+      ],
+      "characters": [
+        "Feuerteam Alpha, Teammitglied 1",
+        "Sektionsleiter",
+        "Feuerteam Alpha, Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0165.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz"
+      ]
+    },
+    {
+      "file": "protokoll_0175.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0178.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0183.txt",
+      "effects": [],
+      "characters": [
+        "Dr. Corey",
+        "Todsprecher",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0184.txt",
+      "effects": [
+        "Stille",
+        "Schritte"
+      ],
+      "characters": [
+        "CAPCOM, Sergeant Xiu",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0188.txt",
+      "effects": [],
+      "characters": [
+        "Feuerteam Alpha, Teammitglied 1",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0192.txt",
+      "effects": [],
+      "characters": [
+        "Sklave",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0200.txt",
+      "effects": [
+        "Lautes Dröhnen",
+        "Jubel"
+      ],
+      "characters": [
+        "Alien-Konsole",
+        "Captain Wayman",
+        "CAPCOM, Corporal Iweala",
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0201.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0204.txt",
+      "effects": [],
+      "characters": [
+        "Such- und Rettungsmissionspilot, Sergeant Marquez",
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Nahy",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0208.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0210.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Nahy"
+      ]
+    },
+    {
+      "file": "protokoll_0211.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Nahy",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0215.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0219.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 3",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0221.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0224.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0227.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0238.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0249.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0251.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 3",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0256.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 4",
+        "Teammitglied 1",
+        "Teammitglied 3",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0258.txt",
+      "effects": [
+        "Lander-Alarm"
+      ],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0260.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0262.txt",
+      "effects": [],
+      "characters": [
+        "Captain",
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0264.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0267.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Nahy",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0275.txt",
+      "effects": [
+        "Lautes Piepen"
+      ],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0276.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Lander-Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0280.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1"
+      ]
+    },
+    {
+      "file": "protokoll_0285.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0287.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 2",
+        "Teammitglied 1",
+        "Teammitglied 3"
+      ]
+    },
+    {
+      "file": "protokoll_0290.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0295.txt",
+      "effects": [],
+      "characters": [
+        "Außenteam",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0301.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0302.txt",
+      "effects": [],
+      "characters": [
+        "Außenteam",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0310.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 3"
+      ]
+    },
+    {
+      "file": "protokoll_0315.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteam",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0319.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteammitglied 1",
+        "Lander-KI"
+      ]
+    },
+    {
+      "file": "protokoll_0324.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0325.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 3",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0331.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu"
+      ]
+    },
+    {
+      "file": "protokoll_0332.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied, Operative 2",
+        "Außenteammitglied 2",
+        "CAPCOM, Major Dahl"
+      ]
+    },
+    {
+      "file": "protokoll_0334.txt",
+      "effects": [
+        "Laute Explosionen"
+      ],
+      "characters": [
+        "Sektionsleiter",
+        "Feuerteam Alpha"
+      ]
+    },
+    {
+      "file": "protokoll_0339.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Sergeant Nahy",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0343.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0344.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0348.txt",
+      "effects": [
+        "Laute Explosionen",
+        "Laute Explosionen"
+      ],
+      "characters": [
+        "Sektionsleiter",
+        "Feuerteam Alpha"
+      ]
+    },
+    {
+      "file": "protokoll_0351.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0354.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0363.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 3",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0373.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0375.txt",
+      "effects": [],
+      "characters": [
+        "Notiz des Leitenden Psychologen"
+      ]
+    },
+    {
+      "file": "protokoll_0377.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0380.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0381.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0385.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0387.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0389.txt",
+      "effects": [],
+      "characters": [
+        "Captain",
+        "Außenteam",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0393.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0394.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0395.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 3",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0402.txt",
+      "effects": [
+        "Entsetzte Schreie"
+      ],
+      "characters": [
+        "Feuerteam Alpha, Teammitglied 1",
+        "Sektionsleiter",
+        "Feuerteam Alpha, Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0408.txt",
+      "effects": [],
+      "characters": [
+        "Stimme 1",
+        "Stimme 2"
+      ]
+    },
+    {
+      "file": "protokoll_0410.txt",
+      "effects": [],
+      "characters": [
+        "Anonymous",
+        "Rubi"
+      ]
+    },
+    {
+      "file": "protokoll_0411.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0417.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0425.txt",
+      "effects": [],
+      "characters": [
+        "Such- und Rettungsmissionspilot, Sergeant Marquez",
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Nahy",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0428.txt",
+      "effects": [],
+      "characters": [
+        "Idemischer Gastgeber",
+        "Außenteam",
+        "Vanguard-KI"
+      ]
+    },
+    {
+      "file": "protokoll_0433.txt",
+      "effects": [],
+      "characters": [
+        "Idemischer Gastgeber",
+        "Vanguard-KI"
+      ]
+    },
+    {
+      "file": "protokoll_0435.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0438.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0442.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0455.txt",
+      "effects": [
+        "Triebwerkslärm",
+        "Alarmpiepsen",
+        "Triebwerkslärm",
+        "Triebwerkslärm",
+        "Störgeräusch"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0461.txt",
+      "effects": [
+        "Laute Explosionen"
+      ],
+      "characters": [
+        "Sektionsleiter",
+        "Feuerteam Alpha"
+      ]
+    },
+    {
+      "file": "protokoll_0462.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0477.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0483.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0485.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0487.txt",
+      "effects": [],
+      "characters": [
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0494.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0498.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0503.txt",
+      "effects": [],
+      "characters": [
+        "Captain Wayman",
+        "Dr. Corey"
+      ]
+    },
+    {
+      "file": "protokoll_0504.txt",
+      "effects": [],
+      "characters": [
+        "Vanguard-KI",
+        "Dr. Corey",
+        "Captain Wayman",
+        "1. Lieutenant Steensen"
+      ]
+    },
+    {
+      "file": "protokoll_0506.txt",
+      "effects": [
+        "Laute Explosionen"
+      ],
+      "characters": [
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0508.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0510.txt",
+      "effects": [
+        "Lärm"
+      ],
+      "characters": [
+        "Lander-KI",
+        "CAPCOM, Sergeant Nahy",
+        "Außenteam",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0514.txt",
+      "effects": [
+        "Lange Stille",
+        "Zustimmung"
+      ],
+      "characters": [
+        "XO, Major Dahl",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0519.txt",
+      "effects": [],
+      "characters": [
+        "XO, Major Dahl",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0522.txt",
+      "effects": [],
+      "characters": [
+        "Feuerteam Alpha, Teammitglied 1",
+        "Archivleiter Stanley"
+      ]
+    },
+    {
+      "file": "protokoll_0524.txt",
+      "effects": [],
+      "characters": [
+        "XO, Major Dahl",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0525.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0529.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0536.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0542.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu"
+      ]
+    },
+    {
+      "file": "protokoll_0546.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu"
+      ]
+    },
+    {
+      "file": "protokoll_0550.txt",
+      "effects": [],
+      "characters": [
+        "Außenteam",
+        "Dr. Corey"
+      ]
+    },
+    {
+      "file": "protokoll_0551.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0560.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0565.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 3",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0566.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0568.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0569.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0571.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0572.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0574.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0575.txt",
+      "effects": [
+        "Lautes Störgeräusch",
+        "Lautes Störgeräusch"
+      ],
+      "characters": [
+        "Dr. Corey",
+        "Außenteam",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0576.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0579.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0586.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0587.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu"
+      ]
+    },
+    {
+      "file": "protokoll_0589.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0591.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0595.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0598.txt",
+      "effects": [
+        "Lautes Störgeräusch",
+        "Lautes Dröhnen"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0599.txt",
+      "effects": [],
+      "characters": [
+        "Feuerteam Alpha, Teammitglied 1",
+        "Feuerteam Alpha, Teammitglied 2",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0601.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0603.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu"
+      ]
+    },
+    {
+      "file": "protokoll_0605.txt",
+      "effects": [],
+      "characters": [
+        "XO, Major Dahl"
+      ]
+    },
+    {
+      "file": "protokoll_0609.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu"
+      ]
+    },
+    {
+      "file": "protokoll_0616.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0617.txt",
+      "effects": [],
+      "characters": [
+        "Sektionsleiter",
+        "Feuerteam Alpha"
+      ]
+    },
+    {
+      "file": "protokoll_0619.txt",
+      "effects": [],
+      "characters": [
+        "XO, Major Dahl"
+      ]
+    },
+    {
+      "file": "protokoll_0624.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0625.txt",
+      "effects": [],
+      "characters": [
+        "Dr. Corey",
+        "Anu, idemische Botschafterin",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0626.txt",
+      "effects": [
+        "Energieentladungen und -zündungen"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0627.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Sergeant Xiu",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0631.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0634.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "CAPCOM",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0635.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu"
+      ]
+    },
+    {
+      "file": "protokoll_0636.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Sergeant Xiu",
+        "Besatzungsmitglied 234",
+        "Dr. Corey"
+      ]
+    },
+    {
+      "file": "protokoll_0641.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0646.txt",
+      "effects": [],
+      "characters": [
+        "Gedämpfte Stimme",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0649.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0652.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator"
+      ]
+    },
+    {
+      "file": "protokoll_0660.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0661.txt",
+      "effects": [],
+      "characters": [
+        "Todsprecher",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0662.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0664.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Sergeant Xiu",
+        "Außenteam",
+        "Dr. Corey"
+      ]
+    },
+    {
+      "file": "protokoll_0665.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0667.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Sergeant Xiu",
+        "Außenteam",
+        "Dr. Corey"
+      ]
+    },
+    {
+      "file": "protokoll_0669.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Sergeant Xiu",
+        "Leitender Medizinischer Offizier, Dr. Bell",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0674.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0675.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Sergeant Xiu",
+        "Leitender Medizinischer Offizier, Dr. Bell",
+        "Außenteammitglied 1",
+        "Außenteam",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0676.txt",
+      "effects": [
+        "Schlurfen"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0678.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0680.txt",
+      "effects": [
+        "Die Hauptwaffe der Vanguard feuert"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu"
+      ]
+    },
+    {
+      "file": "protokoll_0681.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0685.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0688.txt",
+      "effects": [
+        "Energieentladung",
+        "Explosion"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0689.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0690.txt",
+      "effects": [
+        "Geräusche von Plasma-Schneidern"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0693.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0695.txt",
+      "effects": [],
+      "characters": [
+        "Idemischer Gastgeber",
+        "Vanguard-KI"
+      ]
+    },
+    {
+      "file": "protokoll_0696.txt",
+      "effects": [
+        "Geräusch von Plasma-Schneidern"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0699.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0701.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0702.txt",
+      "effects": [
+        "Ausrüstung fährt hoch"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0704.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0705.txt",
+      "effects": [
+        "Schritte"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0707.txt",
+      "effects": [
+        "Schott schließt sich",
+        "Luftschleuse wird unter Druck gesetzt"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "Lander-KI",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0708.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0711.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu"
+      ]
+    },
+    {
+      "file": "protokoll_0712.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0713.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0714.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0715.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2",
+        "XO, Major Dahl",
+        "Vanguard-KI"
+      ]
+    },
+    {
+      "file": "protokoll_0716.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0717.txt",
+      "effects": [],
+      "characters": [
+        "Idemischer Gastgeber",
+        "Vanguard-KI"
+      ]
+    },
+    {
+      "file": "protokoll_0719.txt",
+      "effects": [
+        "Metallplatten werden verschoben"
+      ],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM, Sergeant Xiu",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0721.txt",
+      "effects": [],
+      "characters": [
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0723.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0725.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0730.txt",
+      "effects": [],
+      "characters": [
+        "Dr. Frank",
+        "Schwarzer-Ritter-Relais",
+        "Dr. Corey",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0731.txt",
+      "effects": [],
+      "characters": [
+        "XO, Major Dahl"
+      ]
+    },
+    {
+      "file": "protokoll_0739.txt",
+      "effects": [],
+      "characters": [
+        "XO, Major Dahl",
+        "Vanguard-KI"
+      ]
+    },
+    {
+      "file": "protokoll_0740.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0743.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0753.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0755.txt",
+      "effects": [],
+      "characters": [
+        "XO, Major Dahl",
+        "Vanguard-KI"
+      ]
+    },
+    {
+      "file": "protokoll_0757.txt",
+      "effects": [],
+      "characters": [
+        "CAPCOM, Corporal Coetz",
+        "Außenteam"
+      ]
+    },
+    {
+      "file": "protokoll_0764.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0768.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0771.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "CAPCOM"
+      ]
+    },
+    {
+      "file": "protokoll_0787.txt",
+      "effects": [],
+      "characters": [
+        "Todsprecher"
+      ]
+    },
+    {
+      "file": "protokoll_0790.txt",
+      "effects": [],
+      "characters": [
+        "Tiefe Stimme",
+        "Außenteammitglied 4",
+        "Außenteammitglied 1",
+        "Außenteammitglied 3",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0791.txt",
+      "effects": [],
+      "characters": [
+        "XO, Major Dahl"
+      ]
+    },
+    {
+      "file": "protokoll_0793.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0794.txt",
+      "effects": [],
+      "characters": [
+        "Lander-KI",
+        "Navigator",
+        "Pilot"
+      ]
+    },
+    {
+      "file": "protokoll_0795.txt",
+      "effects": [],
+      "characters": [
+        "Todsprecher"
+      ]
+    },
+    {
+      "file": "protokoll_0803.txt",
+      "effects": [],
+      "characters": [
+        "Operator des Observatoriums",
+        "Anu, Botschafterin der Idemier",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0811.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 3",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0821.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 2",
+        "Teammitglied 1",
+        "Teammitglied 3"
+      ]
+    },
+    {
+      "file": "protokoll_0823.txt",
+      "effects": [],
+      "characters": [
+        "Todsprecher"
+      ]
+    },
+    {
+      "file": "protokoll_0824.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 2",
+        "Teammitglied 1",
+        "Teammitglied 3"
+      ]
+    },
+    {
+      "file": "protokoll_0829.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 2",
+        "Teammitglied 1",
+        "Teammitglied 3"
+      ]
+    },
+    {
+      "file": "protokoll_0836.txt",
+      "effects": [],
+      "characters": [
+        "Todsprecher"
+      ]
+    },
+    {
+      "file": "protokoll_0841.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Tiefe Stimme",
+        "Todsprecher"
+      ]
+    },
+    {
+      "file": "protokoll_0846.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 3",
+        "Teammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0848.txt",
+      "effects": [],
+      "characters": [
+        "Captain Wayman",
+        "Sklave"
+      ]
+    },
+    {
+      "file": "protokoll_0852.txt",
+      "effects": [],
+      "characters": [
+        "Operator des Observatoriums",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0863.txt",
+      "effects": [],
+      "characters": [
+        "Todsprecher",
+        "Captain Wayman"
+      ]
+    },
+    {
+      "file": "protokoll_0872.txt",
+      "effects": [],
+      "characters": [
+        "Außenteammitglied 1",
+        "Außenteammitglied 3",
+        "Außenteammitglied 2"
+      ]
+    },
+    {
+      "file": "protokoll_0873.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 2",
+        "Teammitglied 1",
+        "Teammitglied 3"
+      ]
+    },
+    {
+      "file": "protokoll_0881.txt",
+      "effects": [],
+      "characters": [
+        "Teammitglied 2",
+        "Teammitglied 1",
+        "Teammitglied 3"
+      ]
+    },
+    {
+      "file": "protokoll_0888.txt",
+      "effects": [
+        "Klick",
+        "Klick",
+        "Klick",
+        "Klick",
+        "Klick",
+        "Stille"
+      ],
+      "characters": [
+        "Anu",
+        "Captain Wayman",
+        "Dr. Corey",
+        "XO, Major Dahl",
+        "Vanguard-KI"
+      ]
+    },
+    {
+      "file": "protokoll_0894.txt",
+      "effects": [
+        "Stille"
+      ],
+      "characters": [
+        "Teammitglied 1",
+        "Teammitglied 3",
+        "Teammitglied 2"
+      ]
+    }
+  ]
+}

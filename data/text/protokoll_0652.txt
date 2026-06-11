@@ -1,0 +1,8 @@
+Sprachrekorderdaten
+[Lander-KI]: Sonnenwinde beeinträchtigen die Abschirmung.
+Radiologische Kontaminierung steht bevor.
+[Navigator]: Haben wir wenigstens etwas erfahren können?
+[Lander-KI]: Die Daten über diese Wolken sind im
+Flugdatenspeicher gespeichert und warten auf die
+Verarbeitung durch die Wissenschafts-KI. Allerdings hat der
+erste Scan fast nichts ergeben.

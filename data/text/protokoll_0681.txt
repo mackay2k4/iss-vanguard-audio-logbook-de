@@ -1,0 +1,11 @@
+Sprachrekorderdaten
+[Lander-KI]: Genügend Daten aufgezeichnet. Speichere die
+Daten im Flugdatenschreiber.
+[Pilot]: Na bitte! Ich sagte doch, es würde sich lohnen.
+[Lander-KI]: Achtung! Erhöhtes Niveau radioaktiver
+Strahlung.
+[Navigator]: Hat es sich das wirklich? Moment! Sehen Sie das?
+[Pilot]: Die dunkle Wolke dort?
+[Navigator]: Das ist keine Wolke! Es ist ein massives
+Objekt, das oberhalb der Wolken schwebt, viel größer als
+die Vanguard!

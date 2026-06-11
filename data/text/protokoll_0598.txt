@@ -1,0 +1,13 @@
+*** Lautes Störgeräusch ***
+[CAPCOM, Sergeant Xiu]: Außenteam, erstatten Sie Meldung!
+Wir haben Sie nicht mehr auf dem Radar. Außenteam,
+bitte kommen!
+[Außenteammitglied 1]: Ja, deswegen … Nicht, dass die
+Hangar-Jungs sauer werden, aber wir haben den Lander
+zerstört. Wir sind jetzt drinnen.
+*** Lautes Dröhnen ***
+[Außenteammitglied 1]: Vanguard, können Sie uns hören?
+CAPCOM, wir stellen seismische Erschütterungen in der
+Absturzzone fest. Erbitte Anweisungen.
+[Außenteammitglied 2]: Dann kommt unter uns etwas hoch.
+[CAPCOM, Sergeant Xiu]: Außenteam, bitte wiederholen.

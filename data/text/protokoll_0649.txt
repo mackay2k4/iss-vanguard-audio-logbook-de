@@ -1,0 +1,11 @@
+Sprachrekorderdaten
+[Pilot]: Die Wolken sehen bedrohlich aus. Können wir sie
+umgehen?
+[Navigator]: Kein Problem. KI, wir brauchen ein paar Daten
+darüber.
+[Lander-KI]: Scanner erfassen nukleare Aktivität in der
+Wolke. Unbekanntes Phänomen. Empfehlung: umgehen und
+für eine spätere Untersuchung vormerken.
+[Pilot]: Vielleicht sollten wir die Untersuchung selbst
+vornehmen?
+[Navigator]: Auf gar keinen Fall!

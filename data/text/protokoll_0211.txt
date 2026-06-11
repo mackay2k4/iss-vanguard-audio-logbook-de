@@ -1,0 +1,25 @@
+[CAPCOM, Sergeant Nahy]: Außenteam, bitte kommen.
+Wir haben hier ein interessantes Ergebnis.
+[Außenteammitglied 1]: Jawohl, Vanguard. Wir hören Sie.
+[CAPCOM, Sergeant Nahy]: Unsere KI hat die Daten analysiert,
+die Sie gesammelt haben, als sie die Ruinen untersuchten. Es
+gab offenbar wirklich eine fortschrittliche Zivilisation auf
+dem Planeten. Doch die Zone, in der Sie sich aktuell befinden,
+war einst extremen Temperaturen ausgesetzt, wobei die meisten
+Artefakte unwiederbringlich vernichtet wurden.
+[Außenteammitglied 1]: Das wissen wir schon, Vanguard.
+Die Felsen hier sind geschmolzen wie Butter.
+[CAPCOM, Sergeant Nahy]: Nicht weit von Ihrer Position
+befinden sich jedenfalls einige unterirdische Strukturen.
+Vielleicht sind es Bunker. Wenn Sie mehr als verkohlte
+Technik finden wollen, empfiehlt die KI, dass Sie sich dort
+umsehen. Aber …
+[Außenteammitglied 2]: Es gibt doch immer ein Aber, nicht
+wahr?
+[CAPCOM, Sergeant Nahy]: Nun, unsere Militärberater sind
+anderer Ansicht. Sie warnen, dass der Kristall etwas mit
+dem Tod dieses Planeten zu tun haben könnte, und raten
+uns, eine der kristallinen Waffen zu untersuchen, ehe wir
+irgendetwas anderes tun.
+[Außenteammitglied 1]: Verstanden. Wir machen das schon,
+Vanguard.

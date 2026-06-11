@@ -1,0 +1,5 @@
+Sprachrekorderdaten
+[Lander-KI]: Sonnenwinde nähern sich.
+[Pilot]: Das soll wohl ein Witz sein?
+[Lander-KI]: Bei mir wurde kein Scherz-Modul installiert.
+[Navigator]: Witzig wie immer. Pilot, bereit für eine neue

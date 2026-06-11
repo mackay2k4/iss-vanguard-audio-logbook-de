@@ -1,0 +1,22 @@
+[Außenteam]: Außenteam an Vanguard. Wir sind gelandet.
+Datenverbindung wird initiiert.
+[CAPCOM, Sergeant Xiu]: Wir erhalten Ihre Daten, Außenteam.
+Wie war die Landung?
+[Außenteam]: Komplett durchschnittlich. Und der Planet
+sieht auch nicht vielversprechender aus.
+[CAPCOM, Sergeant Xiu]: Wie meinen?
+[Außenteam]: Die gesamte Oberfläche ist mit glatten grauen
+Kieseln bedeckt, so weit das Auge reicht. Der Detektor zeigt
+keine Stelensignale.
+[CAPCOM, Sergeant Xiu]: Merkwürdig. Die Scans haben doch
+so viel organisches Material gezeigt! Richten Sie sich ein
+und nehmen Sie Proben, Außenteam.
+[Außenteam]: Jawohl! Oh, Moment. Da IST etwas. Wir können
+eine lange Schleimspur nicht weit von unserer Landezone
+ausmachen. Sie verliert sich in der Ferne.
+[CAPCOM, Sergeant Xiu]: Seien Sie vorsichtig, Außenteam.
+Größere Organismen können nicht ohne irgendein Biom
+existieren.
+[Außenteam]: Wir sehen auch irgendwelche Trümmer nicht
+weit von unserer Landezone. Sehen außerirdisch aus. Ob hier
+irgendwer eine Bruchlandung gemacht hat?

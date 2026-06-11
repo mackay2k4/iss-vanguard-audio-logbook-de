@@ -1,0 +1,12 @@
+[Außenteammitglied 1]: Verdammt! Das war knapp.
+[CAPCOM, Sergeant Xiu]: Was ist passiert? Brauchen Sie
+Hilfe?
+[Außenteammitglied 1]: Nein, alles in Ordnung. Das Ding ist
+schon wieder entkommen!
+[Außenteammitglied 2]: Aber wir haben ein Stück davon
+erwischt.
+[Außenteammitglied 1]: Offenbar hat es sowohl mechanische
+Bestandteile als auch lebendes Gewebe. Es ist viel
+hochentwickelter als unsere Versuche mit organischer Technik.
+[CAPCOM, Sergeant Xiu]: Passen Sie gut auf. Hoffentlich
+kriegen Sie es das nächste Mal endgültig.

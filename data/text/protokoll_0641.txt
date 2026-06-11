@@ -1,0 +1,7 @@
+Sprachrekorderdaten
+[Navigator]: Das Navigationsmodul ist komplett ausgefallen.
+Ich versuche, bei der Navigation Näherungssensoren und
+Wolkenformationen zu nutzen.
+[Pilot]: Ja, tun Sie das bitte. Und wir müssen den Rumpf
+reparieren.
+[Navigator]: Während des Fluges? Haben wir Zeit dazu?

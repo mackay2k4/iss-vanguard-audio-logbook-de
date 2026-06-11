@@ -1,0 +1,38 @@
+[Außenteam]: Hier Außenteam. Wir hatten einen guten Flug,
+bisher sieht alles gut aus. Keine Gefahren in der Landezone.
+Wir sind bereit, zur Kolonie aufzubrechen. Hören Sie uns?
+*** Stille ***
+[Außenteam]: Vanguard, können Sie uns hören? Wir haben
+offenbar Funkprobleme.
+[CAPCOM, Sergeant Xiu]: Oh, tut mir leid, Außenteam. Ich
+hatte den falschen Knopf gedrückt. Ist meine erste Mission
+als Raumschiffkommunikator.
+[Außenteam]: Ja, Sie brauchen uns nicht an den armen
+Sergeant Nahy zu erinnern.
+[CAPCOM, Sergeant Xiu]: Entschuldigung!
+*** Schritte ***
+[Außenteam]: Wir nähern uns den Strukturen. Sie sehen
+verlassen aus. Wir setzen Scan-Drohnen ein. Sie kriegen die
+Daten gleich.
+[CAPCOM, Sergeant Xiu]: Wir erhalten Ihre Daten, Außenteam.
+Da lebt nichts mehr.
+[Außenteam]: Dann kommen wir zu spät?
+[CAPCOM, Sergeant Xiu]: Sieht so aus. Auf Basis der Daten
+meint die KI, dass dieser Ort seit einigen hundert Jahren
+verlassen ist. Ungefähr seit der Zeit, als der Planet eine
+jähe geomagnetische Umkehrung erlebt hat.
+[Außenteam]: Keine Leichen. Keine Gegenstände. Fast überall
+ist es aufgeräumt. Sieht nach einer generalstabsmäßigen
+Evakuierung aus. Dann müssen sie irgendein Ziel gehabt
+haben, nicht wahr?
+[CAPCOM, Sergeant Xiu]: Korrekt. Wir halten Gliese 368-2
+für plausibel, ein Nachbarsystem, das in der Sternkarte der
+Erbauer markiert ist.
+[Außenteam]: Gut, wir haben etwas erreicht, das wie eine
+Landestelle aussieht. Keine Schiffe mehr da, aber wir haben
+unterirdische Tanks erkannt.
+[CAPCOM, Sergeant Xiu]: Gut gemacht, Außenteam. Sie haben
+offenbar reichlich Treibstoff dagelassen. Der könnte
+praktisch sein, da die Vanguard ein Energieproblem hat.
+Sehen Sie zu, was sie noch rausfinden können.
+[Außenteam]: Verstanden. Außenteam Ende.

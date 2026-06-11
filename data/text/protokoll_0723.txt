@@ -1,0 +1,11 @@
+Sprachrekorderdaten
+[Pilot]: Das lief doch super! Der Lander ist so gut
+wie fabrikneu!
+[Navigator]: Dafür fällt das Navigationssystem immer noch
+aus. Aber ich kann Ihnen neue Koordinaten für den besten
+Anflug geben.
+[Pilot]: Können Sie mir sagen, wo ich hinfliegen soll, damit
+wir das Objekt von oben sehen können?
+[Navigator]: Schon dabei!
+[Lander-KI]: Bereich mit seltenen Metallen entdeckt,
+östlich von der Landestelle.

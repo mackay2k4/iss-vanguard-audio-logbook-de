@@ -1,0 +1,10 @@
+[Captain Wayman]: Hier spricht der Captain. Lassen Sie sich
+von der Splitterfliege nicht zu sehr ablenken. Sie haben
+Wichtigeres zu tun.
+[Außenteam]: Verstanden. Sollen wir uns darum kümmern,
+wenn noch Zeit bleibt?
+[Captain Wayman]: Das hoffe ich. Lehner scheinen Angst vor
+den kristallinen Wesen zu haben – vielleicht erfahren Sie
+mehr über sie, wenn Sie ihnen helfen.
+[Außenteam]: Dann sind wir unterwegs.
+[Captain]: Viel Glück, Außenteam.

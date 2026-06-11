@@ -1,0 +1,8 @@
+Sprachrekorderdaten
+[Pilot]: Na komm schon!
+…
+[Pilot]: Nur noch ein kleines Stückchen!
+[Navigator]: Süßholzraspeln und Anfeuern machen den Antrieb
+auch nicht schneller.
+[Lander-KI]: Ich kann nicht motiviert werden. Ich arbeite
+durchgehend mit der maximal möglichen Effizienz.

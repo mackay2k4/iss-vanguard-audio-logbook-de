@@ -1,0 +1,10 @@
+Sprachrekorderdaten
+[Navigator]: Ich habe den Filter gewechselt,
+das Katalysatormodul repariert …
+[Pilot]: Sehr gut! Ich habe Ihre Konsole im Auge behalten,
+während Sie fort waren, aber ich glaube …
+[Navigator]: Links, sechs Grad, jetzt! Hoch, ein Grad!
+…
+[Navigator]: Sie hätten uns fast mitten in den Sturm hinein
+hineingesteuert! Aber alles in allem haben Sie sich ganz
+gut geschlagen.

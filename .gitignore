@@ -1,0 +1,18 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+
+# Environment / Secrets
+.env
+dev/.env
+
+# Docker override (personal setup)
+docker/docker-compose.override.yml
+
+# Generated at container runtime
+docker/html/DE_ISS_Vanguard_Logbuch_online.pdf
+

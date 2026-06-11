@@ -1,0 +1,9 @@
+Sprachrekorderdaten
+[Navigator]: Fertig.
+[Pilot]: Danke. Das wird die Landung beträchtlich
+erleichtern.
+[Navigator]: Kein Problem. Ich hänge schließlich auch
+am Leben.
+[Pilot]: Ums Leben kümmern wir uns nach der Landung.
+[Navigator]: Netter Witz.
+[Pilot]: Häh?

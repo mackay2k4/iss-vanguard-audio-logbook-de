@@ -1,0 +1,30 @@
+*** Triebwerkslärm ***
+[Außenteammitglied 1]: CAPCOM? Hier spricht das Außenteam.
+Wir nähern uns dem Ziel. Unsere Kurzstreckenscans haben
+eine Außenhülle aus einem unbekannten Kohlenstoffallotrop
+ergeben, das sämtliche Emissionen zu absorbieren scheint.
+Wir haben keine Ahnung, was sich darin befindet.
+[CAPCOM, Sergeant Nahy]: Wir analysieren Ihre Daten
+bereits, Außenteam. Ich melde mich, wenn wir etwas finden.
+[Außenteammitglied 2]: Kein Wunder, dass wir das Ding nicht
+entdeckt haben. Es wurde buchstäblich unsichtbar gebaut.
+[Außenteammitglied 1]: Sollen wir einen Landeversuch
+unternehmen?
+[CAPCOM, Sergeant Nahy]: Nein. Wir wissen nicht, wie
+widerstandsfähig die Struktur ist. Fliegen Sie näher heran
+und setzen Sie eine Drohne zum Probensammeln ab.
+[Außenteammitglied 1]: Verstanden, Vanguard. Wir sind …
+*** Scangeräusche ***
+[Außenteammitglied 2]: Halt! Da ist etwas auf der Oberfläche
+der Sphäre. Ein metallisches Objekt ist in den Panzer
+eingebettet. Sehen Sie mal: Die Oberfläche in der Umgebung
+des Objekts ist rissig, als wäre es dort hineingestürzt.
+Es … wendet sich uns zu?
+*** Lauter KNALL ***
+*** Lander-Alarm ***
+[Außenteammitglied 2]: Wir wurden getroffen! Es schießt auf
+uns! Das ist irgendein automatischer Wächter,
+der da in der Sphäre verankert ist!
+[CAPCOM, Sergeant Nahy]: Mission abbrechen! Verstanden,
+Außenteam? Mission sofort abbrechen!
+Du bist auf der Oberfläche eines außerirdischen Objekts aufgeprallt!

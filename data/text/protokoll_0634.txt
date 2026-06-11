@@ -1,0 +1,13 @@
+[Pilot]: … ist schrecklich! Aber die Schilde werden wohl
+halten.
+[CAPCOM]: Erlaubnis zum Abbruch erteilt, falls die Lage
+heikel wird.
+[Pilot]: Das wird nicht nötig sein.
+[Lander-KI]: Navigationsmodul beschädigt. Navigationsmodul
+zerstört. Kommunikationsmodul beschädigt.
+[CAPCOM]: [Rauschen]
+[Pilot]: Hmm … Wie konnte das passieren? Der Schild ist
+noch aktiviert!
+[Lander-KI]: Die Scanner haben einen Metalltropfen als
+Wasser fehlgelesen und durch die Schilde passieren lassen,
+um Energie zu sparen. Aktualisiere Gefahrendefinition …

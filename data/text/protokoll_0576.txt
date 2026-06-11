@@ -1,0 +1,16 @@
+[CAPCOM, Sergeant Xiu]: Außenteam, wir stellen einige
+leichte Gravitationsveränderungen bei Ihrer aktuellen
+Position fest. Erstatten Sie Meldung.
+[Außenteammitglied 1]: Ja, wir sehen es auch, CAPCOM. Diese
+turmartige Struktur scheint die Gravitation zu beeinflussen.
+Sie zeigt auf den zerstörten Mond.
+[CAPCOM, Sergeant Xiu]: Wir sehen erhebliche Energiemengen
+aus Richtung des Bauwerks. Hat der Turm damit zu tun?
+[Außenteammitglied 2]: Vielleicht bezieht er seine Energie
+dorther oder so.
+[Außenteammitglied 1]: Allmählich dämmert mir, wie Edans
+vorige Bewohner ihren Mond zerstört haben. Offenbar wollten
+sie ihre Gezeiten durch Variieren des Abstands des Mondes
+beeinflussen.
+[CAPCOM, Sergeant Xiu]: Sieht so aus, Außenteam. Begeben
+Sie sich zum Bauwerk, um es genauer zu erkunden.

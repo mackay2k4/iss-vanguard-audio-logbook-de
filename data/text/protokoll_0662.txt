@@ -1,0 +1,12 @@
+Sprachrekorderdaten
+[Lander-KI]: Luftversorgung kontaminiert.
+Lebenserhaltungssystem beschädigt.
+[Pilot]: Ich kann nicht überall sein, KI!
+[Navigator]: Sind Sie ja auch gar nicht. Piloten sitzen doch
+bloß auf ihrem bequemen Sessel herum. KI, können wir das
+nach der Landung erledigen?
+[Lander-KI]: Natürlich. Die Chance, so lange zu überleben,
+steht bei etwa siebzig Prozent.
+[Navigator]: Immerhin besser, als eine Münze zu werfen, oder?
+Alle Spieler beratschlagen und wählen eine Möglichkeit aus. Wenn sie sich
+nicht einigen können, entscheidet der Spieler der Techniksektion.

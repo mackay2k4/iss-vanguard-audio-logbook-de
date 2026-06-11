@@ -1,0 +1,9 @@
+Sprachrekorderdaten
+[Lander-KI]: Sensoren ausgefallen!
+[Navigator]: Einfach ignorieren. Wir sind fast da.
+[Pilot]: Das kann nicht Ihr Ernst sein! Ohne
+funktionierende Sensoren kann ich nicht landen!
+[Navigator]: Der Lander ist eh schon ziemlich zerbeult.
+Da wird eine ruppige Landung keinen großen Unterschied mehr
+machen.
+[Pilot]: Aber irgendwann müssen wir ja auch wieder abheben!

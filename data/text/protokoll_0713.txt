@@ -1,0 +1,12 @@
+[Außenteammitglied 1]: CAPCOM, wir haben den Eingang zum
+Bauwerk erreicht.
+[CAPCOM, Sergeant Xiu]: Lebenszeichen?
+[Außenteammitglied 2]: Keine. Das ist eine Geisterstadt
+da unten.
+[Außenteammitglied 1]: Aber ein wunderschöner Anblick,
+CAPCOM. Für eine furchteinflößende Alien-Ruine.
+[CAPCOM, Sergeant Xiu]: Verstanden, Außenteam. Ich rate
+Ihnen, eine Pause einzulegen, ehe Sie ehe Sie weitermachen.
+Wir haben keine Ahnung, wie weit das Bauwerk runterreicht.
+[Außenteammitglied 2]: Das lasse ich mir nicht zweimal
+sagen.

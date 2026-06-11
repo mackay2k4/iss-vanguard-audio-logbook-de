@@ -1,0 +1,10 @@
+[Sektionsleiter]: Feuerteam Alpha …
+*** Laute Explosionen ***
+[Sektionsleiter]: Hören Sie mich? Hier ist die Brücke.
+[Feuerteam Alpha]: Wir sind gerade ziemlich beschäftigt.
+[Sektionsleiter]: Das Arrogator-Landungsschiff ist direkt
+neben der Haupthalle durch den Rumpf gekracht. Es hat mehr
+Infanterie und eine Art Kampfmaschine an Bord.
+*** Laute Explosionen ***
+[Sektionsleiter]: Sie nähert sich der Brücke! Greifen Sie ein,
+Feuerteam Alpha!

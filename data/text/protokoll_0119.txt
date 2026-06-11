@@ -1,0 +1,15 @@
+*** Metallisches Kreischen des Rumpfs ***
+[Außenteammitglied 1]: Hier Außenteam! Diese Kreaturen
+sitzen auf dem Lander. Hören Sie uns, Vanguard?
+*** Störgeräusch ***
+[Außenteammitglied 1]: Vanguard, sind Sie da?
+Sie zerquetschen uns den Rumpf und versuchen reinzukommen.
+Erbitte Anweisungen, Ende!
+*** Störgeräusch ***
+[Außenteammitglied 2]: Zwecklos. Es sind einfach
+zu viele, die Verzerrung ist zu groß und die Signale gehen
+nicht durch.
+[Außenteammitglied 1]: Und was nun?
+*** Metallisches Kreischen des Rumpfs ***
+[Außenteammitglied 2]: Was immer wir tun, wir sollten uns
+beeilen.

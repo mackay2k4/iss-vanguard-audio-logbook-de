@@ -1,0 +1,24 @@
+[Außenteammitglied 1]: Vanguard? Hier Außenteam! Wir haben
+uns neu formiert und sind die Kanone los, die unseren
+Lander runtergeholt hat. Keine Verluste. Wann kommt das
+Rettungsteam voraussichtlich?
+[Such- und Rettungsmissionspilot, Sergeant Marquez]: Wir
+sind schon unterwegs, Außenteam. Geschätzte Ankunftszeit
+36 Stunden. Halten Sie durch.
+[CAPCOM, Sergeant Nahy]: Verfügen Sie für diese Zeit über
+genügend Vorräte, Außenteam?
+[Außenteammitglied 1]: Ja, zum Glück haben wir das meiste
+Zeug aus dem Lander. Der Sauerstoff wird knapp, sollte aber
+reichen.
+[CAPCOM, Sergeant Nahy]: Wunderbar. Dann können Sie Ihre
+Mission fortsetzen.
+[Außenteammitglied 2]: Bitte wiederholen, Vanguard.
+Wir sollen diesen Ort weiter untersuchen?
+[CAPCOM, Sergeant Nahy]: Natürlich. Sie können gerade
+nichts anderes tun, und wir müssen immer noch mehr über die
+Struktur erfahren, bevor die Vanguard sich weiter nähert.
+Ihre Scans zeigen eine Art Raum in der Kugel ganz in Ihrer
+Nähe, der offenbar außerirdische Technik enthält. Nehmen
+Sie das mal genauer unter die Lupe.
+[Außenteammitglied 1]: Verstanden, Vanguard. Wir setzen die
+Mission fort.

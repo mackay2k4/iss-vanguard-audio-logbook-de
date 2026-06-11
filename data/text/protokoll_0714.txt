@@ -1,0 +1,12 @@
+Sprachrekorderdaten
+[Pilot]: Jetzt ist es friedlich. Aber ich habe keine
+Ahnung, wohin die Reise geht.
+[Navigator]: Wenn ich mich nicht irre … Sehen Sie,
+da rechts!
+[Pilot]: Oha! Das Ding ist gewaltig. Wie kann sich das
+in der Luft halten?
+[Navigator]: Keine Ahnung. Aber wir können auf dem …
+[Lander-KI]: Sonneneruption entdeckt! Alle Sensoren
+ausgefallen!
+[Navigator]: Verdammt! Können Sie ohne landen?
+[Pilot]: Vielleicht?

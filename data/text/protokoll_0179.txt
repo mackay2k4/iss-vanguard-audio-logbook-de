@@ -1,0 +1,6 @@
+Forschungsbericht Muspelheim
+Die Schnittstelle ist zwar mechanisch, doch handelt es sich
+um einen komplizierten Apparat, der den Elementschutz des
+Wracks kontrolliert. Der Mechanismus ist beschädigt oder
+wir haben nicht verstanden, wie er funktioniert –
+und er bietet nicht allzu viele Funktionen.

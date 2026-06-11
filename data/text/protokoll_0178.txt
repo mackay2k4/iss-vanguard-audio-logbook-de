@@ -1,0 +1,6 @@
+[Außenteammitglied 1]: Hören Sie uns, Vanguard?
+[Captain Wayman]: Oh, da bin ich froh! Ja, wir hören Sie,
+Außenteam. Wir mussten die Vanguard weiter vom Schwarm
+entfernen, um diese Kreaturen zu meiden. Wie ist Ihr Status?
+[Außenteammitglied 1]: Der Rumpf hält kaum noch durch.
+Können Sie uns irgendwie unterstützen?

@@ -1,0 +1,14 @@
+Sprachrekorderdaten
+[Pilot]: Na komm schon!
+…
+[Pilot]: Nur noch ein kleines Stückchen!
+[Navigator]: Selbst wenn Sie unsere KI irgendwie motivieren
+würden, könnten nicht mal die freundlichsten Worte
+und Ermutigungen dafür sorgen, dass wir schneller fliegen.
+[Lander-KI]: Ich kann nicht motiviert werden. Ich arbeite
+durchgehend mit der maximal möglichen Effizienz.
+…
+[Pilot]: Endlich, wir nähern uns der Landezone!
+Gleich wird’s ungemütlich. Die Leute im Hangar werden mir
+für das den Kopf abreißen, was ich gleich mit dem Lander
+anstellen werde.
