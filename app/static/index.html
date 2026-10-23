@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISS Vanguard — Logbuch</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Login screen (shown when unauthenticated) -->
+  <div id="login-screen" class="hidden">
+    <div class="login-box">
+      <h1>ISS VANGUARD</h1>
+      <p class="subtitle">Logbuch</p>
+      <form id="login-form">
+        <input type="text" id="login-username" placeholder="Benutzername" autocomplete="username" required>
+        <input type="password" id="login-password" placeholder="Passwort" autocomplete="current-password" required>
+        <button type="submit">Einloggen</button>
+        <div id="login-error" class="error hidden">Ungültige Zugangsdaten</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main app shell (shown when authenticated) -->
+  <div id="app-shell" class="hidden">
+    <header id="app-header">
+      <h1 class="app-title">ISS VANGUARD <span class="subtitle-inline">Logbuch</span></h1>
+
+      <!-- Jump box (centered in the header) -->
+      <div id="jump-box">
+        <button id="prev-btn" class="nav-arrow" title="Vorheriges Protokoll" aria-label="Vorheriges Protokoll">◀</button>
+        <input type="text" id="jump-input" placeholder="Protokoll Nr. (z.B. 258 oder 905 A)">
+        <button id="jump-btn">Öffnen</button>
+        <button id="next-btn" class="nav-arrow" title="Nächstes Protokoll" aria-label="Nächstes Protokoll">▶</button>
+        <span id="jump-error" class="error hidden">Protokoll nicht gefunden</span>
+      </div>
+
+      <nav class="header-nav">
+        <a id="nav-fortschritt" href="/fortschritt" class="nav-link">Fortschritt</a>
+        <a id="nav-planeten" href="/planeten" class="nav-link">Planeten</a>
+        <a id="nav-dokumente" href="/dokumente" class="nav-link">Dokumente</a>
+        <a id="nav-einstellungen" href="/einstellungen" class="nav-link">Einstellungen</a>
+        <span id="header-username" class="header-username"></span>
+        <button id="logout-btn" class="btn-ghost">Abmelden</button>
+      </nav>
+    </header>
+
+    <!-- Savegame bar -->
+    <div id="savegame-bar">
+      <div id="savegame-info">
+        <span class="label">Savegame:</span>
+        <select id="savegame-select"></select>
+        <button id="new-savegame-btn" class="btn-small" title="Neues Savegame">+</button>
+        <button id="delete-savegame-btn" class="btn-small btn-danger" title="Löschen">✕</button>
+      </div>
+      <div id="no-savegame-info" class="hidden">
+        Kein Savegame aktiv.
+        <button id="create-first-savegame-btn" class="btn-small">Savegame erstellen</button>
+      </div>
+    </div>
+
+    <!-- Main content area -->
+    <main id="main-content">
+      <!-- Protocol view injected here -->
+    </main>
+  </div>
+
+  <!-- Savegame create dialog -->
+  <div id="create-savegame-dialog" class="dialog-overlay hidden">
+    <div class="dialog-box">
+      <h2>Neues Savegame</h2>
+      <input type="text" id="new-savegame-name" placeholder="Name (z.B. Durchgang 1)">
+      <div class="dialog-actions">
+        <button id="create-savegame-confirm">Erstellen</button>
+        <button id="create-savegame-cancel" class="btn-ghost">Abbrechen</button>
+      </div>
+      <div id="create-savegame-error" class="error hidden"></div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

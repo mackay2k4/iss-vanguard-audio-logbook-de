@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+passlib[argon2]
+itsdangerous
+aiosqlite
+python-multipart

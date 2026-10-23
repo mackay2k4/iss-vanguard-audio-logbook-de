@@ -1,0 +1,43 @@
+# ============================================================
+# .gitignore — USAGE-ONLY repo.
+# Committed: everything needed to BUILD the image and RUN the app
+# (the app package incl. committed instruction crops + static assets,
+# the content model, the audio files, and the Docker config).
+# Ignored: regeneration-only tooling + source PDFs + scratch + secrets.
+# ============================================================
+
+# --- Python / env ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- IDE / tooling ---
+.vscode/
+.kiro/
+
+# --- Secrets / personal setup (templates .example are committed) ---
+.env
+dev/.env
+docker/.env
+docker/docker-compose.override.yml
+
+# --- Runtime data ---
+data/db/
+
+# ============================================================
+# Regeneration-only + source + scratch (NOT needed to run the app).
+# The app ships pre-cropped images in app/static/instructions/ and the
+# assembled content/logbook.de.final.json, so none of the below is needed
+# by end users. (Keep them locally; they're just not committed.)
+# ============================================================
+
+# Out-of-band content pipeline (scripts, overrides, source corpus).
+dev/
+
+# All source PDFs / renders / scratch under data/ EXCEPT the audio files,
+# which the app serves at runtime (bind-mounted). Ignore everything under data/
+# recursively, then re-include the audiofiles directory.
+/data/**
+!/data/audiofiles/
+!/data/audiofiles/**

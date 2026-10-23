@@ -1,0 +1,278 @@
+{
+ "pages": [
+  {
+   "image": "planet_sheet_p0.png",
+   "vbW": 266,
+   "vbH": 196,
+   "imgW": 1066,
+   "imgH": 783,
+   "fields": [
+    {
+     "name": "Planet Name",
+     "x": 26.2,
+     "y": 23.5,
+     "w": 212.6,
+     "h": 14.4,
+     "multiline": true
+    },
+    {
+     "name": "Remaining Unique Discoveries 1",
+     "x": 25.4,
+     "y": 49.7,
+     "w": 45.1,
+     "h": 14.9,
+     "multiline": true
+    },
+    {
+     "name": "Remaining Unique Discoveries 2",
+     "x": 82.8,
+     "y": 50.9,
+     "w": 46.3,
+     "h": 13.2,
+     "multiline": true
+    },
+    {
+     "name": "Remaining Unique Discoveries 3",
+     "x": 138.7,
+     "y": 50.4,
+     "w": 44.6,
+     "h": 13.9,
+     "multiline": true
+    },
+    {
+     "name": "Remaining Unique Discoveries 4",
+     "x": 189.6,
+     "y": 50.4,
+     "w": 51.6,
+     "h": 13.7,
+     "multiline": true
+    },
+    {
+     "name": "Text6",
+     "x": 26.2,
+     "y": 78.0,
+     "w": 44.2,
+     "h": 13.2,
+     "multiline": true
+    },
+    {
+     "name": "Text7",
+     "x": 25.9,
+     "y": 94.6,
+     "w": 44.9,
+     "h": 13.7,
+     "multiline": true
+    },
+    {
+     "name": "Text8",
+     "x": 25.9,
+     "y": 110.9,
+     "w": 45.6,
+     "h": 14.2,
+     "multiline": true
+    },
+    {
+     "name": "Text9",
+     "x": 83.5,
+     "y": 77.3,
+     "w": 156.5,
+     "h": 14.4,
+     "multiline": true
+    },
+    {
+     "name": "Text10",
+     "x": 83.8,
+     "y": 93.8,
+     "w": 156.7,
+     "h": 14.2,
+     "multiline": true
+    },
+    {
+     "name": "Text11",
+     "x": 83.8,
+     "y": 110.4,
+     "w": 157.2,
+     "h": 15.1,
+     "multiline": true
+    },
+    {
+     "name": "Text12",
+     "x": 25.9,
+     "y": 136.8,
+     "w": 214.8,
+     "h": 42.5,
+     "multiline": true
+    }
+   ]
+  },
+  {
+   "image": "planet_sheet_p1.png",
+   "vbW": 266,
+   "vbH": 196,
+   "imgW": 1066,
+   "imgH": 783,
+   "fields": [
+    {
+     "name": "Text13",
+     "x": 29.5,
+     "y": 23.8,
+     "w": 46.1,
+     "h": 12.7,
+     "multiline": true
+    },
+    {
+     "name": "Text14",
+     "x": 30.0,
+     "y": 39.1,
+     "w": 46.1,
+     "h": 12.7,
+     "multiline": true
+    },
+    {
+     "name": "Text15",
+     "x": 30.5,
+     "y": 54.5,
+     "w": 46.1,
+     "h": 12.7,
+     "multiline": true
+    },
+    {
+     "name": "Text16",
+     "x": 29.3,
+     "y": 70.1,
+     "w": 46.1,
+     "h": 12.7,
+     "multiline": true
+    },
+    {
+     "name": "Text17",
+     "x": 29.5,
+     "y": 86.9,
+     "w": 46.1,
+     "h": 12.7,
+     "multiline": true
+    },
+    {
+     "name": "Text18",
+     "x": 30.0,
+     "y": 102.5,
+     "w": 46.1,
+     "h": 12.7,
+     "multiline": true
+    },
+    {
+     "name": "Text19",
+     "x": 29.3,
+     "y": 118.6,
+     "w": 46.1,
+     "h": 12.7,
+     "multiline": true
+    },
+    {
+     "name": "Text20",
+     "x": 29.5,
+     "y": 133.9,
+     "w": 46.1,
+     "h": 12.7,
+     "multiline": true
+    },
+    {
+     "name": "Text21",
+     "x": 29.8,
+     "y": 150.5,
+     "w": 46.1,
+     "h": 12.7,
+     "multiline": true
+    },
+    {
+     "name": "Text22",
+     "x": 29.5,
+     "y": 166.3,
+     "w": 46.1,
+     "h": 12.7,
+     "multiline": true
+    },
+    {
+     "name": "Text23",
+     "x": 82.3,
+     "y": 23.3,
+     "w": 157.2,
+     "h": 12.2,
+     "multiline": true
+    },
+    {
+     "name": "Text24",
+     "x": 82.6,
+     "y": 39.1,
+     "w": 157.2,
+     "h": 12.2,
+     "multiline": true
+    },
+    {
+     "name": "Text25",
+     "x": 82.8,
+     "y": 54.7,
+     "w": 157.2,
+     "h": 12.2,
+     "multiline": true
+    },
+    {
+     "name": "Text26",
+     "x": 82.6,
+     "y": 71.0,
+     "w": 157.2,
+     "h": 12.2,
+     "multiline": true
+    },
+    {
+     "name": "Text27",
+     "x": 83.3,
+     "y": 86.9,
+     "w": 157.2,
+     "h": 12.2,
+     "multiline": true
+    },
+    {
+     "name": "Text28",
+     "x": 82.8,
+     "y": 103.2,
+     "w": 157.2,
+     "h": 12.2,
+     "multiline": true
+    },
+    {
+     "name": "Text29",
+     "x": 82.1,
+     "y": 118.8,
+     "w": 157.2,
+     "h": 12.2,
+     "multiline": true
+    },
+    {
+     "name": "Text30",
+     "x": 82.8,
+     "y": 134.9,
+     "w": 157.2,
+     "h": 12.2,
+     "multiline": true
+    },
+    {
+     "name": "Text31",
+     "x": 83.3,
+     "y": 150.5,
+     "w": 157.2,
+     "h": 12.2,
+     "multiline": true
+    },
+    {
+     "name": "Text32",
+     "x": 82.6,
+     "y": 166.1,
+     "w": 157.2,
+     "h": 12.2,
+     "multiline": true
+    }
+   ]
+  }
+ ]
+}

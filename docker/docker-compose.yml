@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: iss-vanguard-app
+    restart: unless-stopped
+    environment:
+      - ISS_VANGUARD_URL=${ISS_VANGUARD_URL:-http://localhost:8080}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - DATA_DB=/data/db/app.sqlite
+      - AUDIO_DIR=/data/audiofiles
+      - CONTENT_PATH=/app/content/logbook.de.final.json
+    ports:
+      - "${ISS_VANGUARD_PORT:-8080}:80"
+    volumes:
+      - ../data/audiofiles:/data/audiofiles:ro
+      - ../data/db:/data/db

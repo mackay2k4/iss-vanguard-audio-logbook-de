@@ -1,0 +1,919 @@
+/* ISS Vanguard Logbuch — Dark space theme */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0e17;
+  --surface: #1a1e2e;
+  --accent: #4fc3f7;
+  --accent-hover: #81d4fa;
+  --text: #e0e0e0;
+  --text-dim: #888;
+  --danger: #ef5350;
+  --success: #4caf50;
+  --warning: #ff9800;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.hidden { display: none !important; }
+.error { color: var(--danger); font-size: 0.875rem; margin-top: 0.5rem; }
+
+/* ===== Login ===== */
+#login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-box {
+  background: var(--surface);
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+.login-box h1 {
+  color: var(--accent);
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+.login-box .subtitle { color: var(--text-dim); margin-bottom: 1.5rem; }
+#login-form input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  background: var(--bg);
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: var(--text);
+}
+#login-form input:focus { outline: none; border-color: var(--accent); }
+#login-form button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#login-form button:hover { background: var(--accent-hover); }
+
+/* ===== App shell ===== */
+#app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.app-title {
+  color: var(--accent);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.subtitle-inline { color: var(--text-dim); font-weight: normal; font-size: 0.9rem; }
+.header-nav { display: flex; align-items: center; gap: 1rem; }
+.nav-link { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+.nav-link:hover { color: var(--accent-hover); }
+.header-username { color: var(--text-dim); font-size: 0.9rem; }
+
+/* ===== Savegame bar ===== */
+#savegame-bar {
+  padding: 0.5rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid #1a1a2a;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+#savegame-info { display: flex; align-items: center; gap: 0.5rem; }
+.label { color: var(--text-dim); font-size: 0.85rem; }
+#savegame-select {
+  background: var(--bg);
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: var(--text);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+}
+.btn-small {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.btn-small:hover { background: #222; }
+.btn-danger { border-color: var(--danger); color: var(--danger); }
+.btn-ghost {
+  background: transparent;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.btn-ghost:hover { background: #222; }
+
+/* ===== Jump box ===== */
+#jump-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* centered input + arrows */
+  gap: 0.5rem;
+  position: relative;
+  flex: 1 1 auto;            /* take the middle space in the header */
+}
+/* Prev/next arrows: round, subtle, sit either side of the centered input */
+#jump-box .nav-arrow {
+  padding: 0;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid #333;
+  border-radius: 50%;
+}
+#jump-box .nav-arrow:hover { background: #2a2f42; color: var(--accent); }
+#jump-error {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+#jump-input {
+  padding: 0.5rem 0.75rem;
+  background: var(--surface);
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 1rem;
+  width: 220px;
+}
+#jump-input:focus { outline: none; border-color: var(--accent); }
+#jump-box button {
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#jump-box button:hover { background: var(--accent-hover); }
+
+/* ===== Main content ===== */
+#main-content {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+}
+
+/* Protocol view */
+.protocol-title {
+  font-size: 1.3rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.25rem;
+}
+
+/* Prose */
+.text-display {
+  padding: 1.25rem;
+  background: var(--surface);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+/* Keep prose at a comfortable reading measure even though the page is now wide
+   (the instruction image / progress row still use the full width). */
+.text-display .narrative,
+.text-display .game-instructions { max-width: 80ch; }
+.text-display .speaker { font-weight: bold; color: var(--accent); }
+.text-display .sfx { font-style: italic; color: var(--warning); display: block; margin: 0.5rem 0; }
+.text-display .classified { font-weight: bold; color: var(--danger); text-transform: uppercase; }
+.text-display .report-title { font-weight: bold; color: #a5d6a7; display: block; margin-top: 0.3rem; }
+.text-display p { margin: 0.6rem 0; }
+.text-display a { color: var(--accent); }
+.text-display a:hover { color: var(--accent-hover); }
+
+.prose-divider {
+  border: none;
+  border-top: 1px solid #2a2e40;
+  margin: 1rem 0;
+}
+
+.game-instructions {
+  font-size: 0.9rem;
+  color: #b0b8c8;
+  line-height: 1.7;
+}
+.game-instructions p { margin: 0.4rem 0; }
+.game-instructions ul {
+  margin: 0.4rem 0 0.4rem 1.5rem;
+  padding: 0;
+  list-style: disc;
+}
+.game-instructions li {
+  margin: 0.25rem 0;
+  line-height: 1.6;
+}
+.game-instructions a { color: var(--accent); }
+.game-instructions a:hover { color: var(--accent-hover); }
+
+/* Game icons (inline resource/dice icons from PDF) */
+.game-icon {
+  display: inline-block;
+  height: 1.1em;
+  width: auto;
+  vertical-align: middle;
+  margin: 0 1px;
+}
+
+/* Audio player */
+.audio-section { margin-bottom: 1.25rem; }
+.variants { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.variant-btn {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+.variant-btn.active { background: var(--accent); color: #000; }
+audio { width: 100%; margin-bottom: 0.5rem; }
+.speed-control { display: flex; gap: 0.3rem; align-items: center; flex-wrap: wrap; }
+.speed-label { color: var(--text-dim); font-size: 0.8rem; margin-right: 0.25rem; }
+.speed-btn {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.speed-btn:hover { background: var(--surface); }
+.speed-btn.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: bold; }
+
+/* Checklist */
+.checklist { margin-top: 1rem; }
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #1a1a2a;
+}
+.checklist-item:last-child { border-bottom: none; }
+.checklist-item input[type="checkbox"] { margin-top: 3px; cursor: pointer; width: 16px; height: 16px; accent-color: var(--accent); }
+.checklist-item input[type="checkbox"]:disabled { cursor: not-allowed; opacity: 0.5; }
+.checklist-item label { flex: 1; font-size: 0.9rem; line-height: 1.5; cursor: pointer; }
+.checklist-item label a { color: var(--accent); }
+.save-error { color: var(--danger); font-size: 0.75rem; margin-left: 0.25rem; }
+
+/* Fortschritt / progress page */
+.progress-list { list-style: none; }
+.progress-item {
+  padding: 0.6rem;
+  border-bottom: 1px solid #1a1a2a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.progress-item:hover { background: var(--surface); border-radius: 4px; }
+.progress-item .proto-number { color: var(--accent); font-weight: bold; min-width: 60px; }
+.progress-prompt { color: var(--text-dim); padding: 1rem 0; }
+
+/* Dialog */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+.dialog-box {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 320px;
+}
+.dialog-box h2 { color: var(--accent); margin-bottom: 1rem; }
+.dialog-box input {
+  width: 100%;
+  padding: 0.6rem;
+  background: var(--bg);
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+.dialog-actions { display: flex; gap: 0.5rem; }
+.dialog-actions button {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  background: var(--accent);
+  color: #000;
+  font-weight: bold;
+}
+.dialog-actions .btn-ghost {
+  background: transparent;
+  border: 1px solid #444;
+  color: var(--text);
+  font-weight: normal;
+}
+
+/* ===== Inline game icons (semantic [icon:KEY] chips) ===== */
+.game-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3em;
+  height: 1.3em;
+  margin: 0 0.12em;
+  border-radius: 4px;
+  font-size: 0.82em;
+  line-height: 1;
+  font-weight: 700;
+  vertical-align: -0.2em;
+  background: #2a2f42;
+  color: var(--text);
+  border: 1px solid #3a4059;
+  user-select: none;
+}
+img.game-icon { /* legacy image icons */
+  width: 1.2em; height: 1.2em; border: none; background: none; padding: 0;
+}
+/* Game icons rendered as their NAME in brackets, e.g. "[Erfolgs-Marker]". A
+   subtle accent so they read as game tokens without being loud. */
+.game-icon-name {
+  color: var(--accent, #4fc3f7);
+  font-weight: 600;
+  white-space: nowrap;
+}
+/* Section colours (ISS Vanguard canonical) */
+.game-icon--recon       { background: #1b3a26; color: #6ddf98; border-color: #2e6b45; }
+.game-icon--security    { background: #3a1b1f; color: #ff8a8a; border-color: #6b2e36; }
+.game-icon--science     { background: #16304a; color: #7fc4ff; border-color: #2e5a8a; }
+.game-icon--engineering { background: #3a3417; color: #f2d470; border-color: #6b5f2e; }
+/* Resource / marker families */
+.game-icon--discovery { background: #2a2342; color: #c7a8ff; border-color: #4a3a6b; }
+.game-icon--lead      { background: #16303a; color: #7fd4e0; border-color: #2e5a6b; }
+.game-icon--resource  { background: #203020; color: #9ccf7a; border-color: #3a5a2e; }
+.game-icon--danger    { background: #3a1b1f; color: #ff8a8a; border-color: #6b2e36; }
+.game-icon--honor     { background: #3a3417; color: #f2d470; border-color: #6b5f2e; }
+.game-icon--die       { background: #1a1e2e; color: var(--accent); border-color: #2e5a8a; }
+.game-icon--neutral   { background: #2a2f42; color: var(--text); border-color: #3a4059; }
+
+/* ===== Instruction image (cropped from the logbook, pixel-perfect) ===== */
+.instruction-image {
+  margin-top: 4px;
+  text-align: center;
+}
+.instruction-image img {
+  max-width: 100%;
+  height: auto;
+  background: #fff;          /* the crops have a white background */
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Settings page ===== */
+.settings-list {
+  max-width: 640px;
+  margin-top: 12px;
+}
+.setting-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.setting-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.setting-label small {
+  color: var(--text-dim, #999);
+  font-size: 12px;
+  font-weight: 400;
+  max-width: 48ch;
+}
+.setting-row input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+/* ===== Checklist heading / hint (progress boxes) ===== */
+.checklist-title {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-dim, #999);
+  margin: 0 0 6px;
+}
+.checklist-hint {
+  font-size: 0.8rem;
+  color: var(--text-dim, #999);
+  margin: 0 0 8px;
+}
+
+/* ===== Instruction image + progress side by side ===== */
+.image-with-progress {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 4px;
+}
+.image-with-progress .instruction-image {
+  flex: 1 1 auto;
+  min-width: 0;          /* allow the image column to shrink */
+  margin-top: 0;
+}
+.image-with-progress .checklist {
+  flex: 0 0 240px;        /* fixed-width progress column on the right */
+  margin-top: 0;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px 14px;
+  position: sticky;
+  top: 12px;
+}
+/* Stack on narrow screens */
+@media (max-width: 760px) {
+  .image-with-progress { flex-direction: column; }
+  .image-with-progress .checklist { flex: 1 1 auto; width: 100%; }
+}
+
+/* ===== Checkbox strip images (printed option line next to the checkbox) ===== */
+.checkbox-strip {
+  height: 1.5em;           /* uniform line-height sizing across all strips */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 4px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+.checklist-item label { min-width: 0; }     /* let the strip shrink within the row */
+/* The Fortschritt column needs more room when it holds strip images. */
+.image-with-progress .checklist { flex-basis: 320px; }
+
+/* ===== Progress panel (holds checklist and/or text-field widget) ===== */
+.image-with-progress .progress-panel {
+  flex: 0 0 320px;
+}
+.image-with-progress .progress-panel .checklist,
+.image-with-progress .progress-panel .textfields,
+.image-with-progress .progress-panel .ref-links {
+  flex: none;
+  width: 100%;
+  margin-top: 0;
+}
+.image-with-progress .progress-panel .textfields { margin-top: 16px; }
+@media (max-width: 760px) {
+  .image-with-progress .progress-panel { flex: 1 1 auto; width: 100%; }
+}
+
+/* ===== Text-field widget (e.g. P880 section notes) ===== */
+.textfields {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.textfield-row { margin-bottom: 10px; display: flex; flex-direction: column; gap: 3px; }
+.textfield-row label { font-size: 0.82rem; color: var(--text); font-weight: 600; }
+.textfield-row textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  background: #0f1220;
+  color: var(--text);
+  border: 1px solid #3a4059;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font: inherit;
+  font-size: 0.85rem;
+}
+.textfield-row textarea:focus { outline: none; border-color: var(--accent); }
+.textfield-row textarea:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ===== Rotated instruction image (e.g. P999: 90deg counterclockwise) ===== */
+/* The source image is portrait; display it rotated 90deg CCW to read as
+   landscape. A transform doesn't change layout, so the <img> is sized to the
+   WRAPPER's height (= its post-rotation width) and absolutely centered. The
+   wrapper's aspect-ratio is the rotated ratio of the source image so the block
+   reserves the right amount of vertical space.
+   Source P999 is 2535x3555 (portrait); rotated it is 3555x2535 (landscape),
+   aspect-ratio ~1.402. */
+.instruction-image--rot90ccw {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3555 / 2535;   /* landscape footprint after rotation */
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0;
+}
+.instruction-image--rot90ccw img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* The img keeps its natural portrait orientation here: set its WIDTH to the
+     wrapper's height and its HEIGHT to the wrapper's width, so after rotating
+     90deg it exactly fills the landscape wrapper. We express both in terms of
+     the wrapper via its known aspect ratio using CSS: height = 100% (wrapper
+     height) maps to the rotated width; width = (wrapper height) as well is set
+     through aspect handling by letting height drive and width be auto. */
+  height: auto;
+  width: calc(100% * (2535 / 3555));   /* = wrapper height; becomes rotated height */
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transform-origin: center center;
+  max-width: none;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  display: block;
+}
+
+/* ===== Interactive diagram with per-hotspot notes (e.g. P999) ===== */
+/* A landscape diagram image with an SVG overlay of textareas, one per block.
+   The SVG uses the image's own coordinate system (viewBox) so the textareas
+   sit exactly on the printed boxes. Text is shown inline; it is stored per
+   savegame in the DB. No header. */
+.diagram-notes {
+  margin-top: 8px;
+}
+.diagram-notes__canvas {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+.diagram-notes__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.diagram-notes__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Each note textarea fills its block and shows its text inline. Transparent by
+   default so the printed box shows through; subtle tint when it has content. */
+.diagram-note {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 2px 4px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: #15202b;
+  font: 600 13px/1.15 system-ui, -apple-system, "Segoe UI", sans-serif;
+  resize: none;
+  overflow: hidden;
+  cursor: text;
+}
+.diagram-note::placeholder { color: #9aa3ad; font-weight: 500; }
+.diagram-note:hover { border-color: #1876bd55; }
+.diagram-note:focus {
+  outline: none;
+  border-color: #1876bd;
+  background: #ffffffcc;
+}
+.diagram-note.has-text {
+  background: #f0b4291f;
+  border-color: #b8790055;
+}
+.diagram-note.save-failed { border-color: #d64545; background: #d6454520; }
+.diagram-note:disabled { cursor: not-allowed; color: #15202b; opacity: 0.9; }
+
+/* Single-line 'input' style for the ISSMAP tech-tree fields: the textarea
+   exactly fills its thin white box, no wrapping, small centered text. */
+.diagram-note--input {
+  padding: 0 3px;
+  border-radius: 7px;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  line-height: 1;
+  font: 700 8px/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+  display: flex;
+  align-items: center;
+}
+.diagram-note--input.has-text { background: #f0b42933; border-color: #b87900aa; }
+
+/* ===== Dash toggles ("—" cost markers that flip to "+") ===== */
+.dash-toggle { cursor: pointer; }
+.dash-hit { fill: #4fc3f7; fill-opacity: 0; }
+.dash-toggle:hover .dash-hit,
+.dash-toggle:focus .dash-hit { fill-opacity: 0.25; outline: none; }
+/* When toggled to "+", cover the printed dash with a gold marker + draw "+". */
+.dash-cover { fill: #f0b429; }
+.dash-plus {
+  fill: #1a1a1a;
+  font: 900 11px/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+  pointer-events: none;
+}
+
+/* Clickable planet-title links on the P999 map (open the record sheet). */
+.planet-link rect { fill: #4fc3f7; fill-opacity: 0; cursor: pointer; }
+.planet-link:hover rect, .planet-link:focus rect {
+  fill-opacity: 0.22;
+  stroke: #ffffff;
+  stroke-opacity: 0.6;
+  outline: none;
+}
+
+/* ===== Clickable diagram overlay with X-markers (e.g. P55) ===== */
+/* A tight inline-block wrapper holds the image + an absolutely-positioned SVG
+   overlay whose viewBox matches the image pixel size, so markers sit exactly on
+   the diagram nodes regardless of column width. The wrapper carries the white
+   padded box; the SVG overlays only the image content area (inside padding). */
+.diagram-overlay-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  line-height: 0;
+}
+/* Neutralise the generic .instruction-image img box styling inside the wrapper
+   (the wrapper now provides the bg/padding/shadow). */
+.diagram-overlay-wrap img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+.diagram-overlay {
+  position: absolute;
+  top: 12px; left: 12px;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
+}
+.ov-marker { cursor: pointer; }
+.ov-hit {
+  fill: #4fc3f7;
+  fill-opacity: 0;
+  stroke: transparent;
+  stroke-width: 4;
+}
+.ov-marker:hover .ov-hit,
+.ov-marker:focus .ov-hit { fill-opacity: 0.12; stroke: #1876bd; outline: none; }
+.ov-marker.is-on .ov-hit { fill-opacity: 0.06; }
+.ov-x line {
+  stroke: #d62d2d;
+  stroke-width: 12;
+  stroke-linecap: round;
+}
+
+/* ===== Fortschritt grid ("Log N" blocks with shared checkboxes) ===== */
+.fp-grid {
+  margin-top: 12px;
+  display: grid;
+  /* Fill left-to-right, then wrap to the next row (reading order). */
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-auto-flow: row;
+  gap: 14px 26px;
+  align-items: start;
+}
+.fp-log {
+  margin: 0;
+  padding: 0;
+}
+.fp-log-title {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent, #4fc3f7);
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+.fp-log-title:hover { text-decoration: underline; }
+.fp-boxes { display: flex; flex-direction: column; gap: 3px; }
+.fp-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 22px;
+}
+.fp-box input[type="checkbox"] {
+  width: 17px; height: 17px;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+.fp-box-label {
+  font-size: 0.85rem;
+  color: var(--text, #e6e6e6);
+  cursor: pointer;
+  overflow-wrap: anywhere;   /* break overly long words so cells stay tidy */
+}
+.fp-box-label--empty { min-height: 17px; }   /* bare checkbox row (no label) */
+.fp-box .save-error { font-size: 0.72rem; color: #d64545; }
+
+/* ===== Reference links panel (printed "Lies Protokoll N", no checkbox) ===== */
+.ref-links {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.ref-links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ref-links-list a {
+  color: var(--accent, #4fc3f7);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.ref-links-list a:hover { text-decoration: underline; }
+
+/* ===== Dokumente (PDF links) page ===== */
+.doc-list {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 640px;
+}
+.doc-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text, #e6e6e6);
+  transition: border-color 0.15s, background 0.15s;
+}
+.doc-card:hover { border-color: var(--accent, #4fc3f7); background: #20242e; }
+.doc-icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px; height: 46px;
+  border-radius: 6px;
+  background: #3a1b1f;
+  color: #ff8a8a;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+.doc-icon--web { background: #16304a; color: #7fc4ff; }
+.doc-meta { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.doc-title { font-weight: 600; color: var(--accent, #4fc3f7); }
+.doc-desc { font-size: 0.85rem; color: var(--text-dim, #999); }
+
+/* ===== Planeten index + record sheet ===== */
+.planet-grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 10px;
+}
+.planet-card {
+  display: block;
+  padding: 14px 16px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: var(--accent, #4fc3f7);
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.planet-card:hover { border-color: var(--accent, #4fc3f7); background: #20242e; }
+
+.planet-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.planet-back { color: var(--accent, #4fc3f7); text-decoration: none; font-size: 0.9rem; }
+.planet-back:hover { text-decoration: underline; }
+
+.planet-sheet {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 900px;
+}
+.sheet-canvas {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  container-type: inline-size;   /* enable cqw units for font scaling */
+}
+.sheet-img { display: block; width: 100%; height: 100%; }
+/* Fields are absolutely positioned in PERCENT over the image, so they scale
+   cleanly and stay centred at any page position. Font scales with the sheet
+   width via container-query units (cqw). */
+.sheet-field {
+  position: absolute;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 0.5cqw;
+  border: 1px solid transparent;
+  border-radius: 0.6cqw;
+  background: transparent;
+  color: #15202b;
+  font: 600 1.55cqw/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+  resize: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  cursor: text;
+}
+/* single-line <input> natively centres its text vertically at any height. */
+.sheet-field--line { line-height: normal; }
+.sheet-field--multi {
+  white-space: normal;
+  line-height: 1.25;
+  padding-top: 0.6cqw;
+}
+.sheet-field:hover { border-color: #1876bd55; }
+.sheet-field:focus { outline: none; border-color: #1876bd; background: #ffffffcc; }
+.sheet-field.has-text { background: #f0b4291a; }
+.sheet-field.save-failed { border-color: #d64545; background: #d6454520; }
+.sheet-field:disabled { cursor: not-allowed; opacity: 0.9; }

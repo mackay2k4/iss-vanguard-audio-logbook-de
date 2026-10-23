@@ -1,0 +1,27 @@
+# ============================================================
+# Docker build context for the single-stage app image.
+# The image only needs: the app package (incl. committed instruction crops and
+# static assets) + content/logbook.de.final.json. Everything else is excluded
+# to keep the context small. Instruction crops are generated OUT OF BAND via
+# dev/regenerate.sh — NOT during the image build.
+# ============================================================
+
+.git
+.venv
+__pycache__
+**/__pycache__
+*.pyc
+*.pyo
+
+# The entire data/ tree (source PDFs, audio, metadata, db, scratch) is only
+# needed by the out-of-band regenerate step, never by the image build.
+data/
+
+# Dev scripts/tooling are only used by regenerate.sh, not the image build.
+dev/
+
+# Build/compose files aren't needed inside the image context.
+docker/
+
+# Obsolete checkbox strip images (labels render as text now).
+app/static/checkboxes

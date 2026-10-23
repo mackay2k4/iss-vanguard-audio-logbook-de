@@ -1,0 +1,19 @@
+# Copy to docker-compose.override.yml and adjust.
+# This file is gitignored.
+#
+# ISS_VANGUARD_HOST is just the bare hostname for the Traefik routing rule
+# (e.g. iss.examples.com). It must match the host in ISS_VANGUARD_URL.
+
+services:
+  app:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.iss-vanguard.rule=Host(`${ISS_VANGUARD_HOST}`)"
+      - "traefik.http.routers.iss-vanguard.entrypoints=https"
+      - "traefik.http.routers.iss-vanguard.tls=true"
+    networks:
+      proxy_default:
+
+networks:
+  proxy_default:
+    external: true

@@ -1,0 +1,26 @@
+{
+  "_doc": "Canonical planet list for the P999 tech-tree (ISSMAP). 'slug' is the stable id used in planet-sheet note keys (planet-<slug>-<field>) and URLs (/planet/<slug>). Order matches the map reading order.",
+  "planets": [
+    { "slug": "beta-tarsoni", "name": "Beta Tarsoni" },
+    { "slug": "hodeus-b", "name": "Hodeus B" },
+    { "slug": "k3-569", "name": "K3 569" },
+    { "slug": "kelu-8", "name": "Kelu-8" },
+    { "slug": "lf-122", "name": "LF-122" },
+    { "slug": "gj-1164", "name": "GJ 1164" },
+    { "slug": "mu-librae", "name": "Mu Librae" },
+    { "slug": "iota-pegasi", "name": "Iota Pegasi" },
+    { "slug": "51-arietis", "name": "51 Arietis" },
+    { "slug": "eye-of-the-void", "name": "Eye of the Void" },
+    { "slug": "lcs-17", "name": "LCS-17" },
+    { "slug": "gliese-368-2", "name": "Gliese 368-2" },
+    { "slug": "mp-212", "name": "MP-212" },
+    { "slug": "toi-2", "name": "TOI-2" },
+    { "slug": "81-inf", "name": "81 INF" },
+    { "slug": "kepler-831", "name": "Kepler 831" },
+    { "slug": "12-leonis", "name": "12 Leonis" },
+    { "slug": "nu4-ceti", "name": "NU4 Ceti" },
+    { "slug": "gyf-4", "name": "GYF-4" },
+    { "slug": "hr-5730", "name": "HR 5730" },
+    { "slug": "upsilon-borealis", "name": "Upsilon Borealis" }
+  ]
+}
