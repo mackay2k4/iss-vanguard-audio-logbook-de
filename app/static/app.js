@@ -877,16 +877,12 @@ function processLine(raw) {
   // Strip any [note:...] that follows an [icon:unknown] (author annotation,
   // not meant for display).
   let src = raw.replace(/\[note:[^\]]*\]/g, '');
-  // Extract [icon:KEY] placeholders before HTML escaping. A KEY of
-  // letters/underscores is a semantic icon; anything containing a '.' is a
-  // legacy image filename and falls back to an <img>.
+  // Extract [icon:KEY] placeholders before HTML escaping. Every icon renders
+  // as its semantic text name via iconHtml() (the ICONS vocab); unknown keys
+  // fall back to a generic label.
   const withMarkers = src.replace(/\[icon:([^\]]+)\]/g, (match, key) => {
     const idx = icons.length;
-    if (/\./.test(key)) {
-      icons.push(`<img src="/static/icons/${key}" class="game-icon" alt="">`);
-    } else {
-      icons.push(iconHtml(key));
-    }
+    icons.push(iconHtml(key));
     return `\x00ICON${idx}\x00`;
   });
   // Escape HTML entities

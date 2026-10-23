@@ -35,6 +35,9 @@ data/db/
 # Out-of-band content pipeline (scripts, overrides, source corpus).
 dev/
 
+# Source metadata for regeneration only — the app loads logbook.de.final.json.
+content/logbook.de.json
+
 # All source PDFs / renders / scratch under data/ EXCEPT the audio files,
 # which the app serves at runtime (bind-mounted). Ignore everything under data/
 # recursively, then re-include the audiofiles directory.
