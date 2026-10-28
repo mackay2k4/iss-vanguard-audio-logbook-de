@@ -18,7 +18,9 @@ let state = {
 // showText: whether the narrative text block is shown. The audio player and the
 // instruction image are ALWAYS shown regardless. Defaults to true.
 const SETTINGS_KEY = 'iss-vanguard-settings';
-const DEFAULT_SETTINGS = { showText: true };
+// viewMode: 'auto' | 'mobile' | 'desktop'. 'auto' uses a mobile layout on
+// narrow screens (phones), the regular layout otherwise.
+const DEFAULT_SETTINGS = { showText: true, viewMode: 'auto' };
 
 function loadSettings() {
   try {
@@ -33,6 +35,23 @@ function saveSettings(s) {
 }
 
 let settings = loadSettings();
+
+// Apply the chosen view mode by toggling a single class on <html>: the CSS
+// mobile layout keys entirely off html.view-mobile. 'mobile'/'desktop' force it;
+// 'auto' resolves via screen width (and re-evaluates on resize/rotate).
+const _mobileMQ = window.matchMedia('(max-width: 640px)');
+function applyViewMode() {
+  const el = document.documentElement;
+  let mobile;
+  if (settings.viewMode === 'mobile') mobile = true;
+  else if (settings.viewMode === 'desktop') mobile = false;
+  else mobile = _mobileMQ.matches;   // auto
+  el.classList.toggle('view-mobile', mobile);
+}
+// Re-evaluate 'auto' when the viewport crosses the breakpoint.
+_mobileMQ.addEventListener('change', () => {
+  if ((settings.viewMode || 'auto') === 'auto') applyViewMode();
+});
 
 // ---- Semantic inline-icon vocabulary ----
 // The content model embeds game symbols as [icon:KEY] at their exact position
@@ -109,6 +128,7 @@ let isPlayerTab = false;
 // ---- DOM refs (resolved after DOMContentLoaded) ----
 let $loginScreen, $appShell, $loginForm, $loginError,
     $headerUsername, $logoutBtn, $navFortschritt, $navEinstellungen, $navDokumente, $navPlaneten,
+    $navBurger, $headerNav,
     $savegameBar, $savegameSelect, $newSavegameBtn, $deleteSavegameBtn,
     $noSavegameInfo, $createFirstSavegameBtn,
     $jumpInput, $jumpBtn, $jumpError, $prevBtn, $nextBtn,
@@ -140,6 +160,7 @@ function hide(el) { el.classList.add('hidden'); }
 function navigate(path) {
   history.pushState(null, '', path);
   handleRoute(path);
+  if (window._issCloseNav) window._issCloseNav();   // dismiss mobile menu
 }
 
 // Parse protocol id from jump-box or URL
@@ -1442,6 +1463,9 @@ function renderDokumente() {
 
 function renderSettings() {
   history.replaceState(null, '', '/einstellungen');
+  const vm = settings.viewMode || 'auto';
+  const opt = (val, label) =>
+    `<button class="viewmode-btn${vm === val ? ' active' : ''}" data-view="${val}">${label}</button>`;
   $mainContent.innerHTML = `
     <h2 class="protocol-title">Einstellungen</h2>
     <div class="settings-list">
@@ -1453,6 +1477,17 @@ function renderSettings() {
         </span>
         <input type="checkbox" id="setting-show-text" ${settings.showText ? 'checked' : ''}>
       </label>
+      <div class="setting-row">
+        <span class="setting-label">
+          Ansicht
+          <small>Darstellung für Handy oder Desktop/Tablet. „Automatisch“ wählt
+          anhand der Bildschirmbreite. Ändere auf „Mobil“, wenn es auf dem
+          iPhone zu eng ist.</small>
+        </span>
+        <span class="viewmode-group">
+          ${opt('auto', 'Automatisch')}${opt('mobile', 'Mobil')}${opt('desktop', 'Desktop')}
+        </span>
+      </div>
     </div>`;
 
   const cb = document.getElementById('setting-show-text');
@@ -1461,6 +1496,16 @@ function renderSettings() {
     saveSettings(settings);
     // If a protocol is currently loaded, re-render it live so the change is
     // visible immediately when the user navigates back.
+  });
+
+  document.querySelectorAll('.viewmode-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      settings.viewMode = btn.dataset.view;
+      saveSettings(settings);
+      applyViewMode();
+      document.querySelectorAll('.viewmode-btn').forEach(b =>
+        b.classList.toggle('active', b === btn));
+    });
   });
 }
 
@@ -1597,6 +1642,34 @@ function wireDOMEvents() {
     });
   }
 
+  // Burger menu (mobile): toggle the nav open/closed.
+  if ($navBurger && $headerNav) {
+    const closeNav = () => {
+      $headerNav.classList.remove('open');
+      $navBurger.classList.remove('open');
+      $navBurger.setAttribute('aria-expanded', 'false');
+    };
+    const toggleNav = () => {
+      const open = !$headerNav.classList.contains('open');
+      $headerNav.classList.toggle('open', open);
+      $navBurger.classList.toggle('open', open);
+      $navBurger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    $navBurger.addEventListener('click', (e) => { e.stopPropagation(); toggleNav(); });
+    // Tapping any nav item (link, username area, logout) closes the menu.
+    $headerNav.addEventListener('click', (e) => {
+      if (e.target.closest('a, button')) closeNav();
+    });
+    // Tapping outside the open menu closes it.
+    document.addEventListener('click', (e) => {
+      if (!$headerNav.classList.contains('open')) return;
+      if (e.target.closest('#header-nav') || e.target.closest('#nav-burger')) return;
+      closeNav();
+    });
+    // Expose for navigate() to auto-close on any route change.
+    window._issCloseNav = closeNav;
+  }
+
   // Savegame select dropdown
   $savegameSelect.addEventListener('change', () => {
     const id = parseInt($savegameSelect.value, 10);
@@ -1700,6 +1773,8 @@ document.addEventListener('DOMContentLoaded', () => {
   $navEinstellungen       = document.getElementById('nav-einstellungen');
   $navDokumente           = document.getElementById('nav-dokumente');
   $navPlaneten            = document.getElementById('nav-planeten');
+  $navBurger              = document.getElementById('nav-burger');
+  $headerNav              = document.getElementById('header-nav');
   $savegameBar            = document.getElementById('savegame-bar');
   $savegameSelect         = document.getElementById('savegame-select');
   $newSavegameBtn         = document.getElementById('new-savegame-btn');
@@ -1721,6 +1796,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Expose navigate globally for inline onclick handlers in rendered HTML
   window.ispApp = { navigate };
 
+  applyViewMode();
   wireDOMEvents();
   setupBroadcastChannel();
 });

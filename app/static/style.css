@@ -95,6 +95,35 @@ body {
 .nav-link:hover { color: var(--accent-hover); }
 .header-username { color: var(--text-dim); font-size: 0.9rem; }
 
+/* Burger button — hidden by default, shown only in mobile view. */
+.nav-burger {
+  display: none;
+  flex: 0 0 auto;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.nav-burger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+/* Animate to an X when open. */
+.nav-burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
 /* ===== Savegame bar ===== */
 #savegame-bar {
   padding: 0.5rem 1.5rem;
@@ -425,6 +454,9 @@ img.game-icon { /* legacy image icons */
 .settings-list {
   max-width: 640px;
   margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .setting-row {
   display: flex;
@@ -437,6 +469,28 @@ img.game-icon { /* legacy image icons */
   border-radius: 8px;
   cursor: pointer;
 }
+/* Segmented Auto/Mobil/Desktop control */
+.viewmode-group {
+  display: inline-flex;
+  flex: 0 0 auto;
+  border: 1px solid #3a4059;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.viewmode-btn {
+  background: transparent;
+  color: var(--text);
+  border: none;
+  border-left: 1px solid #3a4059;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.viewmode-btn:first-child { border-left: none; }
+.viewmode-btn:hover { background: #222838; }
+.viewmode-btn.active { background: var(--accent); color: #000; font-weight: 600; }
 .setting-label {
   display: flex;
   flex-direction: column;
@@ -917,3 +971,117 @@ img.game-icon { /* legacy image icons */
 .sheet-field.has-text { background: #f0b4291a; }
 .sheet-field.save-failed { border-color: #d64545; background: #d6454520; }
 .sheet-field:disabled { cursor: not-allowed; opacity: 0.9; }
+
+/* ============================================================
+   MOBILE VIEW (iPhone) — applied when <html> has .view-mobile
+   (Settings → Ansicht → Mobil, or Automatisch on a narrow screen).
+   Goal: everything stacks into a single comfortable column with
+   larger tap targets and no horizontal overflow.
+   ============================================================ */
+html.view-mobile body { -webkit-text-size-adjust: 100%; }
+
+/* Header becomes: [title ........ burger] on row 1, jump box full-width below.
+   The nav collapses into a dropdown toggled by the burger. */
+html.view-mobile #app-header {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  position: sticky;          /* keep the bar + burger reachable */
+  top: 0;
+}
+html.view-mobile .app-title {
+  font-size: 1.05rem;
+  flex: 1 1 auto;            /* push the burger to the right */
+  text-align: left;
+}
+
+/* Show the burger only in mobile view. */
+html.view-mobile .nav-burger { display: flex; order: 1; }
+
+/* Jump box: full width on its own row below the title/burger. */
+html.view-mobile #jump-box { width: 100%; order: 2; gap: 0.4rem; }
+html.view-mobile #jump-input {
+  width: auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 16px;           /* >=16px stops iOS zoom-on-focus */
+  padding: 0.6rem 0.7rem;
+}
+html.view-mobile #jump-box .nav-arrow { width: 2.6rem; height: 2.6rem; flex: 0 0 auto; }
+html.view-mobile #jump-box button { padding: 0.6rem 0.9rem; }
+html.view-mobile #jump-error { position: static; transform: none; text-align: center; }
+
+/* Nav: hidden by default; shown as a full-width dropdown column when .open. */
+html.view-mobile .header-nav {
+  order: 3;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 0.3rem;
+  border-top: 1px solid #2a2f42;
+}
+html.view-mobile .header-nav.open { display: flex; }
+html.view-mobile .header-nav .nav-link {
+  font-size: 1.05rem;
+  padding: 0.85rem 0.3rem;
+  border-bottom: 1px solid #222838;
+}
+html.view-mobile .header-username {
+  width: 100%;
+  padding: 0.7rem 0.3rem 0.2rem;
+  color: var(--text-dim);
+}
+html.view-mobile #logout-btn { width: 100%; margin-top: 0.5rem; padding: 0.7rem; }
+
+/* Savegame bar: wrap, full-width select. */
+html.view-mobile #savegame-bar { padding: 0.5rem 0.9rem; }
+html.view-mobile #savegame-select { flex: 1 1 auto; min-width: 0; font-size: 16px; }
+
+/* Main content: use the full width with tight padding. */
+html.view-mobile #main-content { padding: 1rem 0.9rem; max-width: 100%; }
+html.view-mobile .protocol-title { font-size: 1.1rem; letter-spacing: 1px; }
+
+/* Side-by-side blocks all stack to a single column. */
+html.view-mobile .image-with-progress { flex-direction: column; gap: 14px; }
+html.view-mobile .image-with-progress .instruction-image,
+html.view-mobile .image-with-progress .checklist,
+html.view-mobile .image-with-progress .progress-panel {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  position: static;          /* drop sticky so it flows naturally */
+}
+
+/* Prose: comfortable measure + size. */
+html.view-mobile .text-display { padding: 1rem; font-size: 1rem; }
+html.view-mobile .text-display .narrative,
+html.view-mobile .text-display .game-instructions { max-width: 100%; }
+
+/* Fortschritt grid: fewer, wider columns. */
+html.view-mobile .fp-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px 16px; }
+html.view-mobile .fp-box input[type="checkbox"] { width: 20px; height: 20px; }
+
+/* Planet index: single-ish column of big cards. */
+html.view-mobile .planet-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+html.view-mobile .planet-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+
+/* Documents + settings: full width, stacked rows. */
+html.view-mobile .doc-list { max-width: 100%; }
+html.view-mobile .settings-list { max-width: 100%; }
+html.view-mobile .setting-row { flex-direction: column; align-items: stretch; gap: 10px; }
+html.view-mobile .viewmode-group { width: 100%; }
+html.view-mobile .viewmode-btn { flex: 1 1 0; text-align: center; padding: 10px 6px; }
+
+/* Checklist / note rows: larger tap targets. */
+html.view-mobile .checklist-item input[type="checkbox"],
+html.view-mobile .fp-box input[type="checkbox"] { min-width: 20px; min-height: 20px; }
+
+/* P999 map + planet sheets: ensure they never force horizontal scroll. */
+html.view-mobile .diagram-notes__canvas,
+html.view-mobile .sheet-canvas { width: 100%; }
+html.view-mobile .planet-sheet { max-width: 100%; }
+
+/* Dialogs: fit small screens. */
+html.view-mobile .dialog-box { width: calc(100% - 24px); max-width: 420px; }
