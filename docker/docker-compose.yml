@@ -1,8 +1,6 @@
 services:
   app:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile
+    image: sheppard2k4/iss-vanguard-logs:latest
     container_name: iss-vanguard-app
     restart: unless-stopped
     environment:
