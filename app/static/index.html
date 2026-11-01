@@ -49,20 +49,6 @@
       </nav>
     </header>
 
-    <!-- Savegame bar -->
-    <div id="savegame-bar">
-      <div id="savegame-info">
-        <span class="label">Savegame:</span>
-        <select id="savegame-select"></select>
-        <button id="new-savegame-btn" class="btn-small" title="Neues Savegame">+</button>
-        <button id="delete-savegame-btn" class="btn-small btn-danger" title="Löschen">✕</button>
-      </div>
-      <div id="no-savegame-info" class="hidden">
-        Kein Savegame aktiv.
-        <button id="create-first-savegame-btn" class="btn-small">Savegame erstellen</button>
-      </div>
-    </div>
-
     <!-- Main content area -->
     <main id="main-content">
       <!-- Protocol view injected here -->
@@ -79,6 +65,36 @@
         <button id="create-savegame-cancel" class="btn-ghost">Abbrechen</button>
       </div>
       <div id="create-savegame-error" class="error hidden"></div>
+    </div>
+  </div>
+
+  <input type="file" id="import-file-input" accept=".json,application/json" style="display:none">
+
+  <!-- Import savegame dialog -->
+  <div id="import-savegame-dialog" class="dialog-overlay hidden">
+    <div class="dialog-box dialog-box--import">
+      <h2>Backup importieren</h2>
+      <p class="dialog-hint">Wähle ein bestehendes Savegame zum Überschreiben, oder gib einen neuen Namen ein.</p>
+
+      <label class="dialog-field-label" for="import-sg-select">Bestehendes Savegame überschreiben</label>
+      <select id="import-sg-select" class="sg-select sg-select--full">
+        <option value="">— Neues Savegame erstellen —</option>
+      </select>
+
+      <div id="import-new-name-row">
+        <label class="dialog-field-label" for="import-new-sg-name">Name des neuen Savegames</label>
+        <input type="text" id="import-new-sg-name" placeholder="z.B. Backup-Import">
+      </div>
+
+      <div id="import-overwrite-warn" class="import-overwrite-warn hidden">
+        Alle bestehenden Daten in diesem Savegame werden überschrieben.
+      </div>
+
+      <div class="dialog-actions" style="margin-top:1rem;">
+        <button id="import-sg-confirm">Importieren</button>
+        <button id="import-sg-cancel" class="btn-ghost">Abbrechen</button>
+      </div>
+      <div id="import-sg-error" class="error hidden"></div>
     </div>
   </div>
 

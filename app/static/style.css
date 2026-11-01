@@ -125,35 +125,6 @@ body {
 .nav-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 /* ===== Savegame bar ===== */
-#savegame-bar {
-  padding: 0.5rem 1.5rem;
-  background: var(--surface);
-  border-bottom: 1px solid #1a1a2a;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-#savegame-info { display: flex; align-items: center; gap: 0.5rem; }
-.label { color: var(--text-dim); font-size: 0.85rem; }
-#savegame-select {
-  background: var(--bg);
-  border: 1px solid #333;
-  border-radius: 4px;
-  color: var(--text);
-  padding: 0.25rem 0.5rem;
-  font-size: 0.9rem;
-}
-.btn-small {
-  padding: 0.25rem 0.6rem;
-  font-size: 0.85rem;
-  border: 1px solid #444;
-  border-radius: 4px;
-  background: transparent;
-  color: var(--text);
-  cursor: pointer;
-}
-.btn-small:hover { background: #222; }
 .btn-danger { border-color: var(--danger); color: var(--danger); }
 .btn-ghost {
   background: transparent;
@@ -394,6 +365,32 @@ audio { width: 100%; margin-bottom: 0.5rem; }
   font-weight: normal;
 }
 
+/* ===== Import savegame dialog extras ===== */
+.dialog-box--import { width: 380px; max-width: 95vw; }
+.dialog-hint {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.dialog-field-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+  margin-top: 12px;
+}
+.sg-select--full { width: 100%; }
+.import-overwrite-warn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #2a1010;
+  border: 1px solid var(--danger);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: #ff8a8a;
+}
+
 /* ===== Inline game icons (semantic [icon:KEY] chips) ===== */
 .game-icon {
   display: inline-flex;
@@ -509,6 +506,74 @@ img.game-icon { /* legacy image icons */
   flex: 0 0 auto;
   cursor: pointer;
 }
+
+/* ===== Settings — section titles ===== */
+.settings-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 4px 2px 0;
+  margin-top: 6px;
+}
+
+/* ===== Settings — savegame controls ===== */
+.sg-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+.sg-select {
+  background: var(--bg);
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: var(--text);
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  min-width: 160px;
+}
+.sg-select:focus { outline: none; border-color: var(--accent); }
+.sg-none { color: var(--text-dim); font-size: 0.9rem; font-style: italic; }
+
+.sg-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+.sg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s, border-color 0.12s;
+}
+.sg-btn:hover:not(:disabled) { background: #22273a; }
+.sg-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.sg-btn-icon { font-size: 1rem; line-height: 1; }
+
+.sg-btn--create  { border-color: var(--accent); color: var(--accent); }
+.sg-btn--create:hover:not(:disabled)  { background: #0d2030; }
+
+.sg-btn--danger  { border-color: var(--danger); color: var(--danger); }
+.sg-btn--danger:hover:not(:disabled)  { background: #2a1010; }
+
+.sg-btn--export  { border-color: #4caf50; color: #4caf50; }
+.sg-btn--export:hover:not(:disabled)  { background: #0d2010; }
+
+.sg-btn--import  { border-color: #ff9800; color: #ff9800; }
+.sg-btn--import:hover:not(:disabled)  { background: #251a08; }
 
 /* ===== Checklist heading / hint (progress boxes) ===== */
 .checklist-title {
@@ -913,6 +978,23 @@ img.game-icon { /* legacy image icons */
 }
 .planet-card:hover { border-color: var(--accent, #4fc3f7); background: #20242e; }
 
+.planet-card--example {
+  border-color: #f0b429;
+  color: #f0b429;
+}
+.planet-card--example:hover { border-color: #f0b429; background: #251e08; }
+
+.example-banner {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: #251e08;
+  border: 1px solid #f0b429;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #f0b429;
+  line-height: 1.5;
+}
+
 .planet-head {
   display: flex;
   align-items: baseline;
@@ -929,6 +1011,72 @@ img.game-icon { /* legacy image icons */
   flex-direction: column;
   gap: 18px;
   max-width: 900px;
+}
+
+/* Wrapper that puts the sheet pages and the legend side by side */
+.planet-sheet-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  margin-top: 12px;
+}
+.planet-sheet-wrap .planet-sheet {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-top: 0;
+}
+
+/* Legend sidebar */
+.planet-legend {
+  flex: 0 0 240px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  position: sticky;
+  top: 12px;
+}
+.planet-legend__title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+.planet-legend__section {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 12px 0 6px;
+}
+.planet-legend__section:first-of-type { margin-top: 0; }
+.planet-legend__list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.planet-legend__list dt {
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+.planet-legend__list dd {
+  margin: 0 0 0 0;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+/* Stack on narrow screens */
+@media (max-width: 900px) {
+  .planet-sheet-wrap { flex-direction: column; }
+  .planet-legend { flex: none; width: 100%; position: static; }
 }
 .sheet-canvas {
   position: relative;
@@ -1037,8 +1185,7 @@ html.view-mobile .header-username {
 html.view-mobile #logout-btn { width: 100%; margin-top: 0.5rem; padding: 0.7rem; }
 
 /* Savegame bar: wrap, full-width select. */
-html.view-mobile #savegame-bar { padding: 0.5rem 0.9rem; }
-html.view-mobile #savegame-select { flex: 1 1 auto; min-width: 0; font-size: 16px; }
+
 
 /* Main content: use the full width with tight padding. */
 html.view-mobile #main-content { padding: 1rem 0.9rem; max-width: 100%; }
@@ -1082,6 +1229,8 @@ html.view-mobile .fp-box input[type="checkbox"] { min-width: 20px; min-height: 2
 html.view-mobile .diagram-notes__canvas,
 html.view-mobile .sheet-canvas { width: 100%; }
 html.view-mobile .planet-sheet { max-width: 100%; }
+html.view-mobile .planet-sheet-wrap { flex-direction: column; }
+html.view-mobile .planet-legend { position: static; width: 100%; }
 
 /* Dialogs: fit small screens. */
 html.view-mobile .dialog-box { width: calc(100% - 24px); max-width: 420px; }

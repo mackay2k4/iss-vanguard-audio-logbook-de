@@ -20,7 +20,7 @@ let state = {
 const SETTINGS_KEY = 'iss-vanguard-settings';
 // viewMode: 'auto' | 'mobile' | 'desktop'. 'auto' uses a mobile layout on
 // narrow screens (phones), the regular layout otherwise.
-const DEFAULT_SETTINGS = { showText: true, viewMode: 'auto' };
+const DEFAULT_SETTINGS = { showText: false, viewMode: 'auto' };
 
 function loadSettings() {
   try {
@@ -129,8 +129,7 @@ let isPlayerTab = false;
 let $loginScreen, $appShell, $loginForm, $loginError,
     $headerUsername, $logoutBtn, $navFortschritt, $navEinstellungen, $navDokumente, $navPlaneten,
     $navBurger, $headerNav,
-    $savegameBar, $savegameSelect, $newSavegameBtn, $deleteSavegameBtn,
-    $noSavegameInfo, $createFirstSavegameBtn,
+    $importFileInput,
     $jumpInput, $jumpBtn, $jumpError, $prevBtn, $nextBtn,
     $mainContent,
     $createSavegameDialog, $newSavegameName, $createSavegameConfirm,
@@ -254,7 +253,6 @@ async function onAuthenticated(user) {
   state.contentIndex = await resp.json();
 
   showAppShell();
-  renderSavegameBar();
   updateHeaderUsername();
 
   // Handle initial URL
@@ -284,35 +282,11 @@ function updateHeaderUsername() {
 // Savegame bar
 // ============================================================
 
-function renderSavegameBar() {
-  const savegames = state.user ? state.user.savegames : [];
-  const $savegameInfo = document.getElementById('savegame-info');
-
-  if (savegames.length === 0) {
-    hide($savegameInfo);
-    show($noSavegameInfo);
-    return;
-  }
-
-  show($savegameInfo);
-  hide($noSavegameInfo);
-
-  $savegameSelect.innerHTML = '';
-  for (const sg of savegames) {
-    const opt = document.createElement('option');
-    opt.value = sg.id;
-    opt.textContent = sg.name;
-    if (sg.id === state.activeSavegameId) opt.selected = true;
-    $savegameSelect.appendChild(opt);
-  }
-}
-
 async function refreshUserAndSavegames() {
   const resp = await api('GET', '/api/me');
   if (resp.ok) {
     state.user = await resp.json();
     state.activeSavegameId = state.user.activeSavegameId || null;
-    renderSavegameBar();
   }
 }
 
@@ -600,9 +574,6 @@ function noteId(protocol, field) {
 function renderTextfields(protocol) {
   const fields = protocol.widget.fields || [];
   const disabled = state.activeSavegameId ? '' : 'disabled';
-  const hint = state.activeSavegameId
-    ? ''
-    : '<p class="checklist-hint">Savegame auswählen, um Eingaben zu speichern.</p>';
   const rows = fields.map(f => {
     const id = noteId(protocol, f);
     const val = esc(state.notes[id] || '');
@@ -614,7 +585,7 @@ function renderTextfields(protocol) {
         <span class="save-error hidden"></span>
       </div>`;
   }).join('');
-  return `<div class="textfields"><h3 class="checklist-title">Notizen</h3>${hint}${rows}</div>`;
+  return `<div class="textfields"><h3 class="checklist-title">Notizen</h3>${rows}</div>`;
 }
 
 function bindTextfields(protocol) {
@@ -683,9 +654,6 @@ async function renderDiagramNotes(protocol) {
 
   const vbW = geom.vbW, vbH = geom.vbH;
   const disabled = state.activeSavegameId ? '' : 'disabled';
-  const hint = state.activeSavegameId
-    ? ''
-    : '<p class="checklist-hint">Savegame auswählen, um Notizen zu speichern.</p>';
 
   // 'input' style (e.g. the ISSMAP tech-tree): thin single-line fields that
   // exactly fill their white box — no header inset, no x-nudge. Default style
@@ -742,14 +710,13 @@ async function renderDiagramNotes(protocol) {
   }).join('');
 
   host.innerHTML = `
-    ${hint}
     <div class="diagram-notes__canvas" style="aspect-ratio:${vbW} / ${vbH};">
       <img class="diagram-notes__img" src="${esc(protocol.diagramImageUrl)}"
            alt="Protokoll ${esc(String(protocol.number))} Diagramm" loading="lazy">
       <svg class="diagram-notes__svg" viewBox="0 0 ${vbW} ${vbH}" preserveAspectRatio="none">
         ${planetLinks}
-        ${dashes}
         ${boxes}
+        ${dashes}
       </svg>
     </div>`;
 
@@ -1058,7 +1025,7 @@ function renderImageRefs(refs) {
 function renderChecklist(checklist, title) {
   const items = checklist.map(item => {
     const checked = state.checks[item.itemId] ? 'checked' : '';
-    const disabled = state.activeSavegameId ? '' : 'disabled title="Savegame auswählen"';
+    const disabled = state.activeSavegameId ? '' : 'disabled';
 
     // Render the item as TEXT (not the printed strip image). processLine()
     // renders any [icon:KEY] game symbols as chips, HTML-escapes the rest, and
@@ -1095,11 +1062,8 @@ function renderChecklist(checklist, title) {
       </div>`;
   }).join('');
 
-  const heading = state.activeSavegameId
-    ? ''
-    : '<p class="checklist-hint">Savegame auswählen, um Fortschritt zu speichern.</p>';
   const titleText = title || 'Fortschritt';
-  return `<div class="checklist"><h3 class="checklist-title">${esc(titleText)}</h3>${heading}${items}</div>`;
+  return `<div class="checklist"><h3 class="checklist-title">${esc(titleText)}</h3>${items}</div>`;
 }
 
 function bindChecklist(checklist) {
@@ -1280,14 +1244,14 @@ let _sheetFieldsCache = null;  // {pages:[{image,vbW,vbH,fields:[...]}]}
 
 async function loadPlanets() {
   if (_planetsCache) return _planetsCache;
-  const r = await fetch('/static/forms/planets.json');
+  const r = await fetch('/static/forms/planets.json?v=2');
   const data = await r.json();
   _planetsCache = (data.planets || []).filter(p => !String(p.slug).startsWith('_'));
   return _planetsCache;
 }
 async function loadSheetFields() {
   if (_sheetFieldsCache) return _sheetFieldsCache;
-  const r = await fetch('/static/forms/planet_sheet.fields.json');
+  const r = await fetch('/static/forms/planet_sheet.fields.json?v=2');
   _sheetFieldsCache = await r.json();
   return _sheetFieldsCache;
 }
@@ -1303,34 +1267,85 @@ async function renderPlanetIndex() {
        onclick="event.preventDefault();window.ispApp.navigate('/planet/${esc(p.slug)}')">
       ${esc(p.name)}
     </a>`).join('');
+  const exampleCard = `
+    <a class="planet-card planet-card--example" href="/planet/_example"
+       onclick="event.preventDefault();window.ispApp.navigate('/planet/_example')">
+      ★ Beispiel-Datenblatt
+    </a>`;
+
   $mainContent.innerHTML = `
     <div class="planet-head">
       <h2 class="protocol-title">Planeten-Datenblätter</h2>
       <a class="planet-back" href="/p/999"
          onclick="event.preventDefault();window.ispApp.navigate('/p/999')">↩ Zur Sternenkarte (P999)</a>
     </div>
-    <div class="planet-grid">${cards}</div>`;
+    <div class="planet-grid">${exampleCard}${cards}</div>`;
 }
+
+// Example data shown on the _example planet sheet (read-only, no savegame needed).
+const EXAMPLE_NOTES = {
+  'planet-_example-Planet Name':        'Beta Tarsoni',
+  'planet-_example-Unique Discovery 1': 'Kristallformation',
+  'planet-_example-Unique Discovery 2': 'Alien-Artefakt',
+  'planet-_example-Unique Discovery 3': '',
+  'planet-_example-Unique Discovery 4': '',
+  'planet-_example-Threat Sector 1':    '3',
+  'planet-_example-Threat Sector 2':    '7',
+  'planet-_example-Threat Sector 3':    '',
+  'planet-_example-Threat Name 1':      'Raubtier-Schwarm',
+  'planet-_example-Threat Name 2':      'Toxische Sporen',
+  'planet-_example-Threat Name 3':      '',
+  'planet-_example-Notes':              'Sektor 2 bereits vollständig erkundet. Nächste Mission: Sektor 5 aufdecken.',
+  'planet-_example-POI Sector 1':       '1-1',
+  'planet-_example-POI Sector 2':       '2-3',
+  'planet-_example-POI Sector 3':       '3-2',
+  'planet-_example-POI Sector 4':       '',
+  'planet-_example-POI Sector 5':       '',
+  'planet-_example-POI Sector 6':       '',
+  'planet-_example-POI Sector 7':       '',
+  'planet-_example-POI Sector 8':       '',
+  'planet-_example-POI Sector 9':       '',
+  'planet-_example-POI Sector 10':      '',
+  'planet-_example-POI Name 1':         'Verlassene Basis',
+  'planet-_example-POI Name 2':         'Anomalie Delta-7',
+  'planet-_example-POI Name 3':         'Höhlensystem',
+  'planet-_example-POI Name 4':         '',
+  'planet-_example-POI Name 5':         '',
+  'planet-_example-POI Name 6':         '',
+  'planet-_example-POI Name 7':         '',
+  'planet-_example-POI Name 8':         '',
+  'planet-_example-POI Name 9':         '',
+  'planet-_example-POI Name 10':        '',
+};
 
 async function renderPlanetSheet(slug) {
   history.replaceState(null, '', `/planet/${encodeURIComponent(slug)}`);
+
+  // Special example sheet — read-only, pre-filled, no savegame required.
+  const isExample = slug === '_example';
+
   const [planets, sheet] = await Promise.all([loadPlanets(), loadSheetFields()]);
-  const planet = planets.find(p => p.slug === slug);
+  const planet = isExample
+    ? { slug: '_example', name: 'Beispiel-Datenblatt' }
+    : planets.find(p => p.slug === slug);
   if (!planet) {
     $mainContent.innerHTML = '<p class="error">Planet nicht gefunden.</p>';
     return;
   }
 
   // Load this savegame's notes so field values are populated.
-  if (state.activeSavegameId) {
+  if (!isExample && state.activeSavegameId) {
     const nr = await api('GET', `/api/savegames/${state.activeSavegameId}/notes`);
     if (nr.ok) state.notes = await nr.json();
   }
 
-  const disabled = state.activeSavegameId ? '' : 'disabled';
-  const hint = state.activeSavegameId
-    ? ''
-    : '<p class="checklist-hint">Savegame auswählen, um Eingaben zu speichern.</p>';
+  // Example sheet is always read-only. Normal sheet: disabled when no savegame.
+  const disabled = (isExample || !state.activeSavegameId) ? 'disabled' : '';
+
+  // Use a local notes snapshot so example data and live data are both handled
+  // consistently without relying on state.notes staying in sync mid-render.
+  const notesSnapshot = isExample ? EXAMPLE_NOTES : { ...state.notes };
+
 
   // Overlay the fields as absolutely-positioned HTML textareas using PERCENT
   // coordinates (of the page's point-size). Percent positioning scales cleanly
@@ -1339,7 +1354,7 @@ async function renderPlanetSheet(slug) {
   const pagesHtml = sheet.pages.map(pg => {
     const fields = pg.fields.map(f => {
       const id = planetFieldNoteId(slug, f.name);
-      let val = state.notes[id];
+      let val = notesSnapshot[id];
       if (val == null && /planet\s*name/i.test(f.name)) val = planet.name;
       val = val || '';
       const left = (f.x / pg.vbW) * 100;
@@ -1364,16 +1379,53 @@ async function renderPlanetSheet(slug) {
       </div>`;
   }).join('');
 
+  const legendHtml = `
+    <aside class="planet-legend">
+      <h3 class="planet-legend__title">Felder — Erklärung</h3>
+
+      <div class="planet-legend__section">Seite 1</div>
+      <dl class="planet-legend__list">
+        <dt>Planetenname</dt>
+        <dd>Name des Planeten (wird automatisch ausgefüllt).</dd>
+
+        <dt>Verbleibende einzigartige Entdeckungen (1–4)</dt>
+        <dd>Die vier einzigartigen Entdeckungskarten-Slots. Trage die Kartennummer ein und streiche sie durch, wenn du sie gefunden hast.</dd>
+
+        <dt>Bedrohungssektor (1–3)</dt>
+        <dd>Sektornummer, in dem sich die jeweilige Bedrohung befindet (von der Bedrohungskarte ablesen).</dd>
+
+        <dt>Bedrohungsname (1–3)</dt>
+        <dd>Name der Bedrohungskarte im entsprechenden Sektor.</dd>
+
+        <dt>Notizen</dt>
+        <dd>Freies Textfeld für alles Weitere — besondere Ereignisse, Erkenntnisse, Hinweise für den nächsten Besuch.</dd>
+      </dl>
+
+      <div class="planet-legend__section">Seite 2</div>
+      <dl class="planet-legend__list">
+        <dt>Sektor &amp; POI-Nr. (1–10)</dt>
+        <dd>Sektornummer und Nummer des POI-Feldes auf dem Planetenbrett, z.&nbsp;B. „3-2" für Sektor 3, zweiter POI.</dd>
+
+        <dt>POI-Name (1–10)</dt>
+        <dd>Name der aufgedeckten POI-Karte (Point of Interest) in diesem Slot.</dd>
+      </dl>
+    </aside>`;
+
   $mainContent.innerHTML = `
     <div class="planet-head">
-      <h2 class="protocol-title">${esc(planet.name)} — Datenblatt</h2>
-      <a class="planet-back" href="/p/999"
-         onclick="event.preventDefault();window.ispApp.navigate('/p/999')">↩ Zur Sternenkarte (P999)</a>
+      <h2 class="protocol-title">${esc(planet.name)}${isExample ? "" : " — Datenblatt"}</h2>
+      <a class="planet-back" href="/planeten"
+         onclick="event.preventDefault();window.ispApp.navigate('/planeten')">↩ Zu den Planeten</a>
     </div>
-    ${hint}
-    <div class="planet-sheet">${pagesHtml}</div>`;
+    ${isExample ? `<div class="example-banner">
+      Dies ist ein Beispiel-Datenblatt zur Erklärung der Felder — es ist nicht mit deinem Savegame verknüpft und kann nicht bearbeitet werden.
+    </div>` : ""}
+    <div class="planet-sheet-wrap">
+      <div class="planet-sheet">${pagesHtml}</div>
+      ${legendHtml}
+    </div>`;
 
-  bindSheetFields();
+  if (!isExample) bindSheetFields();
 }
 
 function bindSheetFields() {
@@ -1462,62 +1514,139 @@ function renderDokumente() {
 // ============================================================
 
 function renderSettings() {
-  history.replaceState(null, '', '/einstellungen');
-  const vm = settings.viewMode || 'auto';
+  history.replaceState(null, "", "/einstellungen");
+  const vm = settings.viewMode || "auto";
   const opt = (val, label) =>
-    `<button class="viewmode-btn${vm === val ? ' active' : ''}" data-view="${val}">${label}</button>`;
+    `<button class="viewmode-btn${vm === val ? " active" : ""}" data-view="${val}">${label}</button>`;
+
+  const savegames = state.user ? state.user.savegames : [];
+  const sgOptions = savegames.map(sg =>
+    `<option value="${sg.id}"${sg.id === state.activeSavegameId ? " selected" : ""}>${esc(sg.name)}</option>`
+  ).join("");
+  const hasSg = savegames.length > 0;
+
   $mainContent.innerHTML = `
     <h2 class="protocol-title">Einstellungen</h2>
     <div class="settings-list">
+
+      <div class="settings-section-title">Savegame</div>
+
+      <div class="setting-row">
+        <span class="setting-label">
+          Aktives Savegame
+          <small>Wähle einen Spielstand. Fortschritt, Notizen und die Sternenkarte werden pro Savegame gespeichert.</small>
+        </span>
+        <div class="sg-controls">
+          ${hasSg
+            ? `<select id="settings-sg-select" class="sg-select">${sgOptions}</select>`
+            : `<span class="sg-none">Noch kein Savegame vorhanden.</span>`}
+        </div>
+      </div>
+
+      <div class="setting-row">
+        <span class="setting-label">
+          Savegames verwalten
+          <small>Erstelle oder lösche Spielstände, exportiere ein Backup oder stelle es wieder her.</small>
+        </span>
+        <div class="sg-actions">
+          <button id="settings-new-sg-btn" class="sg-btn sg-btn--create">
+            <span class="sg-btn-icon" aria-hidden="true">＋</span> Neu
+          </button>
+          <button id="settings-delete-sg-btn" class="sg-btn sg-btn--danger"${hasSg ? "" : " disabled"}>
+            <span class="sg-btn-icon" aria-hidden="true">✕</span> Löschen
+          </button>
+          <button id="settings-export-sg-btn" class="sg-btn sg-btn--export"${hasSg ? "" : " disabled"}>
+            <span class="sg-btn-icon" aria-hidden="true">⬇</span> Exportieren
+          </button>
+          <button id="settings-import-sg-btn" class="sg-btn sg-btn--import">
+            <span class="sg-btn-icon" aria-hidden="true">⬆</span> Importieren
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-section-title">Anzeige</div>
+
       <label class="setting-row">
         <span class="setting-label">
           Textteil anzeigen
           <small>Zeigt den Erzähltext zusätzlich zum Anweisungs-Screenshot. Der
           Audio-Player und der Screenshot werden immer angezeigt.</small>
         </span>
-        <input type="checkbox" id="setting-show-text" ${settings.showText ? 'checked' : ''}>
+        <input type="checkbox" id="setting-show-text" ${settings.showText ? "checked" : ""}>
       </label>
       <div class="setting-row">
         <span class="setting-label">
           Ansicht
-          <small>Darstellung für Handy oder Desktop/Tablet. „Automatisch“ wählt
-          anhand der Bildschirmbreite. Ändere auf „Mobil“, wenn es auf dem
+          <small>Darstellung für Handy oder Desktop/Tablet. „Automatisch" wählt
+          anhand der Bildschirmbreite. Ändere auf „Mobil", wenn es auf dem
           iPhone zu eng ist.</small>
         </span>
         <span class="viewmode-group">
-          ${opt('auto', 'Automatisch')}${opt('mobile', 'Mobil')}${opt('desktop', 'Desktop')}
+          ${opt("auto", "Automatisch")}${opt("mobile", "Mobil")}${opt("desktop", "Desktop")}
         </span>
       </div>
+
     </div>`;
 
-  const cb = document.getElementById('setting-show-text');
-  cb.addEventListener('change', () => {
-    settings.showText = cb.checked;
-    saveSettings(settings);
-    // If a protocol is currently loaded, re-render it live so the change is
-    // visible immediately when the user navigates back.
+  // Savegame select
+  const sgSel = document.getElementById("settings-sg-select");
+  if (sgSel) {
+    sgSel.addEventListener("change", () => {
+      selectSavegame(parseInt(sgSel.value, 10));
+    });
+  }
+
+  // New savegame
+  document.getElementById("settings-new-sg-btn").addEventListener("click", () => {
+    openCreateSavegameDialog(() => renderSettings());
   });
 
-  document.querySelectorAll('.viewmode-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+  // Delete savegame
+  const delBtn = document.getElementById("settings-delete-sg-btn");
+  if (delBtn && !delBtn.disabled) {
+    delBtn.addEventListener("click", async () => {
+      await deleteActiveSavegame();
+      renderSettings();
+    });
+  }
+
+  // Export
+  const expBtn = document.getElementById("settings-export-sg-btn");
+  if (expBtn && !expBtn.disabled) expBtn.addEventListener("click", exportSavegame);
+
+  // Import
+  document.getElementById("settings-import-sg-btn").addEventListener("click", () => {
+    $importFileInput.value = "";
+    $importFileInput.click();
+  });
+
+  // Display settings
+  const cb = document.getElementById("setting-show-text");
+  cb.addEventListener("change", () => {
+    settings.showText = cb.checked;
+    saveSettings(settings);
+  });
+
+  document.querySelectorAll(".viewmode-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
       settings.viewMode = btn.dataset.view;
       saveSettings(settings);
       applyViewMode();
-      document.querySelectorAll('.viewmode-btn').forEach(b =>
-        b.classList.toggle('active', b === btn));
+      document.querySelectorAll(".viewmode-btn").forEach(b =>
+        b.classList.toggle("active", b === btn));
     });
   });
 }
 
-// ============================================================
 // Savegame management
 // ============================================================
 
-function openCreateSavegameDialog() {
+function openCreateSavegameDialog(onCreated) {
   $newSavegameName.value = '';
   hide($createSavegameError);
   show($createSavegameDialog);
   $newSavegameName.focus();
+  $createSavegameDialog._onCreated = onCreated || null;
 }
 
 function closeCreateSavegameDialog() {
@@ -1540,7 +1669,10 @@ async function createSavegame(name) {
   // Select the newly created savegame
   await selectSavegame(sg.id);
   await refreshUserAndSavegames();
+  const cb = $createSavegameDialog._onCreated;
+  $createSavegameDialog._onCreated = null;
   closeCreateSavegameDialog();
+  if (cb) cb();
   return true;
 }
 
@@ -1549,9 +1681,162 @@ async function selectSavegame(id) {
   if (resp.ok) {
     const data = await resp.json();
     state.activeSavegameId = data.activeSavegameId;
-    renderSavegameBar();
     // Refresh current protocol's checklist state if one is loaded
     if (state.currentProtocolId) loadProtocol(state.currentProtocolId);
+  }
+}
+
+// ============================================================
+// Savegame export / import
+// ============================================================
+
+async function exportSavegame() {
+  if (!state.activeSavegameId) return;
+
+  const resp = await api('GET', `/api/savegames/${state.activeSavegameId}/export`);
+  if (!resp.ok) { alert('Export fehlgeschlagen.'); return; }
+
+  const data = await resp.json();
+
+  // Build a filename from the savegame name and today's date.
+  const sg = state.user && state.user.savegames
+    ? state.user.savegames.find(s => s.id === state.activeSavegameId)
+    : null;
+  const safeName = (sg ? sg.name : String(state.activeSavegameId))
+    .replace(/[^a-z0-9äöüß_\- ]/gi, '_').trim();
+  const dateStr = new Date().toISOString().slice(0, 10);
+  const filename = `iss-vanguard_${safeName}_${dateStr}.json`;
+
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+// _pendingImportData holds the parsed JSON while the import dialog is open.
+let _pendingImportData = null;
+
+async function importSavegame(file) {
+  let data;
+  try {
+    data = JSON.parse(await file.text());
+  } catch (_e) {
+    alert('Datei konnte nicht gelesen werden. Bitte eine gültige JSON-Datei auswaehlen.');
+    return;
+  }
+  _pendingImportData = data;
+  openImportDialog();
+}
+
+function openImportDialog() {
+  const dialog = document.getElementById('import-savegame-dialog');
+  const sel    = document.getElementById('import-sg-select');
+  const newRow = document.getElementById('import-new-name-row');
+  const newInput = document.getElementById('import-new-sg-name');
+  const warnEl = document.getElementById('import-overwrite-warn');
+  const errEl  = document.getElementById('import-sg-error');
+
+  // Populate dropdown with existing savegames
+  sel.innerHTML = '<option value="">\u2014 Neues Savegame erstellen \u2014</option>';
+  const savegames = state.user ? state.user.savegames : [];
+  for (const sg of savegames) {
+    const opt = document.createElement('option');
+    opt.value = sg.id;
+    opt.textContent = sg.name;
+    // Pre-select the currently active one as a sensible default
+    if (sg.id === state.activeSavegameId) opt.selected = true;
+    sel.appendChild(opt);
+  }
+
+  // Seed the new-name field from the backup's savegame name (if available)
+  const backupName = (_pendingImportData && _pendingImportData.savegame && _pendingImportData.savegame.name) || '';
+  newInput.value = backupName;
+
+  // Show/hide new-name row and overwrite warning based on current selection
+  function syncUI() {
+    const isNew = !sel.value;
+    newRow.style.display = isNew ? '' : 'none';
+    warnEl.classList.toggle('hidden', isNew);
+  }
+  sel.onchange = syncUI;
+  syncUI();
+
+  hide(errEl);
+  dialog.classList.remove('hidden');
+  (sel.value ? sel : newInput).focus();
+}
+
+function closeImportDialog() {
+  document.getElementById('import-savegame-dialog').classList.add('hidden');
+  _pendingImportData = null;
+}
+
+async function _doImport() {
+  const sel      = document.getElementById('import-sg-select');
+  const newInput = document.getElementById('import-new-sg-name');
+  const errEl    = document.getElementById('import-sg-error');
+
+  const data = _pendingImportData;
+  if (!data) return;
+
+  let targetId;
+
+  if (sel.value) {
+    // Overwrite an existing savegame
+    targetId = parseInt(sel.value, 10);
+  } else {
+    // Create a new savegame first
+    const name = newInput.value.trim();
+    if (!name) {
+      errEl.textContent = 'Bitte einen Namen eingeben.';
+      show(errEl);
+      newInput.focus();
+      return;
+    }
+    const createResp = await api('POST', '/api/savegames', { name });
+    if (createResp.status === 409) {
+      errEl.textContent = 'Dieser Name ist bereits vergeben.';
+      show(errEl);
+      newInput.focus();
+      return;
+    }
+    if (!createResp.ok) {
+      errEl.textContent = 'Savegame konnte nicht erstellt werden.';
+      show(errEl);
+      return;
+    }
+    const newSg = await createResp.json();
+    targetId = newSg.id;
+    // Refresh user state so the new savegame is in the list
+    await refreshUserAndSavegames();
+    // Select the new savegame
+    await api('POST', `/api/savegames/${targetId}/select`);
+    state.activeSavegameId = targetId;
+  }
+
+  const resp = await api('POST', `/api/savegames/${targetId}/import`, data);
+  if (!resp.ok) {
+    const body = await resp.json().catch(() => ({}));
+    errEl.textContent = `Import fehlgeschlagen: ${body.detail || resp.status}`;
+    show(errEl);
+    return;
+  }
+
+  closeImportDialog();
+  await refreshUserAndSavegames();
+
+  // Reload state so the current view reflects the imported data.
+  state.checks = {};
+  state.notes = {};
+  if (window.location.pathname === '/einstellungen') {
+    renderSettings();
+  } else if (state.currentProtocolId) {
+    await loadProtocol(state.currentProtocolId);
   }
 }
 
@@ -1670,18 +1955,12 @@ function wireDOMEvents() {
     window._issCloseNav = closeNav;
   }
 
-  // Savegame select dropdown
-  $savegameSelect.addEventListener('change', () => {
-    const id = parseInt($savegameSelect.value, 10);
-    selectSavegame(id);
+  // The file input for savegame import is wired globally here so it works
+  // regardless of which page is currently rendered.
+  $importFileInput.addEventListener('change', () => {
+    const file = $importFileInput.files && $importFileInput.files[0];
+    if (file) importSavegame(file);
   });
-
-  // New savegame buttons
-  $newSavegameBtn.addEventListener('click', openCreateSavegameDialog);
-  $createFirstSavegameBtn.addEventListener('click', openCreateSavegameDialog);
-
-  // Delete savegame
-  $deleteSavegameBtn.addEventListener('click', deleteActiveSavegame);
 
   // Create savegame dialog
   $createSavegameConfirm.addEventListener('click', async () => {
@@ -1704,6 +1983,16 @@ function wireDOMEvents() {
   // Close dialog on overlay click
   $createSavegameDialog.addEventListener('click', (e) => {
     if (e.target === $createSavegameDialog) closeCreateSavegameDialog();
+  });
+
+  // Import savegame dialog
+  document.getElementById('import-sg-confirm').addEventListener('click', _doImport);
+  document.getElementById('import-sg-cancel').addEventListener('click', closeImportDialog);
+  document.getElementById('import-new-sg-name').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') _doImport();
+  });
+  document.getElementById('import-savegame-dialog').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('import-savegame-dialog')) closeImportDialog();
   });
 }
 
@@ -1775,12 +2064,7 @@ document.addEventListener('DOMContentLoaded', () => {
   $navPlaneten            = document.getElementById('nav-planeten');
   $navBurger              = document.getElementById('nav-burger');
   $headerNav              = document.getElementById('header-nav');
-  $savegameBar            = document.getElementById('savegame-bar');
-  $savegameSelect         = document.getElementById('savegame-select');
-  $newSavegameBtn         = document.getElementById('new-savegame-btn');
-  $deleteSavegameBtn      = document.getElementById('delete-savegame-btn');
-  $noSavegameInfo         = document.getElementById('no-savegame-info');
-  $createFirstSavegameBtn = document.getElementById('create-first-savegame-btn');
+  $importFileInput        = document.getElementById('import-file-input');
   $jumpInput              = document.getElementById('jump-input');
   $jumpBtn                = document.getElementById('jump-btn');
   $jumpError              = document.getElementById('jump-error');

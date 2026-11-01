@@ -310,3 +310,38 @@ async def get_notes_for_savegame(savegame_id: int) -> dict[str, str]:
         ) as cursor:
             rows = await cursor.fetchall()
             return {row["note_id"]: row["text"] for row in rows}
+
+
+async def replace_savegame_state(
+    savegame_id: int,
+    checks: dict[str, bool],
+    notes: dict[str, str],
+) -> None:
+    """Atomically replace all checklist_state and note_state for a savegame.
+
+    Deletes every existing row for the savegame, then inserts the new rows
+    supplied in *checks* (only True entries) and *notes* — all inside a single
+    transaction so the savegame is never left in a partial state.
+    """
+    async with aiosqlite.connect(_db_path()) as db:
+        await db.execute("PRAGMA foreign_keys = ON")
+        # One transaction: delete old rows, insert new rows.
+        await db.execute(
+            "DELETE FROM checklist_state WHERE savegame_id = ?", (savegame_id,)
+        )
+        await db.execute(
+            "DELETE FROM note_state WHERE savegame_id = ?", (savegame_id,)
+        )
+        for item_id in checks:
+            await db.execute(
+                """INSERT INTO checklist_state (savegame_id, item_id, checked, updated_at)
+                   VALUES (?, ?, 1, datetime('now'))""",
+                (savegame_id, item_id),
+            )
+        for note_id, text in notes.items():
+            await db.execute(
+                """INSERT INTO note_state (savegame_id, note_id, text, updated_at)
+                   VALUES (?, ?, ?, datetime('now'))""",
+                (savegame_id, note_id, text),
+            )
+        await db.commit()

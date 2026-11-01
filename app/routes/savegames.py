@@ -1,4 +1,6 @@
 """Savegame routes — full implementation (Task 3.3)."""
+from datetime import datetime, timezone
+
 from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import BaseModel
 
@@ -134,3 +136,89 @@ async def get_savegame_progress(
         )
     trackable.sort(key=lambda p: (p["number"], p["id"]))
     return trackable
+
+
+# ---------------------------------------------------------------------------
+# Export / Import
+# ---------------------------------------------------------------------------
+
+_EXPORT_SCHEMA_VERSION = 1
+
+
+@router.get("/api/savegames/{savegame_id}/export")
+async def export_savegame(
+    savegame_id: int,
+    user: dict = Depends(auth_module.require_user),
+):
+    """Return a portable JSON snapshot of all savegame state.
+
+    The response is a plain JSON object — the client is responsible for saving
+    it as a file.  Shape::
+
+        {
+          "schemaVersion": 1,
+          "exportedAt": "<ISO-8601 UTC>",
+          "savegame": {"id": …, "name": "…"},
+          "checks": {"<itemId>": true, …},
+          "notes":  {"<noteId>":  "<text>", …}
+        }
+    """
+    sg = await db.get_savegame_by_id(savegame_id, user["id"])
+    if not sg:
+        raise HTTPException(status_code=404, detail="savegame not found")
+
+    checks = await db.get_checks_for_savegame(savegame_id)
+    notes = await db.get_notes_for_savegame(savegame_id)
+
+    return {
+        "schemaVersion": _EXPORT_SCHEMA_VERSION,
+        "exportedAt": datetime.now(timezone.utc).isoformat(),
+        "savegame": {"id": sg["id"], "name": sg["name"]},
+        "checks": checks,
+        "notes": notes,
+    }
+
+
+class ImportSavegameRequest(BaseModel):
+    schemaVersion: int
+    checks: dict[str, bool] = {}
+    notes: dict[str, str] = {}
+
+
+@router.post("/api/savegames/{savegame_id}/import")
+async def import_savegame(
+    savegame_id: int,
+    body: ImportSavegameRequest,
+    user: dict = Depends(auth_module.require_user),
+):
+    """Replace all state for the savegame from a previously exported snapshot.
+
+    Validates the schema version, validates all check item-ids against the
+    content model (unknown ids are silently skipped so old exports don't fail),
+    then replaces all checklist_state and note_state rows atomically.
+    Returns a summary of how many rows were written.
+    """
+    sg = await db.get_savegame_by_id(savegame_id, user["id"])
+    if not sg:
+        raise HTTPException(status_code=404, detail="savegame not found")
+
+    if body.schemaVersion != _EXPORT_SCHEMA_VERSION:
+        raise HTTPException(
+            status_code=422,
+            detail=f"unsupported schema version: {body.schemaVersion}",
+        )
+
+    # Filter checks against the current content model (stale ids are dropped).
+    valid_item_ids = content.get_all_item_ids()
+    clean_checks = {k: v for k, v in body.checks.items() if k in valid_item_ids and v}
+
+    # Cap note text defensively (same limit as the single-note endpoint).
+    clean_notes = {k: (v or "")[:4000] for k, v in body.notes.items()}
+
+    await db.replace_savegame_state(savegame_id, clean_checks, clean_notes)
+
+    return {
+        "ok": True,
+        "checksWritten": len(clean_checks),
+        "notesWritten": len(clean_notes),
+    }
