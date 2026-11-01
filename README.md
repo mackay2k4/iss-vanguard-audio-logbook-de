@@ -6,86 +6,109 @@ a multi-voice audio player, interactive progress tracking, a clickable P999
 star map, per-planet record sheets, and the rulebooks/documents — all behind a
 simple login, with per-savegame state stored in SQLite.
 
+Docker Hub: **[sheppard2k4/iss-vanguard-logs](https://hub.docker.com/r/sheppard2k4/iss-vanguard-logs)**
+
 ---
 
 ## Features
 
 - **Protocols** — narrative text (curated) + the exact instruction image cropped
   from the logbook PDF, with clickable "Lies Protokoll N" references.
+- **Audio player** — 616 protocols with multi-voice narration (10 voices, 18
+  sound effects), speed control, variant selection. Audio bundled in the image.
 - **Progress tracking** — checkboxes per protocol, stored per savegame; a
   **Fortschritt** grid shows every trackable protocol. Game icons/tokens are
   rendered as readable names (e.g. `[Erfolgs-Marker]`).
 - **P999 star map** — the ISSMAP tech-tree with editable per-field notes and
   clickable "—" → "+" cost toggles (all saved per savegame); each node title
   links to that planet's record sheet.
-- **Planeten** — one fillable record sheet per planet (from the official
-  fillable PDF), fields stored per savegame; links back to P999.
-- **Dokumente** — the rulebooks / quick reference / offline logbook PDFs and an
-  external cheat-sheet link.
+- **Planeten** — one fillable record sheet per planet with a field legend sidebar
+  and a pre-filled example sheet; fields stored per savegame; links back to P999.
+- **Savegame import/export** — download a full JSON backup of any savegame
+  (checks, notes, P999 state, planet sheets) and restore it on any instance.
+- **Dokumente** — searchable rulebooks, quick reference, and offline logbook PDFs.
 - **Multiple savegames** per user; **case-insensitive** login names.
+- **Settings page** — savegame management (create, delete, export, import),
+  display preferences (text visibility, mobile/desktop layout).
 
 ---
 
-## Quick Start (Docker)
+## Quick Start (Docker Hub — recommended)
+
+```bash
+# 1. Create a .env file
+cat > .env << 'EOF'
+SESSION_SECRET=$(python3 -c "import secrets; print(secrets.token_hex(32))")
+ISS_VANGUARD_URL=http://localhost:8080
+ISS_VANGUARD_PORT=8080
+EOF
+
+# 2. Start the container
+docker run -d \
+  --name iss-vanguard \
+  --restart unless-stopped \
+  -e SESSION_SECRET=$(python3 -c "import secrets; print(secrets.token_hex(32))") \
+  -e DATA_DB=/data/db/app.sqlite \
+  -p 8080:80 \
+  -v $(pwd)/data/db:/data/db \
+  sheppard2k4/iss-vanguard-logs:latest
+
+# 3. Create your first user — REQUIRED to log in
+docker exec -it iss-vanguard python -m app.cli create-user alice
+
+# 4. Open http://localhost:8080
+```
+
+## Quick Start (docker-compose — build from source)
 
 ```bash
 cd docker
 
-# 1. Create .env from the template and set the required secrets
+# 1. Create .env from the template
 cp .env.example .env
 #    Edit .env:
-#      SESSION_SECRET  — required; generate one with:
+#      SESSION_SECRET  — required; generate with:
 #                        python3 -c "import secrets; print(secrets.token_hex(32))"
 #      ISS_VANGUARD_URL  — the public URL the app is reached at
 #      ISS_VANGUARD_PORT — host port to expose (default 8080)
 
-# 2. (Optional) reverse-proxy overrides (Traefik etc.)
-cp docker-compose.override.yml.example docker-compose.override.yml   # if present
-
-# 3. Build and start (fast: the image just copies the committed crops +
-#    content model — no PDF rendering at build time)
+# 2. Build and start
 docker compose up -d --build
 
-# 4. Create your first user (see below) — REQUIRED to log in
-docker compose exec app python -m app.cli create-user <username>
-
-# 5. Open the app
-#    http://localhost:8080  (or your configured ISS_VANGUARD_URL)
-```
-
-### Creating a user (first login)
-
-There is **no public sign-up** — accounts are created from the command line.
-After the container is running, create at least one user:
-
-```bash
-# Interactive: you'll be prompted for a password (hidden input, with confirm)
+# 3. Create your first user
 docker compose exec app python -m app.cli create-user alice
+
+# 4. Open http://localhost:8080
 ```
 
-Other user-management commands:
+### User management
+
+There is **no public sign-up** — accounts are created from the command line:
 
 ```bash
-# Reset / change a password (or create if the user doesn't exist yet)
-docker compose exec app python -m app.cli create-user alice --force
+# Create a user (prompts for password)
+docker exec -it iss-vanguard python -m app.cli create-user alice
+
+# Reset password
+docker exec -it iss-vanguard python -m app.cli create-user alice --force
 
 # List users
-docker compose exec app python -m app.cli list-users
+docker exec -it iss-vanguard python -m app.cli list-users
 
-# Delete a user and ALL their savegames (asks for confirmation)
-docker compose exec app python -m app.cli delete-user alice
+# Delete a user and ALL their savegames
+docker exec -it iss-vanguard python -m app.cli delete-user alice
 ```
 
 Notes:
 - Login usernames are **case-insensitive** (`Alice` == `alice`), passwords are not.
-- Users and savegames live in the SQLite DB under the `data/db/` bind mount, so
-  they survive container rebuilds.
+- Users and savegames live in the SQLite DB under the bind-mounted `data/db/`
+  directory and survive container rebuilds.
 
 ---
 
 ## Configuration
 
-Set via `docker/.env` (consumed by `docker-compose.yml`):
+Set via environment variables or `docker/.env`:
 
 | Variable            | Required | Default                              | Purpose                                            |
 | ------------------- | -------- | ------------------------------------ | -------------------------------------------------- |
@@ -93,13 +116,14 @@ Set via `docker/.env` (consumed by `docker-compose.yml`):
 | `ISS_VANGUARD_URL`  | no       | `http://localhost:8080`              | Public base URL (used for absolute links).         |
 | `ISS_VANGUARD_PORT` | no       | `8080`                               | Host port mapped to the container's port 80.       |
 | `DATA_DB`           | no       | `/data/db/app.sqlite`                | SQLite path inside the container.                  |
-| `AUDIO_DIR`         | no       | `/data/audiofiles`                   | Audio directory inside the container (read-only).  |
+| `AUDIO_DIR`         | no       | `/data/audiofiles`                   | Audio directory inside the container. Bundled in the image. |
 | `CONTENT_PATH`      | no       | `/app/content/logbook.de.final.json` | Content model path inside the container.           |
 
 ### Volumes (bind mounts)
 
-- `../data/audiofiles → /data/audiofiles` (read-only) — the OGG audio files.
-- `../data/db → /data/db` — the SQLite database (users, savegames, progress).
+- `../data/db → /data/db` — the SQLite database (users, savegames, progress). **Required.**
+
+Audio files (OGG, ~67 MB) are bundled directly in the image — no bind mount needed.
 
 ---
 
@@ -183,10 +207,10 @@ iss-vanguard-logs/
 │   ├── logbook.de.json               # source metadata (order/title/audio)
 │   └── logbook.de.final.json         # assembled content model (committed)
 │
-├── data/                             # source + runtime data (not in the image)
-│   ├── audiofiles/                   # OGG audio (bind-mounted, read-only)
+├── data/                             # source + runtime data
+│   ├── audiofiles/                   # OGG audio — bundled in the Docker image
 │   ├── text/                         # curated narrative text
-│   ├── db/                           # SQLite DB (runtime, gitignored)
+│   ├── db/                           # SQLite DB (runtime, bind-mounted)
 │   └── *.pdf                         # source PDFs (logbook, rulebooks, sheets)
 │
 ├── dev/                              # out-of-band tooling
@@ -234,5 +258,6 @@ pip install pymupdf pillow
 
 ## License
 
-Game content (text, logbook, rulebook, icons) is © Awaken Realms. This project
-is a personal/fan companion tool for use with the physical ISS Vanguard game.
+Game content (text, logbook, rulebook, icons) is © Awaken Realms. Audio
+narrations are self-produced fan content. This project is a personal/fan
+companion tool for use with the physical ISS Vanguard game.
