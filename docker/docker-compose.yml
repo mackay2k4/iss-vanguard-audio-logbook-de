@@ -14,5 +14,4 @@ services:
     ports:
       - "${ISS_VANGUARD_PORT:-8080}:80"
     volumes:
-      - ../data/audiofiles:/data/audiofiles:ro
       - ../data/db:/data/db

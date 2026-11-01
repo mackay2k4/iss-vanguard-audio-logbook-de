@@ -23,4 +23,7 @@ COPY app/ /app/app/
 # Pre-assembled content model (curated text + instruction images + overrides).
 COPY content/logbook.de.final.json /app/content/logbook.de.final.json
 
+# Audio files (self-recorded OGG narrations, one per protocol).
+COPY data/audiofiles/ /data/audiofiles/
+
 ENTRYPOINT ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
