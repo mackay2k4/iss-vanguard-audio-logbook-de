@@ -64,9 +64,30 @@ async def me(
     request: Request,
     user: dict = Depends(auth_module.require_user),
 ) -> dict:
-    """Return the currently authenticated user and their savegames."""
+    """Return the currently authenticated user and their savegames.
+
+    If the session has no active_savegame_id set (e.g. after a container rebuild
+    invalidated the old session), auto-select the most-recently-used savegame so
+    the user doesn't land on a blank Fortschritt page.
+    """
     savegames = await db.get_savegames_for_user(user["id"])
     active_savegame_id = auth_module.get_active_savegame_id(request)
+
+    # Auto-select if the session lost its active savegame but savegames exist
+    if active_savegame_id is None and savegames:
+        if len(savegames) == 1:
+            active_savegame_id = savegames[0]["id"]
+        else:
+            best = max(
+                savegames,
+                key=lambda sg: (
+                    sg.get("last_used_at") is not None,
+                    sg.get("last_used_at") or "",
+                    sg.get("created_at") or "",
+                ),
+            )
+            active_savegame_id = best["id"]
+        auth_module.set_active_savegame_id(request, active_savegame_id)
 
     return {
         "username": user["username"],
