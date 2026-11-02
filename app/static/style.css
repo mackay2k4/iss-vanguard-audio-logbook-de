@@ -274,20 +274,159 @@ body {
   cursor: pointer;
 }
 .variant-btn.active { background: var(--accent); color: #000; }
-audio { width: 100%; margin-bottom: 0.5rem; }
-.speed-control { display: flex; gap: 0.3rem; align-items: center; flex-wrap: wrap; }
-.speed-label { color: var(--text-dim); font-size: 0.8rem; margin-right: 0.25rem; }
-.speed-btn {
-  padding: 0.3rem 0.6rem;
-  font-size: 0.8rem;
-  border: 1px solid #333;
-  border-radius: 4px;
+/* The real media engine is hidden; a fully custom bar drives it. */
+audio { display: none; }
+
+.player {
+  background: var(--surface, #141821);
+  border: 1px solid #262c38;
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Transport row: play | time | seek | time */
+.player-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.player-btn {
+  flex: 0 0 auto;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
   background: transparent;
+  color: var(--accent);
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+.player-btn:hover { background: var(--accent); color: #000; }
+.player-btn--sm {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-color: #333;
   color: var(--text);
+  font-size: 1rem;
+}
+.player-btn--sm:hover { background: var(--surface); color: var(--text); border-color: #555; }
+.player-btn--sm.active { border-color: var(--accent); color: var(--accent); }
+.player-time {
+  flex: 0 0 auto;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  min-width: 2.6em;
+  text-align: center;
+}
+.seek-slider {
+  flex: 1 1 auto;
+  min-width: 60px;
+  accent-color: var(--accent);
   cursor: pointer;
 }
-.speed-btn:hover { background: var(--surface); }
-.speed-btn.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: bold; }
+
+/* Volume + speed on one line. */
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  overflow: hidden;
+  max-height: 3rem;
+  opacity: 1;
+  transition: max-height 0.2s ease, opacity 0.2s ease, margin 0.2s ease;
+}
+.audio-controls.is-collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: -0.75rem; /* cancels the .player gap when hidden */
+  pointer-events: none;
+}
+.audio-row-label {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Volume: mute button + slider + value. Compact, does not stretch. */
+.volume-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 0 0 auto;
+}
+.volume-slider {
+  flex: 0 0 auto;
+  width: 9rem;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.volume-value {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 0.8rem;
+  min-width: 3.2em;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Speed dropdown */
+.speed-select-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+}
+
+/* Autoplay checkbox */
+.autoplay-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+.autoplay-toggle input {
+  accent-color: var(--accent);
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+}
+.autoplay-toggle .audio-row-label { cursor: pointer; }
+.speed-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0.3rem 1.8rem 0.3rem 0.65rem;
+  font-size: 0.8rem;
+  color: var(--text);
+  background-color: transparent;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  /* chevron */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' fill='none' stroke='%234fc3f7' stroke-width='1.5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.55rem center;
+  transition: border-color 0.12s;
+}
+.speed-select:hover { border-color: #555; }
+.speed-select:focus { outline: none; border-color: var(--accent); }
+.speed-select option { background: var(--surface, #141821); color: var(--text); }
+
+/* Narrow screens: let the volume slider shrink a bit. */
+@media (max-width: 560px) {
+  .volume-slider { width: 7rem; }
+}
 
 /* Checklist */
 .checklist { margin-top: 1rem; }

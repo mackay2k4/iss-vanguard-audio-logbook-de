@@ -933,6 +933,26 @@ const SPEEDS = [0.75, 1, 1.25, 1.5, 1.75, 2];
 let playbackRate = parseFloat(localStorage.getItem('iss-vanguard-speed')) || 1;
 if (!SPEEDS.includes(playbackRate)) playbackRate = 1;
 
+// Volume as a fraction where 1 = 100%, up to 2 = 200% (boost beyond the
+// native <audio> ceiling via a Web Audio GainNode).
+let audioVolume = parseFloat(localStorage.getItem('iss-vanguard-volume'));
+if (!isFinite(audioVolume)) audioVolume = 1;
+audioVolume = Math.min(2, Math.max(0, audioVolume));
+
+// Whether the volume/tempo panel is collapsed. Persisted across sessions.
+let controlsCollapsed = localStorage.getItem('iss-vanguard-controls-collapsed') === '1';
+
+// Whether audio auto-plays when a protocol with audio opens. Persisted across
+// sessions; defaults to ON (the previous behaviour).
+let autoplayEnabled = localStorage.getItem('iss-vanguard-autoplay') !== '0';
+
+// Shared Web Audio graph. A single AudioContext/MediaElementSource per media
+// element is required (you can only create one source per element), so we
+// cache them keyed off the audio element.
+let audioCtx = null;
+let gainNode = null;
+let gainSourceEl = null;
+
 function renderAudioPlayer(protocol) {
   const variantBtns = protocol.audioVariants && protocol.audioVariants.length > 0
     ? protocol.audioVariants.map(v =>
@@ -940,19 +960,91 @@ function renderAudioPlayer(protocol) {
       ).join('')
     : '';
 
-  const speedBtns = SPEEDS.map(s =>
-    `<button class="speed-btn${s === playbackRate ? ' active' : ''}" data-speed="${s}">${s}×</button>`
+  const speedOpts = SPEEDS.map(s =>
+    `<option value="${s}"${s === playbackRate ? ' selected' : ''}>${s}×</option>`
   ).join('');
+
+  const volPct = Math.round(audioVolume * 100);
 
   return `
     <div class="audio-section">
       <div class="variants" id="variant-btns">${variantBtns}</div>
-      <audio id="audio-player" controls></audio>
-      <div class="speed-control">
-        <span class="speed-label">Geschwindigkeit</span>
-        ${speedBtns}
+
+      <audio id="audio-player" preload="metadata"></audio>
+
+      <div class="player">
+        <div class="player-bar">
+          <button type="button" id="play-btn" class="player-btn" aria-label="Abspielen" title="Abspielen">
+            <span class="icon-play" aria-hidden="true">►</span>
+          </button>
+          <span class="player-time" id="time-current">0:00</span>
+          <input type="range" id="seek-slider" class="seek-slider"
+            min="0" max="1000" step="1" value="0" aria-label="Position">
+          <span class="player-time" id="time-total">0:00</span>
+          <button type="button" id="settings-btn" class="player-btn player-btn--sm"
+            aria-label="Einstellungen" title="Lautstärke & Tempo" aria-expanded="true">
+            <span aria-hidden="true">⚙</span>
+          </button>
+        </div>
+
+        <div class="audio-controls" id="audio-controls">
+          <div class="volume-group">
+            <button type="button" id="mute-btn" class="player-btn player-btn--sm"
+              aria-label="Stummschalten" title="Stummschalten">
+              <span id="mute-icon" aria-hidden="true">🔊</span>
+            </button>
+            <input type="range" id="volume-slider" class="volume-slider"
+              min="0" max="200" step="5" value="${volPct}" aria-label="Lautstärke">
+            <span class="volume-value" id="volume-value">${volPct}%</span>
+          </div>
+          <label class="speed-select-wrap">
+            <span class="audio-row-label">Tempo</span>
+            <select id="speed-select" class="speed-select" aria-label="Geschwindigkeit">
+              ${speedOpts}
+            </select>
+          </label>
+          <label class="autoplay-toggle">
+            <input type="checkbox" id="autoplay-check">
+            <span class="audio-row-label">Autoplay</span>
+          </label>
+        </div>
       </div>
     </div>`;
+}
+
+// Lazily build (and reuse) the Web Audio graph for a given audio element so
+// we can amplify beyond 100%. The native audioEl.volume only goes up to 1.0;
+// a GainNode lets us reach 2.0 (200%).
+function ensureGain(audioEl) {
+  if (!window.AudioContext && !window.webkitAudioContext) return false;
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  // A MediaElementSource can only be created once per element.
+  if (gainSourceEl !== audioEl) {
+    try {
+      const source = audioCtx.createMediaElementSource(audioEl);
+      gainNode = audioCtx.createGain();
+      source.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      gainSourceEl = audioEl;
+    } catch (e) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function applyVolume(audioEl) {
+  const hasGain = ensureGain(audioEl);
+  if (hasGain && gainNode) {
+    // Keep the native element at full and do all scaling in the gain node.
+    audioEl.volume = 1;
+    gainNode.gain.value = audioVolume;
+  } else {
+    // Fallback: no Web Audio support — clamp to the native 0-100% ceiling.
+    audioEl.volume = Math.min(1, audioVolume);
+  }
 }
 
 function bindAudioPlayer(protocol) {
@@ -966,43 +1058,170 @@ function bindAudioPlayer(protocol) {
   audioEl.addEventListener('loadedmetadata', applyRate);
   audioEl.addEventListener('play', applyRate);
 
-  // Speed buttons
-  document.querySelectorAll('.speed-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      playbackRate = parseFloat(btn.dataset.speed);
+  // Volume slider (0-200%). The AudioContext can only be resumed after a user
+  // gesture, so we (re)apply on play and on slider input.
+  const volSlider = document.getElementById('volume-slider');
+  const volValue = document.getElementById('volume-value');
+  // Slider wiring happens below via setVolume (keeps the mute icon in sync).
+  audioEl.addEventListener('play', () => {
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    applyVolume(audioEl);
+  });
+  audioEl.addEventListener('loadedmetadata', () => applyVolume(audioEl));
+
+  // ---- Custom transport bar (play/pause, seek, time) ----
+  const playBtn = document.getElementById('play-btn');
+  const playIcon = playBtn ? playBtn.querySelector('.icon-play') : null;
+  const seek = document.getElementById('seek-slider');
+  const timeCur = document.getElementById('time-current');
+  const timeTotal = document.getElementById('time-total');
+  const muteBtn = document.getElementById('mute-btn');
+  const muteIcon = document.getElementById('mute-icon');
+
+  function fmtTime(sec) {
+    if (!isFinite(sec) || sec < 0) sec = 0;
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return m + ':' + String(s).padStart(2, '0');
+  }
+
+  function updatePlayIcon() {
+    if (!playIcon) return;
+    const playing = !audioEl.paused && !audioEl.ended;
+    playIcon.textContent = playing ? '❚❚' : '►';
+    playBtn.setAttribute('aria-label', playing ? 'Pause' : 'Abspielen');
+    playBtn.setAttribute('title', playing ? 'Pause' : 'Abspielen');
+  }
+
+  // Volume-aware mute toggle. Remembers the last non-zero volume.
+  let lastVolume = audioVolume > 0 ? audioVolume : 1;
+  function setVolume(v) {
+    audioVolume = Math.min(2, Math.max(0, v));
+    if (volSlider) volSlider.value = String(Math.round(audioVolume * 100));
+    if (volValue) volValue.textContent = Math.round(audioVolume * 100) + '%';
+    if (muteIcon) muteIcon.textContent = audioVolume === 0 ? '🔇' : (audioVolume > 1 ? '📢' : '🔊');
+    localStorage.setItem('iss-vanguard-volume', String(audioVolume));
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    applyVolume(audioEl);
+  }
+  // Reflect persisted volume on the mute icon at bind time.
+  if (muteIcon) muteIcon.textContent = audioVolume === 0 ? '🔇' : (audioVolume > 1 ? '📢' : '🔊');
+
+  if (playBtn) {
+    playBtn.addEventListener('click', () => {
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+      if (audioEl.paused) audioEl.play().catch(() => {});
+      else audioEl.pause();
+    });
+  }
+  if (muteBtn) {
+    muteBtn.addEventListener('click', () => {
+      if (audioVolume > 0) { lastVolume = audioVolume; setVolume(0); }
+      else { setVolume(lastVolume || 1); }
+    });
+  }
+
+  // Collapsible volume/tempo panel.
+  const settingsBtn = document.getElementById('settings-btn');
+  const controlsPanel = document.getElementById('audio-controls');
+  function applyCollapsed() {
+    if (controlsPanel) controlsPanel.classList.toggle('is-collapsed', controlsCollapsed);
+    if (settingsBtn) {
+      settingsBtn.classList.toggle('active', !controlsCollapsed);
+      settingsBtn.setAttribute('aria-expanded', String(!controlsCollapsed));
+    }
+  }
+  applyCollapsed();
+  if (settingsBtn) {
+    settingsBtn.addEventListener('click', () => {
+      controlsCollapsed = !controlsCollapsed;
+      localStorage.setItem('iss-vanguard-controls-collapsed', controlsCollapsed ? '1' : '0');
+      applyCollapsed();
+    });
+  }
+
+  audioEl.addEventListener('play', updatePlayIcon);
+  audioEl.addEventListener('pause', updatePlayIcon);
+  audioEl.addEventListener('ended', updatePlayIcon);
+
+  audioEl.addEventListener('loadedmetadata', () => {
+    if (timeTotal) timeTotal.textContent = fmtTime(audioEl.duration);
+  });
+
+  // Keep the seek bar in sync unless the user is actively dragging it.
+  let seeking = false;
+  audioEl.addEventListener('timeupdate', () => {
+    if (timeCur) timeCur.textContent = fmtTime(audioEl.currentTime);
+    if (seek && !seeking && audioEl.duration) {
+      seek.value = String(Math.round((audioEl.currentTime / audioEl.duration) * 1000));
+    }
+  });
+  if (seek) {
+    seek.addEventListener('input', () => {
+      seeking = true;
+      if (audioEl.duration && timeCur) {
+        timeCur.textContent = fmtTime((seek.value / 1000) * audioEl.duration);
+      }
+    });
+    seek.addEventListener('change', () => {
+      if (audioEl.duration) audioEl.currentTime = (seek.value / 1000) * audioEl.duration;
+      seeking = false;
+    });
+  }
+
+  // Route the volume slider through setVolume so the mute icon stays in sync.
+  if (volSlider) {
+    volSlider.oninput = () => setVolume(parseInt(volSlider.value, 10) / 100);
+  }
+
+  // Speed dropdown
+  const speedSelect = document.getElementById('speed-select');
+  if (speedSelect) {
+    speedSelect.addEventListener('change', () => {
+      playbackRate = parseFloat(speedSelect.value);
       localStorage.setItem('iss-vanguard-speed', String(playbackRate));
-      document.querySelectorAll('.speed-btn').forEach(b =>
-        b.classList.toggle('active', b === btn)
-      );
       applyRate();
     });
-  });
+  }
+
+  // Autoplay toggle
+  const autoplayCheck = document.getElementById('autoplay-check');
+  if (autoplayCheck) {
+    autoplayCheck.checked = autoplayEnabled;
+    autoplayCheck.addEventListener('change', () => {
+      autoplayEnabled = autoplayCheck.checked;
+      localStorage.setItem('iss-vanguard-autoplay', autoplayEnabled ? '1' : '0');
+    });
+  }
 
   // Variant buttons
   const variantBtns = document.querySelectorAll('.variant-btn');
 
-  function playVariant(variant) {
+  function playVariant(variant, autoPlay = true) {
     const num = String(protocol.number).padStart(4, '0');
     const fname = variant
       ? `protokoll_${num}_${variant}.ogg`
       : `protokoll_${num}.ogg`;
     audioEl.src = `/audiofiles/${fname}`;
     applyRate();
-    audioEl.play().catch(() => {});
+    applyVolume(audioEl);
+    if (autoPlay) audioEl.play().catch(() => {});
     variantBtns.forEach(b =>
       b.classList.toggle('active', b.dataset.variant === variant)
     );
   }
 
+  // Clicking a variant always plays (explicit user action).
   variantBtns.forEach(btn => {
-    btn.addEventListener('click', () => playVariant(btn.dataset.variant));
+    btn.addEventListener('click', () => playVariant(btn.dataset.variant, true));
   });
 
-  // Auto-play first variant (or base)
+  // Initial load: play only if autoplay is enabled; otherwise just load the
+  // source so the player is ready (paused, duration shown).
   if (protocol.audioVariants && protocol.audioVariants.length > 0) {
-    playVariant(protocol.audioVariants[0]);
+    playVariant(protocol.audioVariants[0], autoplayEnabled);
   } else {
-    playVariant(null);
+    playVariant(null, autoplayEnabled);
   }
 }
 
