@@ -21,6 +21,7 @@
     { "slug": "nu4-ceti", "name": "NU4 Ceti" },
     { "slug": "gyf-4", "name": "GYF-4" },
     { "slug": "hr-5730", "name": "HR 5730" },
-    { "slug": "upsilon-borealis", "name": "Upsilon Borealis" }
+    { "slug": "upsilon-borealis", "name": "Upsilon Borealis" },
+    { "slug": "iss-vanguard", "name": "ISS Vanguard" }
   ]
 }

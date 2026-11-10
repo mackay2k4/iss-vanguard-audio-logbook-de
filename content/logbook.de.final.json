@@ -1,7 +1,7 @@
 {
   "schemaVersion": 4,
   "language": "de",
-  "generatedAt": "2026-10-23T16:19:55Z",
+  "generatedAt": "2026-11-10T07:22:12Z",
   "source": "data/text/*.txt (narrative) + cropped PDF instruction images",
   "method": "curated-text + instruction-image",
   "protocols": [
@@ -7079,27 +7079,18 @@
       "checklist": [
         {
           "itemId": "454-box-1",
-          "label": "Die anscheinend verlassene stadtartige Struktur vollständig untersuchen (Heilige Ränke): Lies Protokoll 605. Das Signal der versunkenen Stele lokalisieren (Tiefere Wahrheit): Lies Protokoll 619.",
-          "kind": "box",
-          "reference": {
-            "targetId": "605"
-          }
+          "label": "Die anscheinend verlassene stadtartige Struktur vollständig untersuchen (Heilige Ränke): Lies Protokoll 605.",
+          "kind": "box"
         },
         {
           "itemId": "454-box-2",
-          "label": "Das Signal der versunkenen Stele lokalisieren (Tiefere Wahrheit): Lies Protokoll 619. Entdeckungen sammeln und die Pilger in den ausgedörrten Ebenen um die Stadt studieren (Die Wiege): Lies Protokoll 731.",
-          "kind": "box",
-          "reference": {
-            "targetId": "619"
-          }
+          "label": "Das Signal der versunkenen Stele lokalisieren (Tiefere Wahrheit): Lies Protokoll 619.",
+          "kind": "box"
         },
         {
           "itemId": "454-box-3",
           "label": "Entdeckungen sammeln und die Pilger in den ausgedörrten Ebenen um die Stadt studieren (Die Wiege): Lies Protokoll 731.",
-          "kind": "box",
-          "reference": {
-            "targetId": "731"
-          }
+          "kind": "box"
         }
       ]
     },
@@ -9711,7 +9702,13 @@
       "text": "Erstkontakt-Archiv, Außenteam-Bericht, Auszug 17B\nUnter einem der Bäume sahen wir etwas schimmern. Es war\neine zerbrochene und staubige idemische Maske. Direkt\ndarüber in der Baumrinde malte sich dunkel der schwache\nUmriss eines Idemiers ab – zu lebensecht für unseren\nGeschmack, dazu in einer schrecklich verdrehten Pose.\nPlötzlich hatten wir den Eindruck, gar nicht schnell genug\nverschwinden zu können.",
       "instructionImage": "protokoll_0608.png",
       "references": [],
-      "checklist": []
+      "checklist": [
+        {
+          "itemId": "608-box-1",
+          "label": "Markiere dieses Kästchen. Wenn dieses Kästchen bereits markiert ist, endet dieses Protokoll. Anderenfalls lies weiter:",
+          "kind": "box"
+        }
+      ]
     },
     {
       "id": "613",
