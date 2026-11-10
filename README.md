@@ -8,6 +8,8 @@ simple login, with per-savegame state stored in SQLite.
 
 Docker Hub: **[sheppard2k4/iss-vanguard-logs](https://hub.docker.com/r/sheppard2k4/iss-vanguard-logs)**
 
+Changes are tracked in [CHANGELOG.md](CHANGELOG.md).
+
 ---
 
 ## Features
